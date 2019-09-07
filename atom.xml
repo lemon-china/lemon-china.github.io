@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/lemon-china/"/>
-  <updated>2019-09-07T13:38:59.821Z</updated>
+  <updated>2019-09-07T13:42:53.137Z</updated>
   <id>https://github.com/lemon-china/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://github.com/lemon-china/2019/09/06/doc_1112/"/>
     <id>https://github.com/lemon-china/2019/09/06/doc_1112/</id>
     <published>2019-09-06T10:34:12.000Z</published>
-    <updated>2019-09-07T13:38:59.821Z</updated>
+    <updated>2019-09-07T13:42:53.137Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式</p></blockquote><p>项目地址：<a href="https://github.com/lemon-china/lemon-consul-cloud">lemon-consul-cloud</a></p><p>本项目预启动时间为2019-03-01，实现以下内容：</p><h4 id="开发计划"><a href="#开发计划" class="headerlink" title="开发计划"></a>开发计划</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">v0.1版本 整体服务结构划分，服务边界设定</span><br><span class="line">v0.2版本 服务网关授权模式搭建</span><br><span class="line">v0.3版本 前后端技术框架接入</span><br><span class="line">v0.4版本 服务开发技术规范文档</span><br><span class="line">v0.5版本 用户基础服务功能</span><br></pre></td></tr></table></figure><h4 id="服务框架总览"><a href="#服务框架总览" class="headerlink" title="服务框架总览"></a>服务框架总览</h4><p>— lemon-gateway  服务网关<br>— lemon-monitor  服务监控</p><p>commons  服务基础组件中心<br>— lemon-common  服务通用组件<br>— lemon-distribution  分布业务锁&amp;任务锁<br>— lemon-framework  服务基础功能类包<br>— lemon-rabbit  服务Rabbit功能统一封装组件<br>— lemon-sharding  数据库分库分表封装组件</p><p>services  微服务中心<br>— lemon-auth  授权&amp;鉴权服务<br>— lemon-user  用户服务<br>— lemon-xxx   </p><h4 id="服务划分说明"><a href="#服务划分说明" class="headerlink" title="服务划分说明"></a>服务划分说明</h4><p><em>明确划分每个服务的功能</em></p><table><thead><tr><th>NO.</th><th>Module</th><th>Name</th><th>Desc</th></tr></thead><tbody><tr><td>1</td><td>lemon-auth</td><td>授权服务</td><td>用户授权中心管理</td></tr><tr><td>2</td><td>lemon-user</td><td>用户服务</td><td>用户信息中心服务</td></tr><tr><td>3</td><td>lemon-payment</td><td>账务服务</td><td>用户交易中心服务</td></tr><tr><td>4</td><td>lemon-adjust</td><td>核算服务</td><td>账户核算中心服务</td></tr><tr><td>5</td><td>lemon-message</td><td>消息服务</td><td>用户消息中心服务</td></tr></tbody></table><h4 id="服务项目结构约定"><a href="#服务项目结构约定" class="headerlink" title="服务项目结构约定"></a>服务项目结构约定</h4><table><thead><tr><th>NO.</th><th>Package</th><th>Desc</th></tr></thead><tbody><tr><td>1</td><td>cn.lemon.{xxxx}.api.rest</td><td>提供对外服务rest接口</td></tr><tr><td>2</td><td>cn.lemon.{xxxx}.api.rpc</td><td>提供对内服务rpc接口</td></tr><tr><td>3</td><td>cn.lemon.{xxxx}.config</td><td>提供服务配置相关</td></tr><tr><td>4</td><td>cn.lemon.{xxxx}.entity.enums</td><td>提供业务枚举类</td></tr><tr><td>5</td><td>cn.lemon.{xxxx}.entity.po</td><td>提供数据库映射实体</td></tr><tr><td>6</td><td>cn.lemon.{xxxx}.entity.vo</td><td>提供对外接口映射实体</td></tr><tr><td>7</td><td>cn.lemon.{xxxx}.rpc.client</td><td>提供对内服务rpc调用接口 (api层不能调用rpc接口)</td></tr><tr><td>8</td><td>cn.lemon.{xxxx}.rpc.client.fallback</td><td>提供对内服务rpc调用失败业务处理</td></tr><tr><td>9</td><td>cn.lemon.{xxxx}.service</td><td>提供业务逻辑接口 (api层调用业务接口)</td></tr><tr><td>10</td><td>cn.lemon.{xxxx}.service.impl</td><td>提供业务逻辑实现</td></tr><tr><td>11</td><td>cn.lemon.{xxxx}.dao</td><td>提供数据库操作</td></tr><tr><td>12</td><td>cn.lemon.{xxxx}.events.pub</td><td>提供MQ发送事件</td></tr><tr><td>13</td><td>cn.lemon.{xxxx}.events.sub</td><td>提供MQ接收事件</td></tr><tr><td>14</td><td>cn.lemon.{xxxx}.task</td><td>提供任务定时执行逻辑</td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式</p></blockquote><p>项目地址：<a href="https://github.com/lemon-china/lemon-consul-cloud">lemon-consul-cloud</a></p><p>本项目预启动时间为2019-03-01，实现以下内容：</p><h4 id="开发计划"><a href="#开发计划" class="headerlink" title="开发计划"></a>开发计划</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">v0.1版本 整体服务结构划分，服务边界设定</span><br><span class="line">v0.2版本 服务网关授权模式搭建</span><br><span class="line">v0.3版本 前后端技术框架接入</span><br><span class="line">v0.4版本 服务开发技术规范文档</span><br><span class="line">v0.5版本 用户基础服务功能</span><br></pre></td></tr></table></figure><h4 id="服务框架总览"><a href="#服务框架总览" class="headerlink" title="服务框架总览"></a>服务框架总览</h4><ul><li>lemon-gateway  服务网关</li><li>lemon-monitor  服务监控</li></ul><p>commons  服务基础组件中心</p><ul><li>lemon-common  服务通用组件</li><li>lemon-distribution  分布业务锁&amp;任务锁</li><li>lemon-framework  服务基础功能类包</li><li>lemon-rabbit  服务Rabbit功能统一封装组件</li><li>lemon-sharding  数据库分库分表封装组件</li></ul><p>services  微服务中心</p><ul><li>lemon-auth  授权&amp;鉴权服务</li><li>lemon-user  用户服务</li><li>lemon-xxx   </li></ul><h4 id="服务划分说明"><a href="#服务划分说明" class="headerlink" title="服务划分说明"></a>服务划分说明</h4><p><em>明确划分每个服务的功能</em></p><table><thead><tr><th>NO.</th><th>Module</th><th>Name</th><th>Desc</th></tr></thead><tbody><tr><td>1</td><td>lemon-auth</td><td>授权服务</td><td>用户授权中心管理</td></tr><tr><td>2</td><td>lemon-user</td><td>用户服务</td><td>用户信息中心服务</td></tr><tr><td>3</td><td>lemon-payment</td><td>账务服务</td><td>用户交易中心服务</td></tr><tr><td>4</td><td>lemon-adjust</td><td>核算服务</td><td>账户核算中心服务</td></tr><tr><td>5</td><td>lemon-message</td><td>消息服务</td><td>用户消息中心服务</td></tr></tbody></table><h4 id="服务项目结构约定"><a href="#服务项目结构约定" class="headerlink" title="服务项目结构约定"></a>服务项目结构约定</h4><table><thead><tr><th>NO.</th><th>Package</th><th>Desc</th></tr></thead><tbody><tr><td>1</td><td>cn.lemon.{xxxx}.api.rest</td><td>提供对外服务rest接口</td></tr><tr><td>2</td><td>cn.lemon.{xxxx}.api.rpc</td><td>提供对内服务rpc接口</td></tr><tr><td>3</td><td>cn.lemon.{xxxx}.config</td><td>提供服务配置相关</td></tr><tr><td>4</td><td>cn.lemon.{xxxx}.entity.enums</td><td>提供业务枚举类</td></tr><tr><td>5</td><td>cn.lemon.{xxxx}.entity.po</td><td>提供数据库映射实体</td></tr><tr><td>6</td><td>cn.lemon.{xxxx}.entity.vo</td><td>提供对外接口映射实体</td></tr><tr><td>7</td><td>cn.lemon.{xxxx}.rpc.client</td><td>提供对内服务rpc调用接口 (api层不能调用rpc接口)</td></tr><tr><td>8</td><td>cn.lemon.{xxxx}.rpc.client.fallback</td><td>提供对内服务rpc调用失败业务处理</td></tr><tr><td>9</td><td>cn.lemon.{xxxx}.service</td><td>提供业务逻辑接口 (api层调用业务接口)</td></tr><tr><td>10</td><td>cn.lemon.{xxxx}.service.impl</td><td>提供业务逻辑实现</td></tr><tr><td>11</td><td>cn.lemon.{xxxx}.dao</td><td>提供数据库操作</td></tr><tr><td>12</td><td>cn.lemon.{xxxx}.events.pub</td><td>提供MQ发送事件</td></tr><tr><td>13</td><td>cn.lemon.{xxxx}.events.sub</td><td>提供MQ接收事件</td></tr><tr><td>14</td><td>cn.lemon.{xxxx}.task</td><td>提供任务定时执行逻辑</td></tr></tbody></table>]]></content>
     
     <summary type="html">
     
@@ -41,9 +41,9 @@
       <category term="开源文档" scheme="https://github.com/lemon-china/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
     
     
-      <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
-    
       <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
+    
+      <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
     
       <category term="consul" scheme="https://github.com/lemon-china/tags/consul/"/>
     
@@ -75,9 +75,9 @@
       <category term="经验分享" scheme="https://github.com/lemon-china/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
-    
       <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
+    
+      <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
     
       <category term="分布式" scheme="https://github.com/lemon-china/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
     
@@ -172,9 +172,9 @@
       <category term="经验分享" scheme="https://github.com/lemon-china/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
-    
       <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
+    
+      <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
     
       <category term="分布式" scheme="https://github.com/lemon-china/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
     
@@ -239,13 +239,13 @@
       <category term="开源文档" scheme="https://github.com/lemon-china/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
     
     
-      <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
-    
-      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
-    
       <category term="mq" scheme="https://github.com/lemon-china/tags/mq/"/>
     
+      <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
+    
       <category term="ack/nack" scheme="https://github.com/lemon-china/tags/ack-nack/"/>
+    
+      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
     
   </entry>
   
@@ -304,13 +304,13 @@
       <category term="经验分享" scheme="https://github.com/lemon-china/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
-    
       <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
     
-      <category term="consul" scheme="https://github.com/lemon-china/tags/consul/"/>
-    
       <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
+    
+      <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
+    
+      <category term="consul" scheme="https://github.com/lemon-china/tags/consul/"/>
     
   </entry>
   
