@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://github.com/lemon-china/categories/index.html</loc>
+    <loc>https://github.com/lemon-china/tags/index.html</loc>
     
-    <lastmod>2019-09-07T06:29:27.425Z</lastmod>
+    <lastmod>2019-09-07T06:59:09.130Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://github.com/lemon-china/tags/index.html</loc>
+    <loc>https://github.com/lemon-china/categories/index.html</loc>
     
-    <lastmod>2019-09-07T06:28:57.927Z</lastmod>
+    <lastmod>2019-09-07T06:58:51.580Z</lastmod>
     
   </url>
   
@@ -26,20 +26,6 @@
     <loc>https://github.com/lemon-china/2019/09/05/cloud-mind/</loc>
     
     <lastmod>2019-09-07T05:48:40.352Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://github.com/lemon-china/architects/index.html</loc>
-    
-    <lastmod>2019-09-07T05:44:06.651Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://github.com/lemon-china/guides/index.html</loc>
-    
-    <lastmod>2019-09-07T05:36:24.875Z</lastmod>
     
   </url>
   
