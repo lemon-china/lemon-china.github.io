@@ -155,13 +155,15 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-demo"
+            <article id="post-cloud-mind"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2019-10-21 10:34:12" datetime="2019-10-21T02:34:12.000Z"  itemprop="datePublished">2019-10-21</time>
+        <time class="post-time" title="2019-09-05 12:30:12" datetime="2019-09-05T04:30:12.000Z"  itemprop="datePublished">2019-09-05</time>
 
         
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术规范/">技术规范</a></li></ul>
+
 
 
     </div>
@@ -171,7 +173,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/21/demo/">辨析 Sass 中的 Map 和 List</a>
+      <a class="post-title-link" href="/2019/09/05/cloud-mind/">服务开发核心思想</a>
     </h3>
   
 
@@ -181,19 +183,28 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        如果你使用过 Sass 3.3 之前的版本，那么你一定对那段时光颇有感触，那时候没有现如今这么好的条件，那时候的 Map 还只能用多重列表（lists of list）来模拟。多重列表可以实现复杂数据的嵌套定义，但却不是以键值对的形式实现的，所有当我们需要获取其中特定的某一项时就会比较麻烦。Map 这种数据类型天生就是基于键值对的形式，非常便于组织数据。
-自从可以使用 Map 之后，开发者们开始毫无顾忌地定义 Map 存储数据，比如断点宽度、颜色值、栅格布局等等响应式排版的细节，都被一股脑的塞进了 Map 中。
-那么，有了 Map 之后，我们还有必要使用 List 吗？可能某些人会觉得为了保持向后兼容应该继续使用多重列表模拟 Map，因为可能有些开发者仍然在使用老版本的 Sass 编译器，但实际上，这是多此一举了，Sass 的版本通常由 package.json 或者其他同类型的项目配置文件所控制，往往只需一条命令（gem update sass）即可更新 Sass 的版本，因此基本上无需考虑对老版本的兼容问题。
+        保障服务可扩展性的七大原则1、按功能划分
+2、水平切分
+3、尽量避免事务
+4、适当采用异步解耦
+5、次流程改进为异步
+6、虚拟化所有层次
+7、适当使用缓存
+服务拆分开发的四项原则1、先业务后技术，先逻辑后物理
+2、奥卡姆剃刀：如无必须勿增实体
+3、正交性：抽象出模块间无业务相关的重复代码
+4、稳定性原则：服务的稳定性优先，通过拆分解耦
+PS: 可参考的技术方案：接口化、消息队列、模块化、服务...
     
 
-        <a href="/2019/10/21/demo/" class="post-more waves-effect waves-button">
+        <a href="/2019/09/05/cloud-mind/" class="post-more waves-effect waves-button">
             続きを読む…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cloud/">cloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式/">分布式</a></li></ul>
 
     </div>
     
