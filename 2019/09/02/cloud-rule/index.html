@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>代码习惯在细节 | lemon-china | 乐檬·中国致力于打造最优雅的系统框架</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="springboot,cloud,分布式">
+    <meta name="description" content="分布式服务框架维护人员增多或变更，会出现质量的下降的问题，尤其是框架代码，要时刻牢记的细节。可能下面要讲的这些，大家都会觉得很简单，很基础，但要做到时刻牢记。在每一行代码中都考虑这些因素，是需要很大耐心的。 防止空指针和下标越界这是我最不喜欢看到的异常，尤其在核心框架中，我更愿看到信息详细的参数不合法异常。这也是一个编写健壮程序的开发人员，在写每一行代码都应在潜意识中防止的异常。基本上要能确保每一">
+<meta name="keywords" content="springboot,cloud,分布式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码习惯在细节">
+<meta property="og:url" content="https://github.com/lemon-china/2019/09/02/cloud-rule/index.html">
+<meta property="og:site_name" content="lemon-china">
+<meta property="og:description" content="分布式服务框架维护人员增多或变更，会出现质量的下降的问题，尤其是框架代码，要时刻牢记的细节。可能下面要讲的这些，大家都会觉得很简单，很基础，但要做到时刻牢记。在每一行代码中都考虑这些因素，是需要很大耐心的。 防止空指针和下标越界这是我最不喜欢看到的异常，尤其在核心框架中，我更愿看到信息详细的参数不合法异常。这也是一个编写健壮程序的开发人员，在写每一行代码都应在潜意识中防止的异常。基本上要能确保每一">
+<meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2019-09-07T05:34:44.696Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="代码习惯在细节">
+<meta name="twitter:description" content="分布式服务框架维护人员增多或变更，会出现质量的下降的问题，尤其是框架代码，要时刻牢记的细节。可能下面要讲的这些，大家都会觉得很简单，很基础，但要做到时刻牢记。在每一行代码中都考虑这些因素，是需要很大耐心的。 防止空指针和下标越界这是我最不喜欢看到的异常，尤其在核心框架中，我更愿看到信息详细的参数不合法异常。这也是一个编写健壮程序的开发人员，在写每一行代码都应在潜意识中防止的异常。基本上要能确保每一">
+    
+        <link rel="alternate" type="application/atom+xml" title="lemon-china" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lemon-china</h5>
+          <a href="mailto:lonyee@live.com" title="lonyee@live.com" class="mail">lonyee@live.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章列表
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/guides"  >
+                <i class="icon icon-lg icon-tags"></i>
+                技术规范
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/architects"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                技术架构
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                友情链接
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lemon-china" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">代码习惯在细节</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">代码习惯在细节</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-02T07:12:12.000Z" itemprop="datePublished" class="page-time">
+  2019-09-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术规范/">技术规范</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#防止空指针和下标越界"><span class="post-toc-number">1.</span> <span class="post-toc-text">防止空指针和下标越界</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#保证线程安全性和可见性"><span class="post-toc-number">2.</span> <span class="post-toc-text">保证线程安全性和可见性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#尽早失败和前置断言"><span class="post-toc-number">3.</span> <span class="post-toc-text">尽早失败和前置断言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分离可靠操作和不可靠操作"><span class="post-toc-number">4.</span> <span class="post-toc-text">分离可靠操作和不可靠操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异常防御，但不忽略异常"><span class="post-toc-number">5.</span> <span class="post-toc-text">异常防御，但不忽略异常</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缩小可变域和尽量-final"><span class="post-toc-number">6.</span> <span class="post-toc-text">缩小可变域和尽量 final</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#降低修改时的误解性，不埋雷"><span class="post-toc-number">7.</span> <span class="post-toc-text">降低修改时的误解性，不埋雷</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#提高代码的可测性"><span class="post-toc-number">8.</span> <span class="post-toc-text">提高代码的可测性</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-cloud-rule"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">代码习惯在细节</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-09-02 15:12:12" datetime="2019-09-02T07:12:12.000Z"  itemprop="datePublished">2019-09-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术规范/">技术规范</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>分布式服务框架维护人员增多或变更，会出现质量的下降的问题，尤其是框架代码，要时刻牢记的细节。可能下面要讲的这些，大家都会觉得很简单，很基础，但要做到时刻牢记。在每一行代码中都考虑这些因素，是需要很大耐心的。</p>
+<h3 id="防止空指针和下标越界"><a href="#防止空指针和下标越界" class="headerlink" title="防止空指针和下标越界"></a>防止空指针和下标越界</h3><p>这是我最不喜欢看到的异常，尤其在核心框架中，我更愿看到信息详细的参数不合法异常。这也是一个编写健壮程序的开发人员，在写每一行代码都应在潜意识中防止的异常。基本上要能确保每一次写完的代码，在不测试的情况下，都不会出现这两个异常才算合格。</p>
+<h3 id="保证线程安全性和可见性"><a href="#保证线程安全性和可见性" class="headerlink" title="保证线程安全性和可见性"></a>保证线程安全性和可见性</h3><p>对于框架的开发人员，对线程安全性和可见性的深入理解是最基本的要求。需要开发人员，在写每一行代码时都应在潜意识中确保其正确性。因为这种代码，在小并发下做功能测试时，会显得很正常。但在高并发下就会出现莫明其妙的问题，而且场景很难重现，极难排查。</p>
+<h3 id="尽早失败和前置断言"><a href="#尽早失败和前置断言" class="headerlink" title="尽早失败和前置断言"></a>尽早失败和前置断言</h3><p>尽早失败也应该成为潜意识，在有传入参数和状态变化时，均在入口处全部断言。一个不合法的值和状态，在第一时间就应报错，而不是等到要用时才报错。因为等到要用时，可能前面已经修改其它相关状态，而在程序中很少有人去处理回滚逻辑。这样报错后，其实内部状态可能已经混乱，极易在一个隐蔽分支上引发程序不可恢复。</p>
+<h3 id="分离可靠操作和不可靠操作"><a href="#分离可靠操作和不可靠操作" class="headerlink" title="分离可靠操作和不可靠操作"></a>分离可靠操作和不可靠操作</h3><p>这里的可靠是狭义的指是否会抛出异常或引起状态不一致，比如，写入一个线程安全的 Map，可以认为是可靠的，而写入数据库等，可以认为是不可靠的。开发人员必须在写每一行代码时，都注意它的可靠性与否，在代码中尽量划分开，并对失败做异常处理，并为容错，自我保护，自动恢复或切换等补偿逻辑提供清晰的切入点，保证后续增加的代码不至于放错位置，而导致原先的容错处理陷入混乱。</p>
+<h3 id="异常防御，但不忽略异常"><a href="#异常防御，但不忽略异常" class="headerlink" title="异常防御，但不忽略异常"></a>异常防御，但不忽略异常</h3><p>这里讲的异常防御，指的是对非必须途径上的代码进行最大限度的容忍，包括程序上的 BUG，比如：获取程序的版本号，会通过扫描 Manifest 和 jar 包名称抓取版本号，这个逻辑是辅助性的，但代码却不少，初步测试也没啥问题，但应该在整个 getVersion() 中加上一个全函数的 try-catch 打印错误日志，并返回基本版本，因为 getVersion() 可能存在未知特定场景异常，或被其他的开发人员误修改逻辑(但一般人员不会去掉 try-catch)，而如果它抛出异常会导致主流程异常，这是我们不希望看到的。但这里要控制个度，不要随意 try-catch，更不要无声无息的吃掉异常。</p>
+<h3 id="缩小可变域和尽量-final"><a href="#缩小可变域和尽量-final" class="headerlink" title="缩小可变域和尽量 final"></a>缩小可变域和尽量 final</h3><p>如果一个类可以成为不变类(Immutable Class)，就优先将它设计成不变类。不变类有天然的并发共享优势，减少同步或复制，而且可以有效帮忙分析线程安全的范围。就算是可变类，对于从构造函数传入的引用，在类中持有时，最好将字段 final，以免被中途误修改引用。不要以为这个字段是私有的，这个类的代码都是我自己写的，不会出现对这个字段的重新赋值。要考虑的一个因素是，这个代码可能被其他人修改，他不知道你的这个弱约定，final 就是一个不变契约。</p>
+<h3 id="降低修改时的误解性，不埋雷"><a href="#降低修改时的误解性，不埋雷" class="headerlink" title="降低修改时的误解性，不埋雷"></a>降低修改时的误解性，不埋雷</h3><p>前面不停的提到代码被其他人修改，这也开发人员要随时紧记的。这个其他人包括未来的自己，你要总想着这个代码可能会有人去改它。我应该给修改的人一点什么提示，让他知道我现在的设计意图，而不要在程序里面加潜规则，或埋一些容易忽视的雷，比如：你用 null 表示不可用，size 等于 0 表示黑名单，这就是一个雷，下一个修改者，包括你自己，都不会记得有这样的约定，可能后面为了改某个其它 BUG，不小心改到了这里，直接引爆故障。对于这个例子，一个原则就是永远不要区分 null 引用和 empty 值。</p>
+<h3 id="提高代码的可测性"><a href="#提高代码的可测性" class="headerlink" title="提高代码的可测性"></a>提高代码的可测性</h3><p>这里的可测性主要指 Mock 的容易程度，和测试的隔离性。至于测试的自动性，可重复性，非偶然性，无序性，完备性(全覆盖)，轻量性(可快速执行)，一般开发人员，加上 JUnit 等工具的辅助基本都能做到，也能理解它的好处，只是工作量问题。这里要特别强调的是测试用例的单一性(只测目标类本身)和隔离性(不传染失败)。现在的测试代码，过于强调完备性，大量重复交叉测试，看起来没啥坏处，但测试代码越多，维护代价越高。经常出现的问题是，修改一行代码或加一个判断条件，引起 100 多个测试用例不通过。时间一紧，谁有这个闲功夫去改这么多形态各异的测试用例？久而久之，这个测试代码就已经不能真实反应代码现在的状况，很多时候会被迫绕过。最好的情况是，修改一行代码，有且只有一行测试代码不通过。如果修改了代码而测试用例还能通过，那也不行，表示测试没有覆盖到。另外，可 Mock 性是隔离的基础，把间接依赖的逻辑屏蔽掉。可 Mock 性的一个最大的杀手就是静态方法，尽量少用。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <!-- 
+	
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-09-07T05:34:44.696Z" itemprop="dateUpdated">2019-09-07 13:34:44</time>
+</span><br>
+
+
+        
+    </div>
+    
+	-->
+    <footer>
+        <a href="https://github.com/lemon-china">
+            <img src="/img/avatar.jpg" alt="lemon-china">
+            lemon-china
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cloud/">cloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式/">分布式</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/02/cloud-rule/&title=《代码习惯在细节》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/02/cloud-rule/&title=《代码习惯在细节》 — lemon-china&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/02/cloud-rule/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《代码习惯在细节》 — lemon-china&url=https://github.com/lemon-china/2019/09/02/cloud-rule/&via=https://github.com/lemon-china" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/02/cloud-rule/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/10/21/demo/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">辨析 Sass 中的 Map 和 List</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/01/cloud-guid/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">基于consul注册中心实现cloud微服务框架</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的支持~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lemon-china &copy; 2017 - 2019</span>
+            <span>
+                
+                Power by lemon-china
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/02/cloud-rule/&title=《代码习惯在细节》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/02/cloud-rule/&title=《代码习惯在细节》 — lemon-china&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/02/cloud-rule/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《代码习惯在细节》 — lemon-china&url=https://github.com/lemon-china/2019/09/02/cloud-rule/&via=https://github.com/lemon-china" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/02/cloud-rule/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aQW7DMAwEwP7/0ynQU3twsismBSyNToFjyxofCFLU11c8Hj/j6vrVSOb8fWf+7OLAwMC4LSNZytXvK+rzeZ4v9Pk8lzNgYGAcwMinaxeUB+u1T4aBgYHRkpLAnS8dAwMDYxJw5+kgBgYGRsvIA+Xz6ZIrbZr45locAwPjhoy2MfCfvz/Y38DAwLgJ41GOtiWZv3G0KgwMjK0ZbTK3lj7mRzfyrb1oUgwMjC0Y7SZ+XrLm6d1aqYyBgXEOI28rJgVtEiKTZ/Ogj4GBcQ5j7bG26G1naDf7MDAwzmHkATEP1m25m/+LgYGBMTnckJTHbUAfBVwMDIzbMtbak3kCl5fB+WGLF51YDAyM7RiTTbfPtRYmLQQMDIwTGGvlax0W40MYbUKJgYGxHyNvRq4FyryUbWF/rmNgYBzGyANlcufkAEdRJGNgYGzNWDs8MTk20Yby+kNjYGBsx5gvd74ll4TmF2EaAwNja8baMYu2EG2TwrUPgYGBsSsj30qLQl5cxL43WGNgYJzAWFtEnt7l94+KWAwMjE0ZbVjMD34lS8/TyihYY2BgbMp4lKNO2soDZIslNAYGxtaMNti1pWabeuapIQYGxmmM9oBF/vp82+4N6SMGBsYBjKS5OE8TF+N90q7AwMDA+MDBr/xjRYEbAwMDI24rTlLPCRUDA+MExuQ1ayVo8vmKNgMGBsbWjPleVrLRNimP34bBwMC4H+MbiOZqmLdUVbAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
