@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>lemon-china</title>
   
-  
+  <subtitle>乐檬·中国致力于打造最优雅的系统框架</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/lemon-china/"/>
@@ -10,7 +10,7 @@
   <id>https://github.com/lemon-china/</id>
   
   <author>
-    <name>lonyee</name>
+    <name>lemon-china</name>
     
   </author>
   
