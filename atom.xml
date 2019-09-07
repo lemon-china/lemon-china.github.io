@@ -40,11 +40,45 @@
   </entry>
   
   <entry>
+    <title>基于consul注册中心实现cloud微服务框架</title>
+    <link href="https://github.com/lemon-china/2019/09/01/cloud-guid/"/>
+    <id>https://github.com/lemon-china/2019/09/01/cloud-guid/</id>
+    <published>2019-09-01T02:10:12.000Z</published>
+    <updated>2019-09-07T05:18:18.458Z</updated>
+    
+    <content type="html"><![CDATA[<p>基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式</p><p>本项目预启动时间为2019-03-01，实现以下内容：</p><h4 id="开发计划"><a href="#开发计划" class="headerlink" title="开发计划"></a>开发计划<br></h4><p>v0.1版本 整体服务结构划分，服务边界设定<br><br>v0.2版本 服务网关授权模式搭建<br><br>v0.3版本 前后端技术框架接入<br><br>v0.4版本 服务开发技术规范文档<br><br>v0.5版本 用户基础服务功能<br></p><h4 id="服务架构总览"><a href="#服务架构总览" class="headerlink" title="服务架构总览"></a>服务架构总览<br></h4><p>center  服务综合管理中心 <br><br>&ensp;|—  lemon-gateway  服务网关 <br><br>&ensp;|—  lemon-monitor  服务监控 <br><br>&ensp;|  <br></p><p>commons  服务基础组件中心 <br><br>&ensp;|—  lemon-common  服务通用组件 <br><br>&ensp;|—  lemon-distribution  分布业务锁&amp;任务锁 <br><br>&ensp;|—  lemon-framework  服务基础功能类包 <br><br>&ensp;|—  lemon-rabbit  服务Rabbit功能统一封装组件 <br><br>&ensp;|—  lemon-sharding  数据库分库分表封装组件 <br></p><p>services  微服务中心 <br><br>&ensp;|—  lemon-auth  授权&amp;鉴权服务 <br><br>&ensp;|—  lemon-user  用户服务 <br><br>&ensp;|—  lemon-xxx    <br><br>&ensp;|  <br></p><h4 id="服务项目结构约定"><a href="#服务项目结构约定" class="headerlink" title="服务项目结构约定"></a>服务项目结构约定<br></h4><p>1、服务名由lemon-{xxxx}组成，xxxx为相关微服务的业务名称<br></p><p>2、每个服务脚手架组件包含如下：<br></p><table><thead><tr><th>NO.</th><th>Package</th><th>Desc</th></tr></thead><tbody><tr><td>1</td><td>cn.lemon.{xxxx}.api.rest</td><td>提供对外服务rest接口</td></tr><tr><td>2</td><td>cn.lemon.{xxxx}.api.rpc</td><td>提供对内服务rpc接口</td></tr><tr><td>3</td><td>cn.lemon.{xxxx}.config</td><td>提供服务配置相关</td></tr><tr><td>4</td><td>cn.lemon.{xxxx}.entity.enums</td><td>提供业务枚举类</td></tr><tr><td>5</td><td>cn.lemon.{xxxx}.entity.po</td><td>提供数据库映射实体</td></tr><tr><td>6</td><td>cn.lemon.{xxxx}.entity.vo</td><td>提供对外接口映射实体</td></tr><tr><td>7</td><td>cn.lemon.{xxxx}.rpc.client</td><td>提供对内服务rpc调用接口 (api层不能调用rpc接口)</td></tr><tr><td>8</td><td>cn.lemon.{xxxx}.rpc.client.fallback</td><td>提供对内服务rpc调用失败业务处理</td></tr><tr><td>9</td><td>cn.lemon.{xxxx}.service</td><td>提供业务逻辑接口 (api层调用业务接口)</td></tr><tr><td>10</td><td>cn.lemon.{xxxx}.service.impl</td><td>提供业务逻辑实现</td></tr><tr><td>11</td><td>cn.lemon.{xxxx}.dao</td><td>提供数据库操作</td></tr><tr><td>12</td><td>cn.lemon.{xxxx}.events.pub</td><td>提供MQ发送事件</td></tr><tr><td>13</td><td>cn.lemon.{xxxx}.events.sub</td><td>提供MQ接收事件</td></tr><tr><td>14</td><td>cn.lemon.{xxxx}.task</td><td>提供任务定时执行逻辑</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式&lt;/p&gt;
+&lt;p&gt;本项目预启动时间为2019-03-01，实现以下内容：&lt;/p&gt;
+&lt;h4 id=&quot;开发计划&quot;&gt;&lt;a href=&quot;#开发计划&quot; class=&quot;headerlink&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="技术架构" scheme="https://github.com/lemon-china/categories/%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/"/>
+    
+    
+      <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
+    
+      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
+    
+      <category term="consul" scheme="https://github.com/lemon-china/tags/consul/"/>
+    
+      <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
+    
+  </entry>
+  
+  <entry>
     <title>乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）</title>
     <link href="https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/"/>
     <id>https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/</id>
     <published>2017-05-01T02:34:12.000Z</published>
-    <updated>2019-09-07T03:50:32.411Z</updated>
+    <updated>2019-09-07T05:18:23.846Z</updated>
     
     <content type="html"><![CDATA[<p>项目地址：<a href="https://github.com/lemon-china/lemon-rabbitmq">lemon-rabbitmq</a></p><p>lemon-rabbitmq   消息生产端</p><p>lemon-rabbitmq-protocol   消息协议层</p><p>lemon-rabbitmq-consumer   消息消费端</p><hr><h4 id="消息协议层"><a href="#消息协议层" class="headerlink" title="消息协议层"></a>消息协议层</h4><p>通过Jackson2序列化/反序列化，实现消息传递和对象接收</p><h4 id="消息生产端"><a href="#消息生产端" class="headerlink" title="消息生产端"></a>消息生产端</h4><p>1、通过发送带有消费端服务类名称和方法请求头，控制消费端调用执行消费发送的信息</p><p>2、利用消息回调接口ConfirmCallback确保消息安全发送至broker服务器，处理效率比事物方式更高</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(<span class="keyword">final</span> String serviceName, <span class="keyword">final</span> String serviceMethodName,<span class="keyword">final</span> String correlationId, Object request)</span> </span>&#123;</span><br><span class="line">   logger.info(<span class="string">"sendMessage [this.&#123;&#125;, serviceMethodName:&#123;&#125; serviceName:&#123;&#125; correlationId: &#123;&#125;]"</span>, <span class="keyword">this</span>.getClass(), serviceMethodName, serviceName, correlationId);</span><br><span class="line">   rabbitTemplate.setConfirmCallback(<span class="keyword">this</span>);</span><br><span class="line">   rabbitTemplate.setCorrelationKey(correlationId);</span><br><span class="line">   rabbitTemplate.convertAndSend(routingkey, request, <span class="keyword">new</span> MessagePostProcessor() &#123;            </span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> Message <span class="title">postProcessMessage</span><span class="params">(Message message)</span> <span class="keyword">throws</span> AmqpException </span>&#123;</span><br><span class="line">              message.getMessageProperties().setAppId(appId);</span><br><span class="line">              message.getMessageProperties().setTimestamp(<span class="keyword">new</span> Date());</span><br><span class="line">              message.getMessageProperties().setMessageId(UUID.randomUUID().toString());</span><br><span class="line">              message.getMessageProperties().setCorrelationId(correlationId.getBytes());</span><br><span class="line">              message.getMessageProperties().setHeader(<span class="string">"ServiceMethodName"</span>, serviceMethodName);</span><br><span class="line">              message.getMessageProperties().setHeader(<span class="string">"ServiceName"</span>, serviceName);</span><br><span class="line">              <span class="keyword">return</span> message;</span><br><span class="line">          &#125;</span><br><span class="line">   &#125;, <span class="keyword">new</span> CorrelationData(correlationId));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="消息消费端"><a href="#消息消费端" class="headerlink" title="消息消费端"></a>消息消费端</h4><p>1、监听MQ消息，利用method.invoke调用指定的服务类名称和方法，消费接收到的消息</p><p>2、使用Ack/Nack手动确认消息处理状态，保证broker消息被正确消费</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(Message message, Channel channel)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"----- received"</span> + message.getMessageProperties());</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">Object msg = messageConverter.fromMessage(message);</span><br><span class="line"><span class="keyword">if</span> (!appId.equals(message.getMessageProperties().getAppId()))&#123;</span><br><span class="line">        channel.basicNack(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> SecurityException(<span class="string">"非法应用appId:"</span> + message.getMessageProperties().getAppId());</span><br><span class="line">&#125;</span><br><span class="line">Object service = ctx.getBean(message.getMessageProperties().getHeaders().get(<span class="string">"ServiceName"</span>).toString());</span><br><span class="line">String serviceMethodName = message.getMessageProperties().getHeaders().get(<span class="string">"ServiceMethodName"</span>).toString();</span><br><span class="line">Method method = service.getClass().getMethod(serviceMethodName, msg.getClass());</span><br><span class="line">       method.invoke(service, msg);</span><br><span class="line">       <span class="comment">//确认消息成功消费</span></span><br><span class="line">       channel.basicAck(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) &#123;</span><br><span class="line">System.out.println(<span class="string">"------ err"</span>+ e.getMessage());</span><br><span class="line">       channel.basicNack(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -60,7 +94,7 @@
     </summary>
     
     
-      <category term="技术方案" scheme="https://github.com/lemon-china/categories/%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88/"/>
+      <category term="技术架构" scheme="https://github.com/lemon-china/categories/%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/"/>
     
     
       <category term="rabbitmq" scheme="https://github.com/lemon-china/tags/rabbitmq/"/>
