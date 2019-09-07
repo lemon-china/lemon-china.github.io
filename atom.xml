@@ -103,13 +103,13 @@
       <category term="技术架构" scheme="https://github.com/lemon-china/categories/%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/"/>
     
     
-      <category term="consul" scheme="https://github.com/lemon-china/tags/consul/"/>
-    
       <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
     
       <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
     
       <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
+    
+      <category term="consul" scheme="https://github.com/lemon-china/tags/consul/"/>
     
   </entry>
   
@@ -139,11 +139,11 @@
     
       <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
     
-      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
-    
       <category term="rabbitmq" scheme="https://github.com/lemon-china/tags/rabbitmq/"/>
     
       <category term="ack/nack" scheme="https://github.com/lemon-china/tags/ack-nack/"/>
+    
+      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
     
   </entry>
   
