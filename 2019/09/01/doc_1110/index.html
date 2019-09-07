@@ -14,25 +14,25 @@
     
     
     
-    <title>基于consul注册中心实现cloud微服务框架 | lemon-china | 乐檬·中国致力于打造最优雅的系统框架</title>
+    <title>开发者约定 | lemon-china | 乐檬·中国致力于打造最优雅的系统框架</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="springboot,java,cloud,consul">
-    <meta name="description" content="基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式 本项目预启动时间为2019-03-01，实现以下内容： 开发计划v0.1版本 整体服务结构划分，服务边界设定v0.2版本 服务网关授权模式搭建v0.3版本 前后端技术框架接入v0.4版本 服务开发技术规范文档v0.5版本 用户基础服务功能 服务架构总览center  服务综合管理中心 &amp;ensp;|">
-<meta name="keywords" content="springboot,java,cloud,consul">
+    <meta name="keywords" content="微服务,开发规范,java">
+    <meta name="description" content="本文档约定了服务开发人员的代码规范，从而增强代码的一致性和可维护性  1、接口地址和参数严格区分大小写，接口尽量全部小写，参数使用驼峰命名； 2、接口默认以请求参数形式传入参数，响应返回JSON格式数据； 3、H5内所有资源引用打包自动带上日期版本号，防止发布版本引用资源在浏览器缓存导致功能异常（如：./jquery-1.11.0.js?v=201806051011） 4、接口请求数据均需要携带">
+<meta name="keywords" content="微服务,开发规范,java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于consul注册中心实现cloud微服务框架">
-<meta property="og:url" content="https://github.com/lemon-china/2019/09/01/exp_1111/index.html">
+<meta property="og:title" content="开发者约定">
+<meta property="og:url" content="https://github.com/lemon-china/2019/09/01/doc_1110/index.html">
 <meta property="og:site_name" content="lemon-china">
-<meta property="og:description" content="基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式 本项目预启动时间为2019-03-01，实现以下内容： 开发计划v0.1版本 整体服务结构划分，服务边界设定v0.2版本 服务网关授权模式搭建v0.3版本 前后端技术框架接入v0.4版本 服务开发技术规范文档v0.5版本 用户基础服务功能 服务架构总览center  服务综合管理中心 &amp;ensp;|">
+<meta property="og:description" content="本文档约定了服务开发人员的代码规范，从而增强代码的一致性和可维护性  1、接口地址和参数严格区分大小写，接口尽量全部小写，参数使用驼峰命名； 2、接口默认以请求参数形式传入参数，响应返回JSON格式数据； 3、H5内所有资源引用打包自动带上日期版本号，防止发布版本引用资源在浏览器缓存导致功能异常（如：./jquery-1.11.0.js?v=201806051011） 4、接口请求数据均需要携带">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-07T07:38:14.897Z">
+<meta property="og:updated_time" content="2019-09-07T13:50:35.773Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于consul注册中心实现cloud微服务框架">
-<meta name="twitter:description" content="基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式 本项目预启动时间为2019-03-01，实现以下内容： 开发计划v0.1版本 整体服务结构划分，服务边界设定v0.2版本 服务网关授权模式搭建v0.3版本 前后端技术框架接入v0.4版本 服务开发技术规范文档v0.5版本 用户基础服务功能 服务架构总览center  服务综合管理中心 &amp;ensp;|">
+<meta name="twitter:title" content="开发者约定">
+<meta name="twitter:description" content="本文档约定了服务开发人员的代码规范，从而增强代码的一致性和可维护性  1、接口地址和参数严格区分大小写，接口尽量全部小写，参数使用驼峰命名； 2、接口默认以请求参数形式传入参数，响应返回JSON格式数据； 3、H5内所有资源引用打包自动带上日期版本号，防止发布版本引用资源在浏览器缓存导致功能异常（如：./jquery-1.11.0.js?v=201806051011） 4、接口请求数据均需要携带">
     
         <link rel="alternate" type="application/atom+xml" title="lemon-china" href="/atom.xml">
     
@@ -134,7 +134,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">基于consul注册中心实现cloud微服务框架</div>
+        <div class="flex-col header-title ellipsis">开发者约定</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -156,7 +156,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">基于consul注册中心实现cloud微服务框架</h1>
+        <h1 class="title">开发者约定</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-09-01T02:10:12.000Z" itemprop="datePublished" class="page-time">
@@ -164,7 +164,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/经验分享/">经验分享</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/开源文档/">开源文档</a></li></ul>
 
             
         </h5>
@@ -178,24 +178,17 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开发计划"><span class="post-toc-number">1.</span> <span class="post-toc-text">开发计划</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#服务架构总览"><span class="post-toc-number">2.</span> <span class="post-toc-text">服务架构总览</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#服务项目结构约定"><span class="post-toc-number">3.</span> <span class="post-toc-text">服务项目结构约定</span></a></li></ol>
-        </nav>
-    </aside>
 
-
-<article id="post-exp_1111"
+<article id="post-doc_1110"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">基于consul注册中心实现cloud微服务框架</h1>
+        <h1 class="post-card-title">开发者约定</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-09-01 10:10:12" datetime="2019-09-01T02:10:12.000Z"  itemprop="datePublished">2019-09-01</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/经验分享/">经验分享</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/开源文档/">开源文档</a></li></ul>
 
 
 
@@ -203,94 +196,86 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式</p>
-<p>本项目预启动时间为2019-03-01，实现以下内容：</p>
-<h4 id="开发计划"><a href="#开发计划" class="headerlink" title="开发计划"></a>开发计划<br></h4><p>v0.1版本 整体服务结构划分，服务边界设定<br><br>v0.2版本 服务网关授权模式搭建<br><br>v0.3版本 前后端技术框架接入<br><br>v0.4版本 服务开发技术规范文档<br><br>v0.5版本 用户基础服务功能<br></p>
-<h4 id="服务架构总览"><a href="#服务架构总览" class="headerlink" title="服务架构总览"></a>服务架构总览<br></h4><p>center  服务综合管理中心 <br><br>&ensp;|—  lemon-gateway  服务网关 <br><br>&ensp;|—  lemon-monitor  服务监控 <br><br>&ensp;|  <br></p>
-<p>commons  服务基础组件中心 <br><br>&ensp;|—  lemon-common  服务通用组件 <br><br>&ensp;|—  lemon-distribution  分布业务锁&amp;任务锁 <br><br>&ensp;|—  lemon-framework  服务基础功能类包 <br><br>&ensp;|—  lemon-rabbit  服务Rabbit功能统一封装组件 <br><br>&ensp;|—  lemon-sharding  数据库分库分表封装组件 <br></p>
-<p>services  微服务中心 <br><br>&ensp;|—  lemon-auth  授权&amp;鉴权服务 <br><br>&ensp;|—  lemon-user  用户服务 <br><br>&ensp;|—  lemon-xxx    <br><br>&ensp;|  <br></p>
-<h4 id="服务项目结构约定"><a href="#服务项目结构约定" class="headerlink" title="服务项目结构约定"></a>服务项目结构约定<br></h4><p>1、服务名由lemon-{xxxx}组成，xxxx为相关微服务的业务名称<br></p>
-<p>2、每个服务脚手架组件包含如下：<br></p>
+            <blockquote>
+<p>本文档约定了服务开发人员的代码规范，从而增强代码的一致性和可维护性</p>
+</blockquote>
+<p>1、接口地址和参数严格区分大小写，接口尽量全部小写，参数使用驼峰命名；</p>
+<p>2、接口默认以请求参数形式传入参数，响应返回JSON格式数据；</p>
+<p>3、H5内所有资源引用打包自动带上日期版本号，防止发布版本引用资源在浏览器缓存导致功能异常（如：./jquery-1.11.0.js?v=201806051011）</p>
+<p>4、接口请求数据均需要携带header参数：</p>
 <table>
 <thead>
 <tr>
-<th>NO.</th>
-<th>Package</th>
-<th>Desc</th>
+<th align="left">参数名</th>
+<th align="left">必填</th>
+<th align="left">类型</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>1</td>
-<td>cn.lemon.{xxxx}.api.rest</td>
-<td>提供对外服务rest接口</td>
+<td align="left">x-auth-token</td>
+<td align="left">是</td>
+<td align="left">string</td>
+<td>登录后返回的token</td>
 </tr>
 <tr>
-<td>2</td>
-<td>cn.lemon.{xxxx}.api.rpc</td>
-<td>提供对内服务rpc接口</td>
+<td align="left">x-app-version</td>
+<td align="left">是</td>
+<td align="left">string</td>
+<td>应用版本（固定 1.0.0）</td>
 </tr>
 <tr>
-<td>3</td>
-<td>cn.lemon.{xxxx}.config</td>
-<td>提供服务配置相关</td>
+<td align="left">x-device</td>
+<td align="left">是</td>
+<td align="left">integer</td>
+<td>设备类型(1：IOS 2：Android 3：wap 4: 微信 5: H5)</td>
 </tr>
 <tr>
-<td>4</td>
-<td>cn.lemon.{xxxx}.entity.enums</td>
-<td>提供业务枚举类</td>
+<td align="left">x-device-name</td>
+<td align="left">是</td>
+<td align="left">string</td>
+<td>设备/浏览器名称（如：huawei/Chrome）</td>
 </tr>
 <tr>
-<td>5</td>
-<td>cn.lemon.{xxxx}.entity.po</td>
-<td>提供数据库映射实体</td>
-</tr>
-<tr>
-<td>6</td>
-<td>cn.lemon.{xxxx}.entity.vo</td>
-<td>提供对外接口映射实体</td>
-</tr>
-<tr>
-<td>7</td>
-<td>cn.lemon.{xxxx}.rpc.client</td>
-<td>提供对内服务rpc调用接口 (api层不能调用rpc接口)</td>
-</tr>
-<tr>
-<td>8</td>
-<td>cn.lemon.{xxxx}.rpc.client.fallback</td>
-<td>提供对内服务rpc调用失败业务处理</td>
-</tr>
-<tr>
-<td>9</td>
-<td>cn.lemon.{xxxx}.service</td>
-<td>提供业务逻辑接口 (api层调用业务接口)</td>
-</tr>
-<tr>
-<td>10</td>
-<td>cn.lemon.{xxxx}.service.impl</td>
-<td>提供业务逻辑实现</td>
-</tr>
-<tr>
-<td>11</td>
-<td>cn.lemon.{xxxx}.dao</td>
-<td>提供数据库操作</td>
-</tr>
-<tr>
-<td>12</td>
-<td>cn.lemon.{xxxx}.events.pub</td>
-<td>提供MQ发送事件</td>
-</tr>
-<tr>
-<td>13</td>
-<td>cn.lemon.{xxxx}.events.sub</td>
-<td>提供MQ接收事件</td>
-</tr>
-<tr>
-<td>14</td>
-<td>cn.lemon.{xxxx}.task</td>
-<td>提供任务定时执行逻辑</td>
+<td align="left">x-timestamp</td>
+<td align="left">是</td>
+<td align="left">long</td>
+<td>10位时间戳</td>
 </tr>
 </tbody></table>
+<p>5、接口返回数据JSON格式标准: </p>
+<table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">code</td>
+<td align="left">integer</td>
+<td>状态码</td>
+</tr>
+<tr>
+<td align="left">message</td>
+<td align="left">string</td>
+<td>状态/错误信息</td>
+</tr>
+<tr>
+<td align="left">data</td>
+<td align="left">object</td>
+<td>返回的数据</td>
+</tr>
+</tbody></table>
+<p>不带返回数据示例：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"message"</span>: <span class="string">"操作成功"</span>,</span><br><span class="line">    <span class="attr">"code"</span>: <span class="string">"2000"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>带返回数据示例：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"message"</span>: <span class="string">"操作成功"</span>,</span><br><span class="line">    <span class="attr">"code"</span>: <span class="string">"2000"</span>,</span><br><span class="line">    <span class="attr">"data"</span>: &#123;</span><br><span class="line">        <span class="attr">"userId"</span>: <span class="string">"1488512189"</span>,</span><br><span class="line">        <span class="attr">"nickName"</span>: <span class="string">"哈哈"</span>,</span><br><span class="line">        <span class="attr">"vip"</span>: <span class="string">"12"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>异常返回示例：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"message"</span>: <span class="string">"短信验证码发送失败"</span>,</span><br><span class="line">    <span class="attr">"code"</span>: <span class="string">"6017"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -314,7 +299,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cloud/">cloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/consul/">consul</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/">springboot</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发规范/">开发规范</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微服务/">微服务</a></li></ul>
 
 
             
@@ -324,7 +309,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/01/exp_1111/&title=《基于consul注册中心实现cloud微服务框架》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/01/doc_1110/&title=《开发者约定》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -334,22 +319,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/01/exp_1111/&title=《基于consul注册中心实现cloud微服务框架》 — lemon-china&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/01/doc_1110/&title=《开发者约定》 — lemon-china&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/01/exp_1111/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/01/doc_1110/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于consul注册中心实现cloud微服务框架》 — lemon-china&url=https://github.com/lemon-china/2019/09/01/exp_1111/&via=https://github.com/lemon-china" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《开发者约定》 — lemon-china&url=https://github.com/lemon-china/2019/09/01/doc_1110/&via=https://github.com/lemon-china" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/01/exp_1111/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/01/doc_1110/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -467,7 +452,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/01/exp_1111/&title=《基于consul注册中心实现cloud微服务框架》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/01/doc_1110/&title=《开发者约定》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -477,22 +462,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/01/exp_1111/&title=《基于consul注册中心实现cloud微服务框架》 — lemon-china&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/01/doc_1110/&title=《开发者约定》 — lemon-china&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/01/exp_1111/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/01/doc_1110/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于consul注册中心实现cloud微服务框架》 — lemon-china&url=https://github.com/lemon-china/2019/09/01/exp_1111/&via=https://github.com/lemon-china" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《开发者约定》 — lemon-china&url=https://github.com/lemon-china/2019/09/01/doc_1110/&via=https://github.com/lemon-china" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/01/exp_1111/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/01/doc_1110/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -503,7 +488,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3aUa7CMAwF0e5/00V6v9B0fA1PqjP5QhTSnCIZO85x4HH+jfXV98G/+z7P8YshQ4aMxzLO5VjfjHyG34Xc65IqQ4aMDRg8FFaDKZ9//fpmzTJkyJARpYbrsLueQYYMGTI6AZdjOmmlDBkyZGRF7E0ZeXGDfsD9ci0uQ4aMBzKqjYH/fP3D/oYMGTIewjiLg6RrZBFZeL1clQwZMkYzSDJH0j6etPHPrFuhB1+cDBkyHs6oBrsqjIddUuIeVbcMGTIGMXgKyA91ZQVqmIDKkCFjNCObOmsb8IdCWgsf5pQhQ8ZoRlbW8lKTsNfvk606GTJkTGWQMpK/kwVTPsNlwJUhQ8b2jKx50N90K7Q/ZciQMZrRP/iVpYAZmzxuGTJkTGXwzf3qcQoednmpLEOGjN0Y1S2w7JAEb5GGhzlkyJAxmlFdVlbo8o05Pv/NyREZMmQMZfSXgsIivkr+EmTIkLEPg0zNt8Cysha1KkHiKEOGjKmMLMB1ytHC062GWhkyZIxjVDfCsrK2eqQs/B1kyJAxmtFpAPACmDdE+R+ADBkydmBUN8u+1TzoFMzoN5EhQ8YgxlkcVUxGKodjGTJkjGb0GwC8fK2WxDx5lSFDxg6MLMhmDN5CKKePMmTI2IBBAl+rU9pO724eigwZMmQUk7xqyVptqaLGgAwZMmTgUNsBhP1YGTJkDGWQIraKybb1szaDDBkyZjP6BWS187AOoKQYDjEyZMh4HuMFi8FBz1hz56oAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACPklEQVR42u3a22rDQAxFUf//T7vQp0LIeB/JDbFmz1NITe3lgqrbceBz/p7Xz3+/eT3vrl//5vX1rSNDhozHMs7lWTPWn999Q14KfzYZMmTsw0hDIQmO62vSV3bxzDJkyJAB0jUeuEmQlSFDhox7A26aVtZSTxkyZMjggTJtrvUD7s21uAwZMh7I6AwG/vvzh+YbMmTI+GLGGR6SrnXK3eJTyZAhYzSDJHP8+/6ogBfPB3k4GTJkDGL022f9sMtL3BvSRBkyZAxi8Bvza9JQG4dsGTJkjGOsA1w6aFy/CHKX4iqGDBkyRjM6QZOXmqShxv8zxO02GTJkPJyRivutf97IC4K+DBkyNmCkq121yrE2zgwCrgwZMoYyeKFYK0HTFl5ntClDhozZDF7E1gIiH0CmjTYZMmTswEgDa21JgiegaXF71P4/yJAh41EMvkKRNu77yxkk+F6sXMiQIWMcg6xQ8ASOF658Oewi6ZQhQ8ZQRpq0xUEwXBq7GFW+ex4ZMmSMZty7pMVvyV9T0MKTIUPGUEZn8av2CsgaR+vvIEOGjKGMtBztr4gRfFAey5AhYzSj06yvNdRqSxhx11CGDBmDGGd40tTwQ+FYhgwZoxlpsOMMElI7I0wZMmTsxiBBliw98FFlp4UXZ44yZMgYxCCBj8ds/tN0CHGxbCFDhoztGWn45klkbRTRyjRlyJCxDYOngzVAax4rQ4aMcQxSxKY3qLX1+aJYsRaXIUPGAxn9ArJT4vZHpzJkyBjN+AGiyRkG6aaOFgAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
