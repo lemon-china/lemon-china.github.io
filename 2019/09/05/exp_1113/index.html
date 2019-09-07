@@ -14,25 +14,25 @@
     
     
     
-    <title>基于consul注册中心实现cloud微服务框架 | lemon-china | 乐檬·中国致力于打造最优雅的系统框架</title>
+    <title>服务开发核心思想 | lemon-china | 乐檬·中国致力于打造最优雅的系统框架</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="springboot,cloud,consul,java">
-    <meta name="description" content="基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式 本项目预启动时间为2019-03-01，实现以下内容： 开发计划v0.1版本 整体服务结构划分，服务边界设定v0.2版本 服务网关授权模式搭建v0.3版本 前后端技术框架接入v0.4版本 服务开发技术规范文档v0.5版本 用户基础服务功能 服务架构总览center  服务综合管理中心 &amp;ensp;|">
-<meta name="keywords" content="springboot,cloud,consul,java">
+    <meta name="keywords" content="springboot,cloud,分布式">
+    <meta name="description" content="保障服务可扩展性的七大原则1、按功能划分 2、水平切分 3、尽量避免事务 4、适当采用异步解耦 5、次流程改进为异步 6、虚拟化所有层次 7、适当使用缓存 服务拆分开发的四项原则1、先业务后技术，先逻辑后物理 2、奥卡姆剃刀：如无必须勿增实体 3、正交性：抽象出模块间无业务相关的重复代码 4、稳定性原则：服务的稳定性优先，通过拆分解耦  可参考的技术方案：接口化、消息队列、模块化、服务化、异步化">
+<meta name="keywords" content="springboot,cloud,分布式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于consul注册中心实现cloud微服务框架">
-<meta property="og:url" content="https://github.com/lemon-china/2019/09/01/cloud-guid/index.html">
+<meta property="og:title" content="服务开发核心思想">
+<meta property="og:url" content="https://github.com/lemon-china/2019/09/05/exp_1113/index.html">
 <meta property="og:site_name" content="lemon-china">
-<meta property="og:description" content="基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式 本项目预启动时间为2019-03-01，实现以下内容： 开发计划v0.1版本 整体服务结构划分，服务边界设定v0.2版本 服务网关授权模式搭建v0.3版本 前后端技术框架接入v0.4版本 服务开发技术规范文档v0.5版本 用户基础服务功能 服务架构总览center  服务综合管理中心 &amp;ensp;|">
+<meta property="og:description" content="保障服务可扩展性的七大原则1、按功能划分 2、水平切分 3、尽量避免事务 4、适当采用异步解耦 5、次流程改进为异步 6、虚拟化所有层次 7、适当使用缓存 服务拆分开发的四项原则1、先业务后技术，先逻辑后物理 2、奥卡姆剃刀：如无必须勿增实体 3、正交性：抽象出模块间无业务相关的重复代码 4、稳定性原则：服务的稳定性优先，通过拆分解耦  可参考的技术方案：接口化、消息队列、模块化、服务化、异步化">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-07T07:38:14.897Z">
+<meta property="og:updated_time" content="2019-09-07T11:38:52.865Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于consul注册中心实现cloud微服务框架">
-<meta name="twitter:description" content="基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式 本项目预启动时间为2019-03-01，实现以下内容： 开发计划v0.1版本 整体服务结构划分，服务边界设定v0.2版本 服务网关授权模式搭建v0.3版本 前后端技术框架接入v0.4版本 服务开发技术规范文档v0.5版本 用户基础服务功能 服务架构总览center  服务综合管理中心 &amp;ensp;|">
+<meta name="twitter:title" content="服务开发核心思想">
+<meta name="twitter:description" content="保障服务可扩展性的七大原则1、按功能划分 2、水平切分 3、尽量避免事务 4、适当采用异步解耦 5、次流程改进为异步 6、虚拟化所有层次 7、适当使用缓存 服务拆分开发的四项原则1、先业务后技术，先逻辑后物理 2、奥卡姆剃刀：如无必须勿增实体 3、正交性：抽象出模块间无业务相关的重复代码 4、稳定性原则：服务的稳定性优先，通过拆分解耦  可参考的技术方案：接口化、消息队列、模块化、服务化、异步化">
     
         <link rel="alternate" type="application/atom+xml" title="lemon-china" href="/atom.xml">
     
@@ -134,7 +134,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">基于consul注册中心实现cloud微服务框架</div>
+        <div class="flex-col header-title ellipsis">服务开发核心思想</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -156,11 +156,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">基于consul注册中心实现cloud微服务框架</h1>
+        <h1 class="title">服务开发核心思想</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-09-01T02:10:12.000Z" itemprop="datePublished" class="page-time">
-  2019-09-01
+                <time datetime="2019-09-05T04:30:12.000Z" itemprop="datePublished" class="page-time">
+  2019-09-05
 </time>
 
 
@@ -181,18 +181,18 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开发计划"><span class="post-toc-number">1.</span> <span class="post-toc-text">开发计划</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#服务架构总览"><span class="post-toc-number">2.</span> <span class="post-toc-text">服务架构总览</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#服务项目结构约定"><span class="post-toc-number">3.</span> <span class="post-toc-text">服务项目结构约定</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#保障服务可扩展性的七大原则"><span class="post-toc-number">1.</span> <span class="post-toc-text">保障服务可扩展性的七大原则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务拆分开发的四项原则"><span class="post-toc-number">2.</span> <span class="post-toc-text">服务拆分开发的四项原则</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-cloud-guid"
+<article id="post-exp_1113"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">基于consul注册中心实现cloud微服务框架</h1>
+        <h1 class="post-card-title">服务开发核心思想</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-09-01 10:10:12" datetime="2019-09-01T02:10:12.000Z"  itemprop="datePublished">2019-09-01</time>
+            <time class="post-time" title="2019-09-05 12:30:12" datetime="2019-09-05T04:30:12.000Z"  itemprop="datePublished">2019-09-05</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/经验分享/">经验分享</a></li></ul>
@@ -203,93 +203,20 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式</p>
-<p>本项目预启动时间为2019-03-01，实现以下内容：</p>
-<h4 id="开发计划"><a href="#开发计划" class="headerlink" title="开发计划"></a>开发计划<br></h4><p>v0.1版本 整体服务结构划分，服务边界设定<br><br>v0.2版本 服务网关授权模式搭建<br><br>v0.3版本 前后端技术框架接入<br><br>v0.4版本 服务开发技术规范文档<br><br>v0.5版本 用户基础服务功能<br></p>
-<h4 id="服务架构总览"><a href="#服务架构总览" class="headerlink" title="服务架构总览"></a>服务架构总览<br></h4><p>center  服务综合管理中心 <br><br>&ensp;|—  lemon-gateway  服务网关 <br><br>&ensp;|—  lemon-monitor  服务监控 <br><br>&ensp;|  <br></p>
-<p>commons  服务基础组件中心 <br><br>&ensp;|—  lemon-common  服务通用组件 <br><br>&ensp;|—  lemon-distribution  分布业务锁&amp;任务锁 <br><br>&ensp;|—  lemon-framework  服务基础功能类包 <br><br>&ensp;|—  lemon-rabbit  服务Rabbit功能统一封装组件 <br><br>&ensp;|—  lemon-sharding  数据库分库分表封装组件 <br></p>
-<p>services  微服务中心 <br><br>&ensp;|—  lemon-auth  授权&amp;鉴权服务 <br><br>&ensp;|—  lemon-user  用户服务 <br><br>&ensp;|—  lemon-xxx    <br><br>&ensp;|  <br></p>
-<h4 id="服务项目结构约定"><a href="#服务项目结构约定" class="headerlink" title="服务项目结构约定"></a>服务项目结构约定<br></h4><p>1、服务名由lemon-{xxxx}组成，xxxx为相关微服务的业务名称<br></p>
-<p>2、每个服务脚手架组件包含如下：<br></p>
-<table>
-<thead>
-<tr>
-<th>NO.</th>
-<th>Package</th>
-<th>Desc</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>cn.lemon.{xxxx}.api.rest</td>
-<td>提供对外服务rest接口</td>
-</tr>
-<tr>
-<td>2</td>
-<td>cn.lemon.{xxxx}.api.rpc</td>
-<td>提供对内服务rpc接口</td>
-</tr>
-<tr>
-<td>3</td>
-<td>cn.lemon.{xxxx}.config</td>
-<td>提供服务配置相关</td>
-</tr>
-<tr>
-<td>4</td>
-<td>cn.lemon.{xxxx}.entity.enums</td>
-<td>提供业务枚举类</td>
-</tr>
-<tr>
-<td>5</td>
-<td>cn.lemon.{xxxx}.entity.po</td>
-<td>提供数据库映射实体</td>
-</tr>
-<tr>
-<td>6</td>
-<td>cn.lemon.{xxxx}.entity.vo</td>
-<td>提供对外接口映射实体</td>
-</tr>
-<tr>
-<td>7</td>
-<td>cn.lemon.{xxxx}.rpc.client</td>
-<td>提供对内服务rpc调用接口 (api层不能调用rpc接口)</td>
-</tr>
-<tr>
-<td>8</td>
-<td>cn.lemon.{xxxx}.rpc.client.fallback</td>
-<td>提供对内服务rpc调用失败业务处理</td>
-</tr>
-<tr>
-<td>9</td>
-<td>cn.lemon.{xxxx}.service</td>
-<td>提供业务逻辑接口 (api层调用业务接口)</td>
-</tr>
-<tr>
-<td>10</td>
-<td>cn.lemon.{xxxx}.service.impl</td>
-<td>提供业务逻辑实现</td>
-</tr>
-<tr>
-<td>11</td>
-<td>cn.lemon.{xxxx}.dao</td>
-<td>提供数据库操作</td>
-</tr>
-<tr>
-<td>12</td>
-<td>cn.lemon.{xxxx}.events.pub</td>
-<td>提供MQ发送事件</td>
-</tr>
-<tr>
-<td>13</td>
-<td>cn.lemon.{xxxx}.events.sub</td>
-<td>提供MQ接收事件</td>
-</tr>
-<tr>
-<td>14</td>
-<td>cn.lemon.{xxxx}.task</td>
-<td>提供任务定时执行逻辑</td>
-</tr>
-</tbody></table>
+            <h3 id="保障服务可扩展性的七大原则"><a href="#保障服务可扩展性的七大原则" class="headerlink" title="保障服务可扩展性的七大原则"></a>保障服务可扩展性的七大原则</h3><p>1、按功能划分</p>
+<p>2、水平切分</p>
+<p>3、尽量避免事务</p>
+<p>4、适当采用异步解耦</p>
+<p>5、次流程改进为异步</p>
+<p>6、虚拟化所有层次</p>
+<p>7、适当使用缓存</p>
+<h3 id="服务拆分开发的四项原则"><a href="#服务拆分开发的四项原则" class="headerlink" title="服务拆分开发的四项原则"></a>服务拆分开发的四项原则</h3><p>1、先业务后技术，先逻辑后物理</p>
+<p>2、奥卡姆剃刀：如无必须勿增实体</p>
+<p>3、正交性：抽象出模块间无业务相关的重复代码</p>
+<p>4、稳定性原则：服务的稳定性优先，通过拆分解耦</p>
+<blockquote>
+<p>可参考的技术方案：接口化、消息队列、模块化、服务化、异步化</p>
+</blockquote>
 
         </div>
 
@@ -314,7 +241,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cloud/">cloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/consul/">consul</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/">springboot</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cloud/">cloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式/">分布式</a></li></ul>
 
 
             
@@ -324,7 +251,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/01/cloud-guid/&title=《基于consul注册中心实现cloud微服务框架》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/05/exp_1113/&title=《服务开发核心思想》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -334,22 +261,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/01/cloud-guid/&title=《基于consul注册中心实现cloud微服务框架》 — lemon-china&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/05/exp_1113/&title=《服务开发核心思想》 — lemon-china&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/01/cloud-guid/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/05/exp_1113/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于consul注册中心实现cloud微服务框架》 — lemon-china&url=https://github.com/lemon-china/2019/09/01/cloud-guid/&via=https://github.com/lemon-china" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《服务开发核心思想》 — lemon-china&url=https://github.com/lemon-china/2019/09/05/exp_1113/&via=https://github.com/lemon-china" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/01/cloud-guid/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/05/exp_1113/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -372,18 +299,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/09/02/cloud-rule/" id="post-prev" class="post-nav-link">
+      <a href="/2019/09/06/doc_1112/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">代码习惯在细节</h4>
+        <h4 class="title">乐檬框架之cloud微服务框架</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/05/01/lemon-rabbitmq/" id="post-next" class="post-nav-link">
+      <a href="/2019/09/04/stu_1111/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）</h4>
+        <h4 class="title">XXL-JOB分布式任务快速入门</h4>
       </a>
     </div>
   
@@ -474,7 +401,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/01/cloud-guid/&title=《基于consul注册中心实现cloud微服务框架》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/05/exp_1113/&title=《服务开发核心思想》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -484,22 +411,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/01/cloud-guid/&title=《基于consul注册中心实现cloud微服务框架》 — lemon-china&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/05/exp_1113/&title=《服务开发核心思想》 — lemon-china&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/01/cloud-guid/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/05/exp_1113/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于consul注册中心实现cloud微服务框架》 — lemon-china&url=https://github.com/lemon-china/2019/09/01/cloud-guid/&via=https://github.com/lemon-china" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《服务开发核心思想》 — lemon-china&url=https://github.com/lemon-china/2019/09/05/exp_1113/&via=https://github.com/lemon-china" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/01/cloud-guid/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/05/exp_1113/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -510,7 +437,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHElEQVR42u3aQY6DMAwF0N7/0p3tSCPo/zEdifCyqqCEPBZWHPv1isf71zi6/ne0c+bPLg4MDIzbMpKlnF85f+p8hqPZ6s+EgYHxAMZRBEv+s7bEdp4Pa8bAwMA4nfodjJaNgYGBMWesJa55+MbAwMBYS2InR29tUP5iLo6BgXFDRhsi//P3V+obGBgYt2JcFRDbreTFYRoDA2NrRh7gkmP9eTFy0qiBgYHxBMY8+K61duXp8cUbRAwMjJsw2nRxknYmG8S14gQGBsbejLXGrKvuzq9jYGA8hzFpmGiP2/KUOLmLgYHxBEYSLvOj/HbLmAT3KDHGwMDYmpGfX+WFgUmAvvi9GBgYj2HMA2hbWpiUEDAwMPZjJK+cbAfbtHZ00IaBgbEpI2+2WMsW8zA9arbAwMDYmjFZ9FpDatsCW2wNMTAwNmVctdB8nvZdeYjHwMDYlbGWxLblz7UiaP4sBgbG3oxrD8LyzV+b7kbhGAMD4zGMvBj5jX+2pdPDgIuBgbEpI3/BvP1rLVh/CP0YGBgPZkwav4oUdPyBMDAwdmW8y5HnjJOCQV2EwMDA2JqxFuzWpmubOZLf9UowMDBuy2ibKtrmibbXY/GTYWBgPIDRBr61LWNbvMxXi4GBgZEf9LdlgFExAAMDA6NMJtvN4loQjxpYMTAwNmUkSeyk6NiWCupEGgMDY2tGmzq2rRjnC223mKOiJgYGxv0YP4V3+ghIT9upAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3aQU7EMAwF0Ln/pYuEWCChSb/tgmj6shoNpc3rwmM7fr3idXyun5+/f/Nzvbt+fef19aOFgYFxW8axXMnWkw0lT1nfZ/1fGBgYT2DkobAaTPP7J8H97fcYGBgYQbqWB+4kucTAwMCYBNw8+esFbgwMDIxJEVvdRN5Qqz4XAwPjaYzJwcBvf/6j8w0MDIx/zDiKK3l8r9zt7efrfzEwMLZmJMnc+vtq0pZfkxyURpvDwMC4OaPXPsthedhNStzXxI2BgXFbRi8UJkNdvQI1PxI4+fXAwMDYiJEE015bPwmaedP/5KVgYGBszej13nNwbywjfxYGBsYTGL0DxWoCNy+Go98NDAyMrRlJ872ars2bboXjTwwMjK0ZvSQvPxK4NmMtDHZgYGBsx5hsaD5+MQ/rGBgYezOqLbCrStm8rR8Nc2BgYDyMcdXkVV6gTl7cSdcQAwNjC8Z8wKIQFot/TX4SMDAwnsboHTdWw24yWFZNPTEwMJ7JmIfFHr5XDGNgYOzNqG69WtYm96+OVlwQZDEwMG7IqLa0euMX69UrYjEwMJ7AqIbFXqBcw3phvZkgYmBg3JBxFFf5KLFFKodjDAyMrRnVYDdp9Feba8krw8DAeA6jGmSvCpd5CjjKHDEwMDZiTIJs4aR0kN6dvBQMDAyMYAxiUrLm17zdDwYGBkYxKF8FGJ3HYmBgbMfIk79eGXxBW3+9EwwMjK0Z8wKyN4qRvII8JcXAwNiU8QFMCLJQKAIyEAAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

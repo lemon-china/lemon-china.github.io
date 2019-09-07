@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>XXL-JOB分布式任务调度平台 | lemon-china | 乐檬·中国致力于打造最优雅的系统框架</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="java,开源工具,定时任务">
+    <meta name="description" content="XXL-JOB是一个轻量级分布式任务调度平台，其核心设计目标是开发迅速、学习简单、轻量级、易扩展。现已开放源代码并接入多家公司线上产品线，开箱即用。  项目地址：xxl-job分布式任务调度平台  简单：支持通过Web页面对任务进行CRUD操作，操作简单，一分钟上手； 动态：支持动态修改任务状态、启动/停止任务，以及终止运行中任务，即时生效； 调度中心HA（中心式）：调度采用中心式设计，“调度中">
+<meta name="keywords" content="java,开源工具,定时任务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XXL-JOB分布式任务调度平台">
+<meta property="og:url" content="https://github.com/lemon-china/2019/09/03/tool_1112/index.html">
+<meta property="og:site_name" content="lemon-china">
+<meta property="og:description" content="XXL-JOB是一个轻量级分布式任务调度平台，其核心设计目标是开发迅速、学习简单、轻量级、易扩展。现已开放源代码并接入多家公司线上产品线，开箱即用。  项目地址：xxl-job分布式任务调度平台  简单：支持通过Web页面对任务进行CRUD操作，操作简单，一分钟上手； 动态：支持动态修改任务状态、启动/停止任务，以及终止运行中任务，即时生效； 调度中心HA（中心式）：调度采用中心式设计，“调度中">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-07T13:07:38.251Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XXL-JOB分布式任务调度平台">
+<meta name="twitter:description" content="XXL-JOB是一个轻量级分布式任务调度平台，其核心设计目标是开发迅速、学习简单、轻量级、易扩展。现已开放源代码并接入多家公司线上产品线，开箱即用。  项目地址：xxl-job分布式任务调度平台  简单：支持通过Web页面对任务进行CRUD操作，操作简单，一分钟上手； 动态：支持动态修改任务状态、启动/停止任务，以及终止运行中任务，即时生效； 调度中心HA（中心式）：调度采用中心式设计，“调度中">
+    
+        <link rel="alternate" type="application/atom+xml" title="lemon-china" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lemon-china</h5>
+          <a href="mailto:lonyee@live.com" title="lonyee@live.com" class="mail">lonyee@live.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/学习笔记"  >
+                <i class="icon icon-lg icon-mortar-board"></i>
+                学习笔记
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/经验分享"  >
+                <i class="icon icon-lg icon-puzzle-piece"></i>
+                经验分享
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/常用工具"  >
+                <i class="icon icon-lg icon-cubes"></i>
+                常用工具
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lemon-china/lemon-consul-cloud" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                我的项目
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/开源文档"  >
+                <i class="icon icon-lg icon-gbp"></i>
+                开源文档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章列表
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                友情链接
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">XXL-JOB分布式任务调度平台</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">XXL-JOB分布式任务调度平台</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-03T05:23:12.000Z" itemprop="datePublished" class="page-time">
+  2019-09-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/常用工具/">常用工具</a></li></ul>
+
+            
+        </h5>
+    </div>
+    
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-tool_1112"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">XXL-JOB分布式任务调度平台</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-09-03 13:23:12" datetime="2019-09-03T05:23:12.000Z"  itemprop="datePublished">2019-09-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/常用工具/">常用工具</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>XXL-JOB是一个轻量级分布式任务调度平台，其核心设计目标是开发迅速、学习简单、轻量级、易扩展。现已开放源代码并接入多家公司线上产品线，开箱即用。</p>
+</blockquote>
+<p>项目地址：<a href="http://www.xuxueli.com/xxl-job/" target="_blank" rel="noopener">xxl-job分布式任务调度平台</a></p>
+<ul>
+<li>简单：支持通过Web页面对任务进行CRUD操作，操作简单，一分钟上手；</li>
+<li>动态：支持动态修改任务状态、启动/停止任务，以及终止运行中任务，即时生效；</li>
+<li>调度中心HA（中心式）：调度采用中心式设计，“调度中心”自研调度组件并支持集群部署，可保证调度中心HA；</li>
+<li>执行器HA（分布式）：任务分布式执行，任务”执行器”支持集群部署，可保证任务执行HA；</li>
+<li>注册中心: 执行器会周期性自动注册任务, 调度中心将会自动发现注册的任务并触发执行。同时，也支持手动录入执行器地址；</li>
+<li>弹性扩容缩容：一旦有新执行器机器上线或者下线，下次调度时将会重新分配任务；</li>
+<li>路由策略：执行器集群部署时提供丰富的路由策略，包括：第一个、最后一个、轮询、随机、一致性HASH、最不经常使用、最近最久未使用、故障转移、忙碌转移等；</li>
+<li>故障转移：任务路由策略选择”故障转移”情况下，如果执行器集群中某一台机器故障，将会自动Failover切换到一台正常的执行器发送调度请求。</li>
+<li>阻塞处理策略：调度过于密集执行器来不及处理时的处理策略，策略包括：单机串行（默认）、丢弃后续调度、覆盖之前调度；</li>
+<li>任务超时控制：支持自定义任务超时时间，任务运行超时将会主动中断任务；</li>
+<li>任务失败重试：支持自定义任务失败重试次数，当任务失败时将会按照预设的失败重试次数主动进行重试；其中分片任务支持分片粒度的失败重试；</li>
+<li>任务失败告警；默认提供邮件方式失败告警，同时预留扩展接口，可方便的扩展短信、钉钉等告警方式；</li>
+<li>分片广播任务：执行器集群部署时，任务路由策略选择”分片广播”情况下，一次任务调度将会广播触发集群中所有执行器执行一次任务，可根据分片参数开发分片任务；</li>
+<li>动态分片：分片广播任务以执行器为维度进行分片，支持动态扩容执行器集群从而动态增加分片数量，协同进行业务处理；在进行大数据量业务操作时可显著提升任务处理能力和速度。</li>
+<li>事件触发：除了”Cron方式”和”任务依赖方式”触发任务执行之外，支持基于事件的触发任务方式。调度中心提供触发任务单次执行的API服务，可根据业务事件灵活触发。</li>
+<li>任务进度监控：支持实时监控任务进度；</li>
+<li>Rolling实时日志：支持在线查看调度结果，并且支持以Rolling方式实时查看执行器输出的完整的执行日志；</li>
+<li>GLUE：提供Web IDE，支持在线开发任务逻辑代码，动态发布，实时编译生效，省略部署上线的过程。支持30个版本的历史版本回溯。</li>
+<li>脚本任务：支持以GLUE模式开发和运行脚本任务，包括Shell、Python、NodeJS、PHP、PowerShell等类型脚本;</li>
+<li>命令行任务：原生提供通用命令行任务Handler（Bean任务，”CommandJobHandler”）；业务方只需要提供命令行即可；</li>
+<li>任务依赖：支持配置子任务依赖，当父任务执行结束且执行成功后将会主动触发一次子任务的执行, 多个子任务用逗号分隔；</li>
+<li>一致性：“调度中心”通过DB锁保证集群分布式调度的一致性, 一次任务调度只会触发一次执行；</li>
+<li>自定义任务参数：支持在线配置调度任务入参，即时生效；</li>
+<li>调度线程池：调度系统多线程触发调度运行，确保调度精确执行，不被堵塞；</li>
+<li>数据加密：调度中心和执行器之间的通讯进行数据加密，提升调度信息安全性；</li>
+<li>邮件报警：任务失败时支持邮件报警，支持配置多邮件地址群发报警邮件；</li>
+<li>推送maven中央仓库: 将会把最新稳定版推送到maven中央仓库, 方便用户接入和使用;</li>
+<li>运行报表：支持实时查看运行数据，如任务数量、调度次数、执行器数量等；以及调度报表，如调度日期分布图，调度成功分布图等；</li>
+<li>全异步：任务调度流程全异步化设计实现，如异步调度、异步运行、异步回调等，有效对密集调度进行流量削峰，理论上支持任意时长任务的运行；</li>
+<li>跨平台：原生提供通用HTTP任务Handler（Bean任务，”HttpJobHandler”）；业务方只需要提供HTTP链接即可，不限制语言、平台；</li>
+<li>国际化：调度中心支持国际化设置，提供中文、英文两种可选语言，默认为中文；</li>
+<li>容器化：提供官方docker镜像，并实时更新推送dockerhub，进一步实现产品开箱即用；</li>
+<li>线程池隔离：调度线程池进行隔离拆分，慢任务自动降级进入”Slow”线程池，避免耗尽调度线程，提高系统稳定性；</li>
+<li>用户管理：支持在线管理系统用户，存在管理员、普通用户两种角色；</li>
+<li>权限控制：执行器维度进行权限控制，管理员拥有全量权限，普通用户需要分配执行器权限后才允许相关操作。</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <!-- 
+	
+	-->
+    <footer>
+        <a href="https://github.com/lemon-china">
+            <img src="/img/avatar.jpg" alt="lemon-china">
+            lemon-china
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/定时任务/">定时任务</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开源工具/">开源工具</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/03/tool_1112/&title=《XXL-JOB分布式任务调度平台》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/03/tool_1112/&title=《XXL-JOB分布式任务调度平台》 — lemon-china&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/03/tool_1112/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《XXL-JOB分布式任务调度平台》 — lemon-china&url=https://github.com/lemon-china/2019/09/03/tool_1112/&via=https://github.com/lemon-china" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/03/tool_1112/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/09/04/stu_1111/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">XXL-JOB分布式任务快速入门</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/02/exp_1112/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">代码习惯在细节</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的支持~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>Copyright &copy; 2017 - 2019</span>
+            <span>
+                
+                lemon-china All Rights Reserved
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/03/tool_1112/&title=《XXL-JOB分布式任务调度平台》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/03/tool_1112/&title=《XXL-JOB分布式任务调度平台》 — lemon-china&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/03/tool_1112/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《XXL-JOB分布式任务调度平台》 — lemon-china&url=https://github.com/lemon-china/2019/09/03/tool_1112/&via=https://github.com/lemon-china" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/03/tool_1112/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aQW7DMAwEwP7/0+41Fzu7VBwg8ugUGK2t0YGgSP79xet4Wa9Pzn6/PmnfmfzvcGFgYPws47hcyd+cffh6i9fvz/eGgYHxHEayiWt8EjSvn19T37wHAwMDIwideTBtE00MDAyMWcCdhcscjIGBgTG7xOY1rjaJ/OpdHAMD4wcZedX9+79v6W9gYGD8FOMoV/v5leZBsSsMDIytGXmAW4e1Dct2UAMDA2NXRl7in1HzC/D1t958HQMDY2vGrCXZFsJWNpq3EDAwMPZmtKnbSksgaWq2Y2QYGBh7M9rCWXs1naV6CQwDA+NpjLY03374Uwni6fsxMDAewJiNOLSJYN5aqBNHDAyMBzDyJCwvpeXFuySgvwnZGBgYWzNmwxbJ59cD7lK9EAMDYyPG7IJ6x3DGx2ZGMDAwtmasXFBn4xHtIEWd4WJgYGzBaC+f7XhEXsLLj+n0zRgYGA9gtFfHdjgjD+LtqBkGBgbGSuEsCcptiS2qGmJgYGzKmLUqZ1u55TgwMDAewEjGIFZGwe47AgwMjOcw1kNePkKRtznzizQGBsaujKNcs3NKEs28UVF0FTAwMLZgzILdLH1MSEmq2g6fYWBg7MFIgmziXg/cS+kjBgbGAxj5gFcSWPPiWrvdN3kuBgYGRlusHzVB28PCwMDAaC+feWp4fRlOjuC0E4uBgbEpIx+byDe0PrRxS7kNAwPjBxnt1XGlqTkr57UjIBgYGBsx/gFHucdl/byVmAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
