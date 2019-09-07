@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架） | lemon-china | 乐檬·中国致力于打造最优雅的系统框架</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="rabbitmq,springboot,ack/nack,java">
+    <meta name="description" content="项目地址：lemon-rabbitmq lemon-rabbitmq   消息生产端 lemon-rabbitmq-protocol   消息协议层 lemon-rabbitmq-consumer   消息消费端  消息协议层通过Jackson2序列化/反序列化，实现消息传递和对象接收 消息生产端1、通过发送带有消费端服务类名称和方法请求头，控制消费端调用执行消费发送的信息 2、利用消息回调接口C">
+<meta name="keywords" content="rabbitmq,springboot,ack&#x2F;nack,java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）">
+<meta property="og:url" content="https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/index.html">
+<meta property="og:site_name" content="lemon-china">
+<meta property="og:description" content="项目地址：lemon-rabbitmq lemon-rabbitmq   消息生产端 lemon-rabbitmq-protocol   消息协议层 lemon-rabbitmq-consumer   消息消费端  消息协议层通过Jackson2序列化/反序列化，实现消息传递和对象接收 消息生产端1、通过发送带有消费端服务类名称和方法请求头，控制消费端调用执行消费发送的信息 2、利用消息回调接口C">
+<meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2019-09-07T03:49:01.509Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）">
+<meta name="twitter:description" content="项目地址：lemon-rabbitmq lemon-rabbitmq   消息生产端 lemon-rabbitmq-protocol   消息协议层 lemon-rabbitmq-consumer   消息消费端  消息协议层通过Jackson2序列化/反序列化，实现消息传递和对象接收 消息生产端1、通过发送带有消费端服务类名称和方法请求头，控制消费端调用执行消费发送的信息 2、利用消息回调接口C">
+    
+        <link rel="alternate" type="application/atom+xml" title="lemon-china" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lemon-china</h5>
+          <a href="mailto:lonyee@live.com" title="lonyee@live.com" class="mail">lonyee@live.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-01T02:34:12.000Z" itemprop="datePublished" class="page-time">
+  2017-05-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术方案/">技术方案</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#消息协议层"><span class="post-toc-number">1.</span> <span class="post-toc-text">消息协议层</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#消息生产端"><span class="post-toc-number">2.</span> <span class="post-toc-text">消息生产端</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#消息消费端"><span class="post-toc-number">3.</span> <span class="post-toc-text">消息消费端</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-lemon-rabbitmq"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-01 10:34:12" datetime="2017-05-01T02:34:12.000Z"  itemprop="datePublished">2017-05-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术方案/">技术方案</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>项目地址：<a href="https://github.com/lemon-china/lemon-rabbitmq">lemon-rabbitmq</a></p>
+<p>lemon-rabbitmq   消息生产端</p>
+<p>lemon-rabbitmq-protocol   消息协议层</p>
+<p>lemon-rabbitmq-consumer   消息消费端</p>
+<hr>
+<h4 id="消息协议层"><a href="#消息协议层" class="headerlink" title="消息协议层"></a>消息协议层</h4><p>通过Jackson2序列化/反序列化，实现消息传递和对象接收</p>
+<h4 id="消息生产端"><a href="#消息生产端" class="headerlink" title="消息生产端"></a>消息生产端</h4><p>1、通过发送带有消费端服务类名称和方法请求头，控制消费端调用执行消费发送的信息</p>
+<p>2、利用消息回调接口ConfirmCallback确保消息安全发送至broker服务器，处理效率比事物方式更高</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(<span class="keyword">final</span> String serviceName, <span class="keyword">final</span> String serviceMethodName,<span class="keyword">final</span> String correlationId, Object request)</span> </span>&#123;</span><br><span class="line">   logger.info(<span class="string">"sendMessage [this.&#123;&#125;, serviceMethodName:&#123;&#125; serviceName:&#123;&#125; correlationId: &#123;&#125;]"</span>, <span class="keyword">this</span>.getClass(), serviceMethodName, serviceName, correlationId);</span><br><span class="line">   rabbitTemplate.setConfirmCallback(<span class="keyword">this</span>);</span><br><span class="line">   rabbitTemplate.setCorrelationKey(correlationId);</span><br><span class="line">   rabbitTemplate.convertAndSend(routingkey, request, <span class="keyword">new</span> MessagePostProcessor() &#123;            </span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> Message <span class="title">postProcessMessage</span><span class="params">(Message message)</span> <span class="keyword">throws</span> AmqpException </span>&#123;</span><br><span class="line">              message.getMessageProperties().setAppId(appId);</span><br><span class="line">              message.getMessageProperties().setTimestamp(<span class="keyword">new</span> Date());</span><br><span class="line">              message.getMessageProperties().setMessageId(UUID.randomUUID().toString());</span><br><span class="line">              message.getMessageProperties().setCorrelationId(correlationId.getBytes());</span><br><span class="line">              message.getMessageProperties().setHeader(<span class="string">"ServiceMethodName"</span>, serviceMethodName);</span><br><span class="line">              message.getMessageProperties().setHeader(<span class="string">"ServiceName"</span>, serviceName);</span><br><span class="line">              <span class="keyword">return</span> message;</span><br><span class="line">          &#125;</span><br><span class="line">   &#125;, <span class="keyword">new</span> CorrelationData(correlationId));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="消息消费端"><a href="#消息消费端" class="headerlink" title="消息消费端"></a>消息消费端</h4><p>1、监听MQ消息，利用method.invoke调用指定的服务类名称和方法，消费接收到的消息</p>
+<p>2、使用Ack/Nack手动确认消息处理状态，保证broker消息被正确消费</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(Message message, Channel channel)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"----- received"</span> + message.getMessageProperties());</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Object msg = messageConverter.fromMessage(message);</span><br><span class="line">			<span class="keyword">if</span> (!appId.equals(message.getMessageProperties().getAppId()))&#123;</span><br><span class="line">		        channel.basicNack(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line">		        <span class="keyword">throw</span> <span class="keyword">new</span> SecurityException(<span class="string">"非法应用appId:"</span> + message.getMessageProperties().getAppId());</span><br><span class="line">			&#125;</span><br><span class="line">			Object service = ctx.getBean(message.getMessageProperties().getHeaders().get(<span class="string">"ServiceName"</span>).toString());</span><br><span class="line">			String serviceMethodName = message.getMessageProperties().getHeaders().get(<span class="string">"ServiceMethodName"</span>).toString();</span><br><span class="line">			Method method = service.getClass().getMethod(serviceMethodName, msg.getClass());</span><br><span class="line">	       method.invoke(service, msg);</span><br><span class="line">	       <span class="comment">//确认消息成功消费</span></span><br><span class="line">	       channel.basicAck(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"------ err"</span>+ e.getMessage());</span><br><span class="line">	       channel.basicNack(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-09-07T03:49:01.509Z" itemprop="dateUpdated">2019-09-07 11:49:01</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/05/01/lemon-rabbitmq/" target="_blank" rel="external">https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/lemon-china">
+            <img src="/img/avatar.jpg" alt="lemon-china">
+            lemon-china
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ack-nack/">ack/nack</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/">springboot</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/&title=《乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/&title=《乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）》 — lemon-china&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）》 — lemon-china&url=https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/&via=https://github.com/lemon-china" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/10/21/demo/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">辨析 Sass 中的 Map 和 List</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的支持~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lemon-china &copy; 2017 - 2019</span>
+            <span>
+                
+                Power by lemon-china
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/&title=《乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/&title=《乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）》 — lemon-china&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）》 — lemon-china&url=https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/&via=https://github.com/lemon-china" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2017/05/01/lemon-rabbitmq/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3aQY7CQAwEwP3/p9nrSgjo9sBKOJUTQpNkKgfLY/vnJ75uf677/+/X3K9MnpnfO7wwMDC+lnF7es0Yz/9J9pDvDQMD4zqMR49+tCZh54E4ec6LPWNgYGCUqV4eOp+/CwMDA+M84OaHz/wtGBgYGCeH2DZNPLk+eBbHwMD4QkZedf//3x/pb2BgYHwVYxYE25SuLcbVu8LAwFjNmJXSPtGMPB/UwMDA2M1oS2DvLZm1Ix1H+SwGBsYXMk4C3yw4ngxVPARjYGCsZiQbmpXy39CSLIM1BgbGdRjJETQvos3SzfazYmBg7GbkL8tbBXkz8uS4+yIqY2BgLGLMDqgnx9GTu/LEEQMDYx8jCbLJyveuyRuiGBgYuxknzYCk3Zh/oI8U2jAwMBYx6ggdH4Bno2bDYQsMDIzVjLxk3zYp20QzxzxMDTEwMJYykptnYxNJIpg3HupCGwYGxiJGG+DqgDgKxMVnxcDAWM2YjZy269sA3Q6FYGBgXIfxrhGKvAJ2csSNEkQMDIzVjPONtqW02XAYBgbGlRltitY2I5OCWh7cMTAwdjNu5dXCWvysFYGBgbGb8a6Y3ZbnknfNBjIwMDC2Mk7KbXlIzb/fMH3EwMC4AGMW+E5akrO070Wei4GBgVEeMtswXTcDMDAwMI4ZbeqZH5JfDLBiYGAsZbSvyRsGs1ZBPbSBgYGxmtEeHWeNz7acl7cHMDAwVjN+Af2S5lQUgGfSAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

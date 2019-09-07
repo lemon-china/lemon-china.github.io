@@ -208,6 +208,60 @@
 
         </li>
     
+        <li class="post-list-item fade">
+            <article id="post-lemon-rabbitmq"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-05-01 10:34:12" datetime="2017-05-01T02:34:12.000Z"  itemprop="datePublished">2017-05-01</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术方案/">技术方案</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/05/01/lemon-rabbitmq/">乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        项目地址：lemon-rabbitmq
+lemon-rabbitmq   消息生产端
+lemon-rabbitmq-protocol   消息协议层
+lemon-rabbitmq-consumer   消息消费端
+
+消息协议层通过Jackson2序列化/反序列化，实现消息传递和对象接收
+消息生产端1、通过发送带有消费端服务类名称和方法请求头，控制消费端调用执行消费发送的信息
+2、利用消息回调...
+    
+
+        <a href="/2017/05/01/lemon-rabbitmq/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ack-nack/">ack/nack</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitmq/">rabbitmq</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/">springboot</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
 
     
