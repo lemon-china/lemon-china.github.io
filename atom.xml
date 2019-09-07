@@ -107,9 +107,9 @@
     
       <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
     
-      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
-    
       <category term="consul" scheme="https://github.com/lemon-china/tags/consul/"/>
+    
+      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
     
   </entry>
   
@@ -139,11 +139,11 @@
     
       <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
     
+      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
+    
       <category term="rabbitmq" scheme="https://github.com/lemon-china/tags/rabbitmq/"/>
     
       <category term="ack/nack" scheme="https://github.com/lemon-china/tags/ack-nack/"/>
-    
-      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
     
   </entry>
   
