@@ -181,6 +181,41 @@
   </entry>
   
   <entry>
+    <title>Apollo分布式配置中心快速入门</title>
+    <link href="https://github.com/lemon-china/2019/09/02/stu_1112/"/>
+    <id>https://github.com/lemon-china/2019/09/02/stu_1112/</id>
+    <published>2019-09-02T04:21:22.000Z</published>
+    <updated>2019-09-07T13:31:36.409Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。</p></blockquote><p>项目地址：<a href="https://github.com/ctripcorp/apollo">apollo分布式配置中心</a></p><h2 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h2><ul><li>AppId</li><li>ENV</li><li>Cluster</li><li>Namespace<ul><li>Public</li><li>Private</li><li>关联(继承)</li></ul></li></ul><h2 id="操作点"><a href="#操作点" class="headerlink" title="操作点"></a>操作点</h2><ul><li>发布</li><li>回滚</li><li>灰度</li><li>创建Cluster</li><li>创建/关联Namespace</li></ul><h2 id="核心点"><a href="#核心点" class="headerlink" title="核心点"></a>核心点</h2><ul><li>项目AppId</li><li>宿主机ENV</li><li>apollo.meta</li><li>Private <em>AppId</em></li><li>Public <em>Share</em></li><li>可多Namespace</li><li>Public关联 / 覆盖</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;项目地址
+      
+    
+    </summary>
+    
+    
+      <category term="学习笔记" scheme="https://github.com/lemon-china/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
+    
+      <category term="开源工具" scheme="https://github.com/lemon-china/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="定时任务" scheme="https://github.com/lemon-china/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
+    
+      <category term="apollo" scheme="https://github.com/lemon-china/tags/apollo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>乐檬框架之rabbitMQ的解耦实现方式</title>
     <link href="https://github.com/lemon-china/2019/09/02/doc_1111/"/>
     <id>https://github.com/lemon-china/2019/09/02/doc_1111/</id>
