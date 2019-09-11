@@ -20,9 +20,9 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="spring,架构设计,微服务">
+    <meta name="keywords" content="微服务,spring,架构设计">
     <meta name="description" content="日志日志是发现问题、查看问题一个最常用的手段。日志质量往往被忽视，没有日志使用上的明确约定。重视 Log 的使用，提高 Log 的信息浓度。日志过多、过于混乱，会导致有用的信息被淹没。 要有效利用这个工具要注意： 严格约定WARN、ERROR级别记录的内容WARN 表示可以恢复的问题，无需人工介入。ERROR 表示需要人工介入问题。有了这样的约定，监管系统发现日志文件的中出现 ERROR 字串就报">
-<meta name="keywords" content="spring,架构设计,微服务">
+<meta name="keywords" content="微服务,spring,架构设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计实现的健壮性">
 <meta property="og:url" content="https://github.com/lemon-china/2019/09/07/exp_1113/index.html">
@@ -178,13 +178,6 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#日志"><span class="post-toc-number">1.</span> <span class="post-toc-text">日志</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#严格约定WARN、ERROR级别记录的内容"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">严格约定WARN、ERROR级别记录的内容</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#日志中，尽量多的收集关键信息"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">日志中，尽量多的收集关键信息</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#同一个或是一类问题不要重复记录多次"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">同一个或是一类问题不要重复记录多次</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#界限设置"><span class="post-toc-number">2.</span> <span class="post-toc-text">界限设置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#线程池-ExectorService-的大小和饱和策略"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">线程池(ExectorService)的大小和饱和策略</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#集合容量"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">集合容量</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#容错-重试-恢复"><span class="post-toc-number">3.</span> <span class="post-toc-text">容错-重试-恢复</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#服务注册中心"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">服务注册中心</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#服务的消费者"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">服务的消费者</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重试延迟策略"><span class="post-toc-number">4.</span> <span class="post-toc-text">重试延迟策略</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数据库上的活锁"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">数据库上的活锁</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#可以使用下面逻辑："><span class="post-toc-number">4.0.2.</span> <span class="post-toc-text">可以使用下面逻辑：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Client-重连注册中心"><span class="post-toc-number">4.0.3.</span> <span class="post-toc-text">Client 重连注册中心</span></a></li></ol></li></ol></li></ol>
-        </nav>
-    </aside>
-
 
 <article id="post-exp_1113"
   class="post-article article-type-post fade" itemprop="blogPost">
