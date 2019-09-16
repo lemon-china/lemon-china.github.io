@@ -14,7 +14,7 @@
     
     
     
-    <title>乐檬框架之rabbitMQ的解耦实现方式 | lemon-china | 乐檬·中国致力于打造最优雅的系统框架</title>
+    <title>乐檬框架之rabbitMQ的解耦实现方式 | Wei Echo | 高效稳定 · 简洁易用 · 灵活扩展</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -25,16 +25,16 @@
 <meta name="keywords" content="java,mq,springboot,ack&#x2F;nack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="乐檬框架之rabbitMQ的解耦实现方式">
-<meta property="og:url" content="https://github.com/lemon-china/2019/09/02/doc_1111/index.html">
-<meta property="og:site_name" content="lemon-china">
+<meta property="og:url" content="https://github.com/weiecho/2019/09/02/doc_1111/index.html">
+<meta property="og:site_name" content="Wei Echo">
 <meta property="og:description" content="项目地址：lemon-rabbitmq lemon-rabbitmq   消息生产端 lemon-rabbitmq-protocol   消息协议层 lemon-rabbitmq-consumer   消息消费端  消息协议层通过Jackson2序列化/反序列化，实现消息传递和对象接收 消息生产端1、通过发送带有消费端服务类名称和方法请求头，控制消费端调用执行消费发送的信息 2、利用消息回调接口C">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-07T13:25:31.189Z">
+<meta property="og:updated_time" content="2019-09-16T06:21:46.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="乐檬框架之rabbitMQ的解耦实现方式">
 <meta name="twitter:description" content="项目地址：lemon-rabbitmq lemon-rabbitmq   消息生产端 lemon-rabbitmq-protocol   消息协议层 lemon-rabbitmq-consumer   消息消费端  消息协议层通过Jackson2序列化/反序列化，实现消息传递和对象接收 消息生产端1、通过发送带有消费端服务类名称和方法请求头，控制消费端调用执行消费发送的信息 2、利用消息回调接口C">
     
-        <link rel="alternate" type="application/atom+xml" title="lemon-china" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="Wei Echo" href="/atom.xml">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
@@ -56,10 +56,10 @@
     <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+          <img src="/img/avatar.png">
         </a>
         <hgroup class="introduce">
-          <h5 class="nickname">lemon-china</h5>
+          <h5 class="nickname">weiecho</h5>
           <a href="mailto:lonyee@live.com" title="lonyee@live.com" class="mail">lonyee@live.com</a>
         </hgroup>
       </div>
@@ -96,7 +96,7 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/lemon-china/lemon-consul-cloud" target="_blank" >
+              <a href="https://github.com/weiecho/lemon-consul-cloud" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 我的项目
               </a>
@@ -196,7 +196,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>项目地址：<a href="https://github.com/lemon-china/lemon-rabbitmq">lemon-rabbitmq</a></p>
+            <p>项目地址：<a href="https://github.com/weiecho/lemon-rabbitmq">lemon-rabbitmq</a></p>
 <p>lemon-rabbitmq   消息生产端</p>
 <p>lemon-rabbitmq-protocol   消息协议层</p>
 <p>lemon-rabbitmq-consumer   消息消费端</p>
@@ -218,9 +218,9 @@
 	
 	-->
     <footer>
-        <a href="https://github.com/lemon-china">
-            <img src="/img/avatar.jpg" alt="lemon-china">
-            lemon-china
+        <a href="https://github.com/weiecho">
+            <img src="/img/avatar.png" alt="weiecho">
+            weiecho
         </a>
     </footer>
 </blockquote>
@@ -244,7 +244,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/02/doc_1111/&title=《乐檬框架之rabbitMQ的解耦实现方式》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2019/09/02/doc_1111/&title=《乐檬框架之rabbitMQ的解耦实现方式》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -254,22 +254,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/02/doc_1111/&title=《乐檬框架之rabbitMQ的解耦实现方式》 — lemon-china&source=乐檬·中国致力于打造最优雅的系统框架" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2019/09/02/doc_1111/&title=《乐檬框架之rabbitMQ的解耦实现方式》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/02/doc_1111/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2019/09/02/doc_1111/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《乐檬框架之rabbitMQ的解耦实现方式》 — lemon-china&url=https://github.com/lemon-china/2019/09/02/doc_1111/&via=https://github.com/lemon-china" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《乐檬框架之rabbitMQ的解耦实现方式》 — Wei Echo&url=https://github.com/weiecho/2019/09/02/doc_1111/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/02/doc_1111/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2019/09/02/doc_1111/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -379,7 +379,7 @@
         <p><span>Copyright &copy; 2017 - 2019</span>
             <span>
                 
-                lemon-china All Rights Reserved
+                weiecho All Rights Reserved
             </span>
         </p>
     </div>
@@ -394,7 +394,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/lemon-china/2019/09/02/doc_1111/&title=《乐檬框架之rabbitMQ的解耦实现方式》 — lemon-china&pic=https://github.com/lemon-china/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2019/09/02/doc_1111/&title=《乐檬框架之rabbitMQ的解耦实现方式》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -404,22 +404,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/lemon-china/2019/09/02/doc_1111/&title=《乐檬框架之rabbitMQ的解耦实现方式》 — lemon-china&source=乐檬·中国致力于打造最优雅的系统框架" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2019/09/02/doc_1111/&title=《乐檬框架之rabbitMQ的解耦实现方式》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/lemon-china/2019/09/02/doc_1111/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2019/09/02/doc_1111/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《乐檬框架之rabbitMQ的解耦实现方式》 — lemon-china&url=https://github.com/lemon-china/2019/09/02/doc_1111/&via=https://github.com/lemon-china" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《乐檬框架之rabbitMQ的解耦实现方式》 — Wei Echo&url=https://github.com/weiecho/2019/09/02/doc_1111/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/lemon-china/2019/09/02/doc_1111/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2019/09/02/doc_1111/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -430,7 +430,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aS27DMAwFwNz/0um2gBv3kbQDWBqvilaJNVqw/Oj1ip/34Tn/6+81x/XHzx6/53XHg4GB8VjG+/TJN3r++/NNV9/7BxUDA2MDRhIKk63ka5KAnuwNAwMDI0nvegG0emQYGBgY1YAbpWsfkPkaDAwMjGqgnATc/CBur8UxMDAeyMi77t//+Zb5BgYGxqMY7+IzoeYJaHlXGBgYSzOubaXNRwXVI8PAwNiBMSksPx3B5ESTscFrHrMxMDAexZg08auv6bXzeukmBgbG2oxeqpdf0SiMJIPfY2Bg7MDIPzy5JJEMJvOT/tg1xMDAWJSRb2I+1MwBzVQVAwNjaUZv0NgbVfYOq5A4YmBgLM1IXlYdaibXNfIrHeV2GwYGxhKMySWweZieNOY+lq8YGBjLMXrp1yR97P03uLh8xcDAWIJRHQMkzbXqmvPvLw8GMDAwFmXkT29UmZTESZjGwMBYm9HbYnVIWV1T/SwGBsbajGpid0eJW22xRZMNDAyM5RjVMrL3sjwBbbIxMDA2YCTp16TdP7nmFQ1WMTAwNmBc0JqPhwfVKx1RgoiBgbEoYzIASF5TDcfV1l5hMICBgfFYRi/Y3RGCq9fLeiEbAwPjuYxekM0HjUmZekH6iIGBsQFjPnT8TkFbmMFiYGBszLi23J0koxgYGBjVVlc1sFYvrf6zEgMDYwNGfqkrv36RfHOvkMbAwNiNUS0dewVndYvVUQEGBsaijB95tSLgn6Bd4wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3aQXKDMAwF0Nz/0um2Mx2cLwkyBT9WnZQYnheKJOv1iq/3wfX7v3/vXK+zXv91xYWBgXFbxnt5Hb1ovkICXt+/vgcDA2MfxlEEm9wTPX4ZcJPnYmBgYOTJXxKgMTAwMK5mJEEzqTGTahQDAwOjV8Tm91RD81drcQwMjBsy8q779/++5HwDAwPjVox38VonZ2cdW5bfCgMD49GM3hHmWc24fLOiUhYDA2MDRvJCVV619VYtVjEwMHZg5K3/auJYDcTJ54erYWBgbMPIU8C8uM2jfgI+RGJgYDyakSd8a2Sv9T8J95EMAwPjQYz8ZHCSRE7KYAwMDIxJMlctUyfHCc2uIQYGxs0Z1aXnjbYkcczfpN6Zw8DAuB+jWpr2RiKq5W4zQcTAwHgoo9o+qz6gOvfRWwEDA2MHxlmFaLJNvfCNgYGxM6MaBJNAXP180m7DwMDYjdEbEVu34aqA3sAHBgbGDoxeAldtz1UPFcojYhgYGJsx8hTtrBftBVwMDIzdGJMQOS9im6ev1R3FwMC4LaPaju+NfFUHOPLtxsDAeDajF2onAfRDelfcmtEvBgYGxk0Y1ZPB3mjFPKDnR54YGBhPZfSC7LwozVPA8k5jYGA8lJEXq8k6k+82Qz8GBgZGMRDnhwT5+NeHb2FgYGC0mvvVwa9RQw0DA2MDRl7EnntPdWjjtHYbBgbGrRi9oDwfuagWrpf8tmBgYPx3xg/JNTzivWpWGQAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>lemon-china</title>
+  <title>Wei Echo</title>
   
-  <subtitle>乐檬·中国致力于打造最优雅的系统框架</subtitle>
+  <subtitle>高效稳定 · 简洁易用 · 灵活扩展</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://github.com/lemon-china/"/>
+  <link href="https://github.com/weiecho/"/>
   <updated>2019-09-07T13:54:33.952Z</updated>
-  <id>https://github.com/lemon-china/</id>
+  <id>https://github.com/weiecho/</id>
   
   <author>
-    <name>lemon-china</name>
+    <name>weiecho</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>设计实现的健壮性</title>
-    <link href="https://github.com/lemon-china/2019/09/07/exp_1113/"/>
-    <id>https://github.com/lemon-china/2019/09/07/exp_1113/</id>
+    <link href="https://github.com/weiecho/2019/09/07/exp_1113/"/>
+    <id>https://github.com/weiecho/2019/09/07/exp_1113/</id>
     <published>2019-09-07T14:30:31.000Z</published>
     <updated>2019-09-07T13:54:33.952Z</updated>
     
@@ -35,25 +35,25 @@
     </summary>
     
     
-      <category term="经验分享" scheme="https://github.com/lemon-china/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+      <category term="经验分享" scheme="https://github.com/weiecho/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="微服务" scheme="https://github.com/lemon-china/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+      <category term="微服务" scheme="https://github.com/weiecho/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
-      <category term="spring" scheme="https://github.com/lemon-china/tags/spring/"/>
+      <category term="spring" scheme="https://github.com/weiecho/tags/spring/"/>
     
-      <category term="架构设计" scheme="https://github.com/lemon-china/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+      <category term="架构设计" scheme="https://github.com/weiecho/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
     <title>乐檬框架之cloud微服务框架</title>
-    <link href="https://github.com/lemon-china/2019/09/06/doc_1112/"/>
-    <id>https://github.com/lemon-china/2019/09/06/doc_1112/</id>
+    <link href="https://github.com/weiecho/2019/09/06/doc_1112/"/>
+    <id>https://github.com/weiecho/2019/09/06/doc_1112/</id>
     <published>2019-09-06T10:34:12.000Z</published>
-    <updated>2019-09-07T13:42:53.137Z</updated>
+    <updated>2019-09-16T06:21:46.496Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式</p></blockquote><p>项目地址：<a href="https://github.com/lemon-china/lemon-consul-cloud">lemon-consul-cloud</a></p><p>本项目预启动时间为2019-03-01，实现以下内容：</p><h4 id="开发计划"><a href="#开发计划" class="headerlink" title="开发计划"></a>开发计划</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">v0.1版本 整体服务结构划分，服务边界设定</span><br><span class="line">v0.2版本 服务网关授权模式搭建</span><br><span class="line">v0.3版本 前后端技术框架接入</span><br><span class="line">v0.4版本 服务开发技术规范文档</span><br><span class="line">v0.5版本 用户基础服务功能</span><br></pre></td></tr></table></figure><h4 id="服务框架总览"><a href="#服务框架总览" class="headerlink" title="服务框架总览"></a>服务框架总览</h4><ul><li>lemon-gateway  服务网关</li><li>lemon-monitor  服务监控</li></ul><p>commons  服务基础组件中心</p><ul><li>lemon-common  服务通用组件</li><li>lemon-distribution  分布业务锁&amp;任务锁</li><li>lemon-framework  服务基础功能类包</li><li>lemon-rabbit  服务Rabbit功能统一封装组件</li><li>lemon-sharding  数据库分库分表封装组件</li></ul><p>services  微服务中心</p><ul><li>lemon-auth  授权&amp;鉴权服务</li><li>lemon-user  用户服务</li><li>lemon-xxx   </li></ul><h4 id="服务划分说明"><a href="#服务划分说明" class="headerlink" title="服务划分说明"></a>服务划分说明</h4><p><em>明确划分每个服务的功能</em></p><table><thead><tr><th>NO.</th><th>Module</th><th>Name</th><th>Desc</th></tr></thead><tbody><tr><td>1</td><td>lemon-auth</td><td>授权服务</td><td>用户授权中心管理</td></tr><tr><td>2</td><td>lemon-user</td><td>用户服务</td><td>用户信息中心服务</td></tr><tr><td>3</td><td>lemon-payment</td><td>账务服务</td><td>用户交易中心服务</td></tr><tr><td>4</td><td>lemon-adjust</td><td>核算服务</td><td>账户核算中心服务</td></tr><tr><td>5</td><td>lemon-message</td><td>消息服务</td><td>用户消息中心服务</td></tr></tbody></table><h4 id="服务项目结构约定"><a href="#服务项目结构约定" class="headerlink" title="服务项目结构约定"></a>服务项目结构约定</h4><table><thead><tr><th>NO.</th><th>Package</th><th>Desc</th></tr></thead><tbody><tr><td>1</td><td>cn.lemon.{xxxx}.api.rest</td><td>提供对外服务rest接口</td></tr><tr><td>2</td><td>cn.lemon.{xxxx}.api.rpc</td><td>提供对内服务rpc接口</td></tr><tr><td>3</td><td>cn.lemon.{xxxx}.config</td><td>提供服务配置相关</td></tr><tr><td>4</td><td>cn.lemon.{xxxx}.entity.enums</td><td>提供业务枚举类</td></tr><tr><td>5</td><td>cn.lemon.{xxxx}.entity.po</td><td>提供数据库映射实体</td></tr><tr><td>6</td><td>cn.lemon.{xxxx}.entity.vo</td><td>提供对外接口映射实体</td></tr><tr><td>7</td><td>cn.lemon.{xxxx}.rpc.client</td><td>提供对内服务rpc调用接口 (api层不能调用rpc接口)</td></tr><tr><td>8</td><td>cn.lemon.{xxxx}.rpc.client.fallback</td><td>提供对内服务rpc调用失败业务处理</td></tr><tr><td>9</td><td>cn.lemon.{xxxx}.service</td><td>提供业务逻辑接口 (api层调用业务接口)</td></tr><tr><td>10</td><td>cn.lemon.{xxxx}.service.impl</td><td>提供业务逻辑实现</td></tr><tr><td>11</td><td>cn.lemon.{xxxx}.dao</td><td>提供数据库操作</td></tr><tr><td>12</td><td>cn.lemon.{xxxx}.events.pub</td><td>提供MQ发送事件</td></tr><tr><td>13</td><td>cn.lemon.{xxxx}.events.sub</td><td>提供MQ接收事件</td></tr><tr><td>14</td><td>cn.lemon.{xxxx}.task</td><td>提供任务定时执行逻辑</td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式</p></blockquote><p>项目地址：<a href="https://github.com/weiecho/lemon-consul-cloud">lemon-consul-cloud</a></p><p>本项目预启动时间为2019-03-01，实现以下内容：</p><h4 id="开发计划"><a href="#开发计划" class="headerlink" title="开发计划"></a>开发计划</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">v0.1版本 整体服务结构划分，服务边界设定</span><br><span class="line">v0.2版本 服务网关授权模式搭建</span><br><span class="line">v0.3版本 前后端技术框架接入</span><br><span class="line">v0.4版本 服务开发技术规范文档</span><br><span class="line">v0.5版本 用户基础服务功能</span><br></pre></td></tr></table></figure><h4 id="服务框架总览"><a href="#服务框架总览" class="headerlink" title="服务框架总览"></a>服务框架总览</h4><ul><li>lemon-gateway  服务网关</li><li>lemon-monitor  服务监控</li></ul><p>commons  服务基础组件中心</p><ul><li>lemon-common  服务通用组件</li><li>lemon-distribution  分布业务锁&amp;任务锁</li><li>lemon-framework  服务基础功能类包</li><li>lemon-rabbit  服务Rabbit功能统一封装组件</li><li>lemon-sharding  数据库分库分表封装组件</li></ul><p>services  微服务中心</p><ul><li>lemon-auth  授权&amp;鉴权服务</li><li>lemon-user  用户服务</li><li>lemon-xxx   </li></ul><h4 id="服务划分说明"><a href="#服务划分说明" class="headerlink" title="服务划分说明"></a>服务划分说明</h4><p><em>明确划分每个服务的功能</em></p><table><thead><tr><th>NO.</th><th>Module</th><th>Name</th><th>Desc</th></tr></thead><tbody><tr><td>1</td><td>lemon-auth</td><td>授权服务</td><td>用户授权中心管理</td></tr><tr><td>2</td><td>lemon-user</td><td>用户服务</td><td>用户信息中心服务</td></tr><tr><td>3</td><td>lemon-payment</td><td>账务服务</td><td>用户交易中心服务</td></tr><tr><td>4</td><td>lemon-adjust</td><td>核算服务</td><td>账户核算中心服务</td></tr><tr><td>5</td><td>lemon-message</td><td>消息服务</td><td>用户消息中心服务</td></tr></tbody></table><h4 id="服务项目结构约定"><a href="#服务项目结构约定" class="headerlink" title="服务项目结构约定"></a>服务项目结构约定</h4><table><thead><tr><th>NO.</th><th>Package</th><th>Desc</th></tr></thead><tbody><tr><td>1</td><td>cn.lemon.{xxxx}.api.rest</td><td>提供对外服务rest接口</td></tr><tr><td>2</td><td>cn.lemon.{xxxx}.api.rpc</td><td>提供对内服务rpc接口</td></tr><tr><td>3</td><td>cn.lemon.{xxxx}.config</td><td>提供服务配置相关</td></tr><tr><td>4</td><td>cn.lemon.{xxxx}.entity.enums</td><td>提供业务枚举类</td></tr><tr><td>5</td><td>cn.lemon.{xxxx}.entity.po</td><td>提供数据库映射实体</td></tr><tr><td>6</td><td>cn.lemon.{xxxx}.entity.vo</td><td>提供对外接口映射实体</td></tr><tr><td>7</td><td>cn.lemon.{xxxx}.rpc.client</td><td>提供对内服务rpc调用接口 (api层不能调用rpc接口)</td></tr><tr><td>8</td><td>cn.lemon.{xxxx}.rpc.client.fallback</td><td>提供对内服务rpc调用失败业务处理</td></tr><tr><td>9</td><td>cn.lemon.{xxxx}.service</td><td>提供业务逻辑接口 (api层调用业务接口)</td></tr><tr><td>10</td><td>cn.lemon.{xxxx}.service.impl</td><td>提供业务逻辑实现</td></tr><tr><td>11</td><td>cn.lemon.{xxxx}.dao</td><td>提供数据库操作</td></tr><tr><td>12</td><td>cn.lemon.{xxxx}.events.pub</td><td>提供MQ发送事件</td></tr><tr><td>13</td><td>cn.lemon.{xxxx}.events.sub</td><td>提供MQ接收事件</td></tr><tr><td>14</td><td>cn.lemon.{xxxx}.task</td><td>提供任务定时执行逻辑</td></tr></tbody></table>]]></content>
     
     <summary type="html">
     
@@ -62,29 +62,29 @@
         &lt;blockquote&gt;
 &lt;p&gt;基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/lemon-china/lemon-co
+&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/weiecho/lemon-consul
       
     
     </summary>
     
     
-      <category term="开源文档" scheme="https://github.com/lemon-china/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
+      <category term="开源文档" scheme="https://github.com/weiecho/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
     
     
-      <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
+      <category term="springboot" scheme="https://github.com/weiecho/tags/springboot/"/>
     
-      <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
+      <category term="cloud" scheme="https://github.com/weiecho/tags/cloud/"/>
     
-      <category term="consul" scheme="https://github.com/lemon-china/tags/consul/"/>
+      <category term="consul" scheme="https://github.com/weiecho/tags/consul/"/>
     
-      <category term="lemon" scheme="https://github.com/lemon-china/tags/lemon/"/>
+      <category term="lemon" scheme="https://github.com/weiecho/tags/lemon/"/>
     
   </entry>
   
   <entry>
     <title>代码习惯在细节</title>
-    <link href="https://github.com/lemon-china/2019/09/05/exp_1112/"/>
-    <id>https://github.com/lemon-china/2019/09/05/exp_1112/</id>
+    <link href="https://github.com/weiecho/2019/09/05/exp_1112/"/>
+    <id>https://github.com/weiecho/2019/09/05/exp_1112/</id>
     <published>2019-09-05T07:12:12.000Z</published>
     <updated>2019-09-07T13:51:47.743Z</updated>
     
@@ -101,21 +101,21 @@
     </summary>
     
     
-      <category term="经验分享" scheme="https://github.com/lemon-china/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+      <category term="经验分享" scheme="https://github.com/weiecho/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
+      <category term="springboot" scheme="https://github.com/weiecho/tags/springboot/"/>
     
-      <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
+      <category term="cloud" scheme="https://github.com/weiecho/tags/cloud/"/>
     
-      <category term="分布式" scheme="https://github.com/lemon-china/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+      <category term="分布式" scheme="https://github.com/weiecho/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>XXL-JOB分布式任务快速入门</title>
-    <link href="https://github.com/lemon-china/2019/09/04/stu_1111/"/>
-    <id>https://github.com/lemon-china/2019/09/04/stu_1111/</id>
+    <link href="https://github.com/weiecho/2019/09/04/stu_1111/"/>
+    <id>https://github.com/weiecho/2019/09/04/stu_1111/</id>
     <published>2019-09-04T07:21:11.000Z</published>
     <updated>2019-09-07T13:07:34.938Z</updated>
     
@@ -134,21 +134,21 @@
     </summary>
     
     
-      <category term="学习笔记" scheme="https://github.com/lemon-china/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="https://github.com/weiecho/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
     
-      <category term="开源工具" scheme="https://github.com/lemon-china/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
+      <category term="开源工具" scheme="https://github.com/weiecho/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
     
-      <category term="定时任务" scheme="https://github.com/lemon-china/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
+      <category term="定时任务" scheme="https://github.com/weiecho/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
     
   </entry>
   
   <entry>
     <title>XXL-JOB分布式任务调度平台</title>
-    <link href="https://github.com/lemon-china/2019/09/03/tool_1112/"/>
-    <id>https://github.com/lemon-china/2019/09/03/tool_1112/</id>
+    <link href="https://github.com/weiecho/2019/09/03/tool_1112/"/>
+    <id>https://github.com/weiecho/2019/09/03/tool_1112/</id>
     <published>2019-09-03T05:23:12.000Z</published>
     <updated>2019-09-07T13:07:38.251Z</updated>
     
@@ -167,21 +167,21 @@
     </summary>
     
     
-      <category term="常用工具" scheme="https://github.com/lemon-china/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+      <category term="常用工具" scheme="https://github.com/weiecho/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
     
-      <category term="开源工具" scheme="https://github.com/lemon-china/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
+      <category term="开源工具" scheme="https://github.com/weiecho/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
     
-      <category term="定时任务" scheme="https://github.com/lemon-china/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
+      <category term="定时任务" scheme="https://github.com/weiecho/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
     
   </entry>
   
   <entry>
     <title>服务开发核心思想</title>
-    <link href="https://github.com/lemon-china/2019/09/03/exp_1111/"/>
-    <id>https://github.com/lemon-china/2019/09/03/exp_1111/</id>
+    <link href="https://github.com/weiecho/2019/09/03/exp_1111/"/>
+    <id>https://github.com/weiecho/2019/09/03/exp_1111/</id>
     <published>2019-09-03T04:30:12.000Z</published>
     <updated>2019-09-07T13:51:42.936Z</updated>
     
@@ -199,21 +199,21 @@
     </summary>
     
     
-      <category term="经验分享" scheme="https://github.com/lemon-china/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+      <category term="经验分享" scheme="https://github.com/weiecho/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
+      <category term="springboot" scheme="https://github.com/weiecho/tags/springboot/"/>
     
-      <category term="cloud" scheme="https://github.com/lemon-china/tags/cloud/"/>
+      <category term="cloud" scheme="https://github.com/weiecho/tags/cloud/"/>
     
-      <category term="分布式" scheme="https://github.com/lemon-china/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+      <category term="分布式" scheme="https://github.com/weiecho/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>Apollo分布式配置中心快速入门</title>
-    <link href="https://github.com/lemon-china/2019/09/02/stu_1112/"/>
-    <id>https://github.com/lemon-china/2019/09/02/stu_1112/</id>
+    <link href="https://github.com/weiecho/2019/09/02/stu_1112/"/>
+    <id>https://github.com/weiecho/2019/09/02/stu_1112/</id>
     <published>2019-09-02T04:21:22.000Z</published>
     <updated>2019-09-07T13:31:36.409Z</updated>
     
@@ -232,57 +232,57 @@
     </summary>
     
     
-      <category term="学习笔记" scheme="https://github.com/lemon-china/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="https://github.com/weiecho/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
     
-      <category term="开源工具" scheme="https://github.com/lemon-china/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
+      <category term="开源工具" scheme="https://github.com/weiecho/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
     
-      <category term="定时任务" scheme="https://github.com/lemon-china/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
+      <category term="定时任务" scheme="https://github.com/weiecho/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
     
-      <category term="apollo" scheme="https://github.com/lemon-china/tags/apollo/"/>
+      <category term="apollo" scheme="https://github.com/weiecho/tags/apollo/"/>
     
   </entry>
   
   <entry>
     <title>乐檬框架之rabbitMQ的解耦实现方式</title>
-    <link href="https://github.com/lemon-china/2019/09/02/doc_1111/"/>
-    <id>https://github.com/lemon-china/2019/09/02/doc_1111/</id>
+    <link href="https://github.com/weiecho/2019/09/02/doc_1111/"/>
+    <id>https://github.com/weiecho/2019/09/02/doc_1111/</id>
     <published>2019-09-02T02:34:12.000Z</published>
-    <updated>2019-09-07T13:25:31.189Z</updated>
+    <updated>2019-09-16T06:21:46.494Z</updated>
     
-    <content type="html"><![CDATA[<p>项目地址：<a href="https://github.com/lemon-china/lemon-rabbitmq">lemon-rabbitmq</a></p><p>lemon-rabbitmq   消息生产端</p><p>lemon-rabbitmq-protocol   消息协议层</p><p>lemon-rabbitmq-consumer   消息消费端</p><hr><h4 id="消息协议层"><a href="#消息协议层" class="headerlink" title="消息协议层"></a>消息协议层</h4><p>通过Jackson2序列化/反序列化，实现消息传递和对象接收</p><h4 id="消息生产端"><a href="#消息生产端" class="headerlink" title="消息生产端"></a>消息生产端</h4><p>1、通过发送带有消费端服务类名称和方法请求头，控制消费端调用执行消费发送的信息</p><p>2、利用消息回调接口ConfirmCallback确保消息安全发送至broker服务器，处理效率比事物方式更高</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(<span class="keyword">final</span> String serviceName, <span class="keyword">final</span> String serviceMethodName,<span class="keyword">final</span> String correlationId, Object request)</span> </span>&#123;</span><br><span class="line">   logger.info(<span class="string">"sendMessage [this.&#123;&#125;, serviceMethodName:&#123;&#125; serviceName:&#123;&#125; correlationId: &#123;&#125;]"</span>, <span class="keyword">this</span>.getClass(), serviceMethodName, serviceName, correlationId);</span><br><span class="line">   rabbitTemplate.setConfirmCallback(<span class="keyword">this</span>);</span><br><span class="line">   rabbitTemplate.setCorrelationKey(correlationId);</span><br><span class="line">   rabbitTemplate.convertAndSend(routingkey, request, <span class="keyword">new</span> MessagePostProcessor() &#123;            </span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> Message <span class="title">postProcessMessage</span><span class="params">(Message message)</span> <span class="keyword">throws</span> AmqpException </span>&#123;</span><br><span class="line">              message.getMessageProperties().setAppId(appId);</span><br><span class="line">              message.getMessageProperties().setTimestamp(<span class="keyword">new</span> Date());</span><br><span class="line">              message.getMessageProperties().setMessageId(UUID.randomUUID().toString());</span><br><span class="line">              message.getMessageProperties().setCorrelationId(correlationId.getBytes());</span><br><span class="line">              message.getMessageProperties().setHeader(<span class="string">"ServiceMethodName"</span>, serviceMethodName);</span><br><span class="line">              message.getMessageProperties().setHeader(<span class="string">"ServiceName"</span>, serviceName);</span><br><span class="line">              <span class="keyword">return</span> message;</span><br><span class="line">          &#125;</span><br><span class="line">   &#125;, <span class="keyword">new</span> CorrelationData(correlationId));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="消息消费端"><a href="#消息消费端" class="headerlink" title="消息消费端"></a>消息消费端</h4><p>1、监听MQ消息，利用method.invoke调用指定的服务类名称和方法，消费接收到的消息</p><p>2、使用Ack/Nack手动确认消息处理状态，保证broker消息被正确消费</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(Message message, Channel channel)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"----- received"</span> + message.getMessageProperties());</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">Object msg = messageConverter.fromMessage(message);</span><br><span class="line"><span class="keyword">if</span> (!appId.equals(message.getMessageProperties().getAppId()))&#123;</span><br><span class="line">        channel.basicNack(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> SecurityException(<span class="string">"非法应用appId:"</span> + message.getMessageProperties().getAppId());</span><br><span class="line">&#125;</span><br><span class="line">Object service = ctx.getBean(message.getMessageProperties().getHeaders().get(<span class="string">"ServiceName"</span>).toString());</span><br><span class="line">String serviceMethodName = message.getMessageProperties().getHeaders().get(<span class="string">"ServiceMethodName"</span>).toString();</span><br><span class="line">Method method = service.getClass().getMethod(serviceMethodName, msg.getClass());</span><br><span class="line">       method.invoke(service, msg);</span><br><span class="line">       <span class="comment">//确认消息成功消费</span></span><br><span class="line">       channel.basicAck(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) &#123;</span><br><span class="line">System.out.println(<span class="string">"------ err"</span>+ e.getMessage());</span><br><span class="line">       channel.basicNack(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>项目地址：<a href="https://github.com/weiecho/lemon-rabbitmq">lemon-rabbitmq</a></p><p>lemon-rabbitmq   消息生产端</p><p>lemon-rabbitmq-protocol   消息协议层</p><p>lemon-rabbitmq-consumer   消息消费端</p><hr><h4 id="消息协议层"><a href="#消息协议层" class="headerlink" title="消息协议层"></a>消息协议层</h4><p>通过Jackson2序列化/反序列化，实现消息传递和对象接收</p><h4 id="消息生产端"><a href="#消息生产端" class="headerlink" title="消息生产端"></a>消息生产端</h4><p>1、通过发送带有消费端服务类名称和方法请求头，控制消费端调用执行消费发送的信息</p><p>2、利用消息回调接口ConfirmCallback确保消息安全发送至broker服务器，处理效率比事物方式更高</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(<span class="keyword">final</span> String serviceName, <span class="keyword">final</span> String serviceMethodName,<span class="keyword">final</span> String correlationId, Object request)</span> </span>&#123;</span><br><span class="line">   logger.info(<span class="string">"sendMessage [this.&#123;&#125;, serviceMethodName:&#123;&#125; serviceName:&#123;&#125; correlationId: &#123;&#125;]"</span>, <span class="keyword">this</span>.getClass(), serviceMethodName, serviceName, correlationId);</span><br><span class="line">   rabbitTemplate.setConfirmCallback(<span class="keyword">this</span>);</span><br><span class="line">   rabbitTemplate.setCorrelationKey(correlationId);</span><br><span class="line">   rabbitTemplate.convertAndSend(routingkey, request, <span class="keyword">new</span> MessagePostProcessor() &#123;            </span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> Message <span class="title">postProcessMessage</span><span class="params">(Message message)</span> <span class="keyword">throws</span> AmqpException </span>&#123;</span><br><span class="line">              message.getMessageProperties().setAppId(appId);</span><br><span class="line">              message.getMessageProperties().setTimestamp(<span class="keyword">new</span> Date());</span><br><span class="line">              message.getMessageProperties().setMessageId(UUID.randomUUID().toString());</span><br><span class="line">              message.getMessageProperties().setCorrelationId(correlationId.getBytes());</span><br><span class="line">              message.getMessageProperties().setHeader(<span class="string">"ServiceMethodName"</span>, serviceMethodName);</span><br><span class="line">              message.getMessageProperties().setHeader(<span class="string">"ServiceName"</span>, serviceName);</span><br><span class="line">              <span class="keyword">return</span> message;</span><br><span class="line">          &#125;</span><br><span class="line">   &#125;, <span class="keyword">new</span> CorrelationData(correlationId));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="消息消费端"><a href="#消息消费端" class="headerlink" title="消息消费端"></a>消息消费端</h4><p>1、监听MQ消息，利用method.invoke调用指定的服务类名称和方法，消费接收到的消息</p><p>2、使用Ack/Nack手动确认消息处理状态，保证broker消息被正确消费</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(Message message, Channel channel)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"----- received"</span> + message.getMessageProperties());</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">Object msg = messageConverter.fromMessage(message);</span><br><span class="line"><span class="keyword">if</span> (!appId.equals(message.getMessageProperties().getAppId()))&#123;</span><br><span class="line">        channel.basicNack(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> SecurityException(<span class="string">"非法应用appId:"</span> + message.getMessageProperties().getAppId());</span><br><span class="line">&#125;</span><br><span class="line">Object service = ctx.getBean(message.getMessageProperties().getHeaders().get(<span class="string">"ServiceName"</span>).toString());</span><br><span class="line">String serviceMethodName = message.getMessageProperties().getHeaders().get(<span class="string">"ServiceMethodName"</span>).toString();</span><br><span class="line">Method method = service.getClass().getMethod(serviceMethodName, msg.getClass());</span><br><span class="line">       method.invoke(service, msg);</span><br><span class="line">       <span class="comment">//确认消息成功消费</span></span><br><span class="line">       channel.basicAck(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) &#123;</span><br><span class="line">System.out.println(<span class="string">"------ err"</span>+ e.getMessage());</span><br><span class="line">       channel.basicNack(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/lemon-china/lemon-rabbitmq&quot;&gt;lemon-rabbitmq&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/weiecho/lemon-rabbitmq&quot;&gt;lemon-rabbitmq&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;lemon-rabbitmq   消息生产端&lt;/p&gt;
-&lt;p&gt;lemon-rabbitmq-proto
+&lt;p&gt;lemon-rabbitmq-protocol 
       
     
     </summary>
     
     
-      <category term="开源文档" scheme="https://github.com/lemon-china/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
+      <category term="开源文档" scheme="https://github.com/weiecho/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
     
     
-      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
     
-      <category term="mq" scheme="https://github.com/lemon-china/tags/mq/"/>
+      <category term="mq" scheme="https://github.com/weiecho/tags/mq/"/>
     
-      <category term="springboot" scheme="https://github.com/lemon-china/tags/springboot/"/>
+      <category term="springboot" scheme="https://github.com/weiecho/tags/springboot/"/>
     
-      <category term="ack/nack" scheme="https://github.com/lemon-china/tags/ack-nack/"/>
+      <category term="ack/nack" scheme="https://github.com/weiecho/tags/ack-nack/"/>
     
   </entry>
   
   <entry>
     <title>Hutool工具包类库</title>
-    <link href="https://github.com/lemon-china/2019/09/01/tool_1111/"/>
-    <id>https://github.com/lemon-china/2019/09/01/tool_1111/</id>
+    <link href="https://github.com/weiecho/2019/09/01/tool_1111/"/>
+    <id>https://github.com/weiecho/2019/09/01/tool_1111/</id>
     <published>2019-09-01T12:33:12.000Z</published>
     <updated>2019-09-07T13:07:45.443Z</updated>
     
@@ -299,21 +299,21 @@
     </summary>
     
     
-      <category term="常用工具" scheme="https://github.com/lemon-china/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+      <category term="常用工具" scheme="https://github.com/weiecho/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
     
-      <category term="开源工具" scheme="https://github.com/lemon-china/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
+      <category term="spring" scheme="https://github.com/weiecho/tags/spring/"/>
     
-      <category term="spring" scheme="https://github.com/lemon-china/tags/spring/"/>
+      <category term="开源工具" scheme="https://github.com/weiecho/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>开发者约定</title>
-    <link href="https://github.com/lemon-china/2019/09/01/doc_1110/"/>
-    <id>https://github.com/lemon-china/2019/09/01/doc_1110/</id>
+    <link href="https://github.com/weiecho/2019/09/01/doc_1110/"/>
+    <id>https://github.com/weiecho/2019/09/01/doc_1110/</id>
     <published>2019-09-01T02:10:12.000Z</published>
     <updated>2019-09-11T01:54:23.719Z</updated>
     
@@ -333,14 +333,14 @@
     </summary>
     
     
-      <category term="开源文档" scheme="https://github.com/lemon-china/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
+      <category term="开源文档" scheme="https://github.com/weiecho/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
     
     
-      <category term="微服务" scheme="https://github.com/lemon-china/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+      <category term="微服务" scheme="https://github.com/weiecho/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
-      <category term="开发规范" scheme="https://github.com/lemon-china/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/"/>
+      <category term="开发规范" scheme="https://github.com/weiecho/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/"/>
     
-      <category term="java" scheme="https://github.com/lemon-china/tags/java/"/>
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
     
   </entry>
   
