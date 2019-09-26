@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JVM性能优化建议 | Wei Echo | 高效稳定 · 简洁易用 · 灵活扩展</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="spring,架构设计,JVM">
+    <meta name="description" content="123456优化建议：1、一般建议Xms等于Xmx，好处是避免每次gc后，调整堆的大小，减少系统内存分配开销2、串行垃圾收集器(Serial + Serial Old |  -XX:+UseSerialGC)3、并行垃圾收集器(Parellel + Parellel Old)，吞吐量优先（JVM server 模式 默认）4、并发垃圾收集器（ParNew + CMS）响应时间优先5、本次优化说明的">
+<meta name="keywords" content="spring,架构设计,JVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM性能优化建议">
+<meta property="og:url" content="https://github.com/weiecho/2019/09/20/exp_1113/index.html">
+<meta property="og:site_name" content="Wei Echo">
+<meta property="og:description" content="123456优化建议：1、一般建议Xms等于Xmx，好处是避免每次gc后，调整堆的大小，减少系统内存分配开销2、串行垃圾收集器(Serial + Serial Old |  -XX:+UseSerialGC)3、并行垃圾收集器(Parellel + Parellel Old)，吞吐量优先（JVM server 模式 默认）4、并发垃圾收集器（ParNew + CMS）响应时间优先5、本次优化说明的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-26T17:34:12.325Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JVM性能优化建议">
+<meta name="twitter:description" content="123456优化建议：1、一般建议Xms等于Xmx，好处是避免每次gc后，调整堆的大小，减少系统内存分配开销2、串行垃圾收集器(Serial + Serial Old |  -XX:+UseSerialGC)3、并行垃圾收集器(Parellel + Parellel Old)，吞吐量优先（JVM server 模式 默认）4、并发垃圾收集器（ParNew + CMS）响应时间优先5、本次优化说明的">
+    
+        <link rel="alternate" type="application/atom+xml" title="Wei Echo" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Wei Echo</h5>
+          <a href="mailto:lonyee@live.com" title="lonyee@live.com" class="mail">lonyee@live.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/学习笔记"  >
+                <i class="icon icon-lg icon-mortar-board"></i>
+                学习笔记
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/经验分享"  >
+                <i class="icon icon-lg icon-puzzle-piece"></i>
+                经验分享
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/常用工具"  >
+                <i class="icon icon-lg icon-cubes"></i>
+                常用工具
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/weiecho/lemon-consul-cloud" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                我的项目
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/开源文档"  >
+                <i class="icon icon-lg icon-gbp"></i>
+                开源文档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章列表
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                友情链接
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JVM性能优化建议</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JVM性能优化建议</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-20T14:30:31.000Z" itemprop="datePublished" class="page-time">
+  2019-09-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/经验分享/">经验分享</a></li></ul>
+
+            
+        </h5>
+    </div>
+    
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-exp_1113"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JVM性能优化建议</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-09-20 22:30:31" datetime="2019-09-20T14:30:31.000Z"  itemprop="datePublished">2019-09-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/经验分享/">经验分享</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">优化建议：</span><br><span class="line">1、一般建议Xms等于Xmx，好处是避免每次gc后，调整堆的大小，减少系统内存分配开销</span><br><span class="line">2、串行垃圾收集器(Serial + Serial Old |  -XX:+UseSerialGC)</span><br><span class="line">3、并行垃圾收集器(Parellel + Parellel Old)，吞吐量优先（JVM server 模式 默认）</span><br><span class="line">4、并发垃圾收集器（ParNew + CMS）响应时间优先</span><br><span class="line">5、本次优化说明的JDK版本为1.8</span><br></pre></td></tr></table></figure>
+
+<h4 id="通用配置"><a href="#通用配置" class="headerlink" title="通用配置"></a>通用配置</h4><p>1、java -Xmx2g -Xms2g -XX:MetaspaceSize=256m -XX:+UseConcMarkSweepGC</p>
+<h4 id="并发大，对象小"><a href="#并发大，对象小" class="headerlink" title="并发大，对象小"></a>并发大，对象小</h4><p>2、java -Xmx2g -Xms2g -Xmn512m  -XX:MetaspaceSize=256m -XX:+UseConcMarkSweepGC -XX:CMSFullGCsBeforeCompaction=2  -XX:+UseCMSCompactAtFullCollection</p>
+<h4 id="并发大，对象大"><a href="#并发大，对象大" class="headerlink" title="并发大，对象大"></a>并发大，对象大</h4><p>3、java -Xmx4g -Xms4g -Xmn2g  -XX:MetaspaceSize=512m -XX:+UseConcMarkSweepGC -XX:CMSFullGCsBeforeCompaction=2  -XX:+UseCMSCompactAtFullCollection</p>
+<table>
+<thead>
+<tr>
+<th>核心参数</th>
+<th>说明</th>
+<th>默认值</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-Xms</td>
+<td>最小堆内存</td>
+<td></td>
+<td>默认为物理内存的1/64，不会超过1G</td>
+</tr>
+<tr>
+<td>-Xmx</td>
+<td>最大堆内存</td>
+<td></td>
+<td>默认为物理内存的1/4</td>
+</tr>
+<tr>
+<td>-Xmn</td>
+<td>新生代内存大小</td>
+<td></td>
+<td>默认值为-Xmx的3/8，老年代内存则为5/8 优先级较NewRatio高</td>
+</tr>
+<tr>
+<td>-XX:NewRatio</td>
+<td>新生代与老生代的内存的比值</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:SurvivorRatio</td>
+<td>Eden和2个存活区内存的比值</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:MetaspaceSize</td>
+<td>元空间最小值</td>
+<td></td>
+<td>元空间并不在虚拟机中，而是使用本地内存</td>
+</tr>
+<tr>
+<td>-XX:MaxMetaspaceSize</td>
+<td>元空间最大值</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-Xss</td>
+<td>栈大小</td>
+<td>1M</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:ParallelGCThreads</td>
+<td>并行收集器的线程数</td>
+<td>默认为服务器CPU数目</td>
+<td>此值最好配置与处理器数目相等 同样适用于CMS不用设置</td>
+</tr>
+<tr>
+<td>-XX:PretenureSizeThreshold</td>
+<td>手动指定对象大小</td>
+<td></td>
+<td>当对象达到指定大小时直接存放到老年代中，由于新生代大多使用复制算法，为了节省复制消耗</td>
+</tr>
+<tr>
+<td>-XX:MaxTenuringThreshold</td>
+<td>手动设置对象在新生代中存活年龄(存活次数)</td>
+<td>15</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:+UseConcMarkSweepGC</td>
+<td>手动指定老年代使用CMS收集器</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:-CMSParallelRemarkEnabled</td>
+<td>手动配置开启并行标记，节省年轻代标记时间</td>
+<td></td>
+<td>废弃</td>
+</tr>
+<tr>
+<td>-XX:CMSInitiatingOccupancyFraction=80</td>
+<td>手动指定当老年代已用空间达到80%时，触发老年代回收(默认92%)</td>
+<td>-1</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:+UseCMSCompactAtFullCollection</td>
+<td>在进行Full GC时对内存进行压缩，JDK1.6以前不需要配置，默认开启</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:CMSFullGCsBeforeCompaction=2</td>
+<td>与XX:+UseCMSCompactAtFullCollection关联使用标识着每经过多少次Full GC</td>
+<td>0</td>
+<td>触发对内存进行一次压缩，默认是0次</td>
+</tr>
+</tbody></table>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <!-- 
+	
+	-->
+    <footer>
+        <a href="https://github.com/weiecho">
+            <img src="/img/avatar.jpg" alt="Wei Echo">
+            Wei Echo
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/架构设计/">架构设计</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2019/09/20/exp_1113/&title=《JVM性能优化建议》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2019/09/20/exp_1113/&title=《JVM性能优化建议》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2019/09/20/exp_1113/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JVM性能优化建议》 — Wei Echo&url=https://github.com/weiecho/2019/09/20/exp_1113/&via=https://github.com/weiecho" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2019/09/20/exp_1113/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/07/exp_1114/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">设计实现的健壮性</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的支持~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>Copyright &copy; 2017 - 2019</span>
+            <span>
+                
+                Wei Echo All Rights Reserved
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2019/09/20/exp_1113/&title=《JVM性能优化建议》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2019/09/20/exp_1113/&title=《JVM性能优化建议》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2019/09/20/exp_1113/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JVM性能优化建议》 — Wei Echo&url=https://github.com/weiecho/2019/09/20/exp_1113/&via=https://github.com/weiecho" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2019/09/20/exp_1113/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3aQY6DQAwFUe5/aUbKLsoA9e3OaDDVq4gg6MfCstveNrz21zr6nf77uY7uX7xkyJBxW8Z+usgLPq8fPYe8kbB/2YkMGTIewCBBlmyLB25yhX84GTJkyCBbJ0H5ImjKkCFDxlIGCc3pPTJkyJBxziDFJEkTSVDmgfgrtbgMGTJuyOg3Br73+0/7GzJkyPiXjD1c6VbSDe2lJUOGjNmM81SPHJzxTfN2Jqdu5EEyZMi4OYMfipGtrypZ46apDBkyHsNIB7nWFsCccZjhypAhYzSDD2alA2SdhmWxFpchQ8Y4Bh+PqL2epIy15DKukmXIkHFzRjqAlRa0/HPwp12cHcqQIWMQAx1mtZNCfj9var49TYYMGaMZPAXsF7ppQRuHchkyZIxm9BsAJIymgbgW0GXIkDGV0W9epilmumnyZBkyZExlBA3CdpFZGyxDPBkyZIxm8CQvLSbTD7GgcJUhQ8ZQxqoxiFqDgQR6lKrKkCFjNKOWwPFksRZA03RThgwZsxn9gMuDZm3MAl2RIUPGYxhp+EsDZW38gvBkyJAxm9G5lcNq2+XvlSFDxmzGHi6yIXJYxhsD6GkyZMgYzUjD3KoBC77doDEgQ4aM0Yw0yK49hkt5F/0NGTJkjGbwJC+N5bWhCh76ZciQIYPnlZ3GAClNL+6UIUOGjLAB0Bk4KzY+ZciQ8QBGrRnAgywvj2vltAwZMmYz1jYG0NFYabRiwdCGDBky7sf4AblvwnjzxtpTAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

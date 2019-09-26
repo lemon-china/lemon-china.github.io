@@ -177,6 +177,53 @@
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
+        <time class="post-time" title="2019-09-20 22:30:31" datetime="2019-09-20T14:30:31.000Z"  itemprop="datePublished">2019-09-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/经验分享/">经验分享</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/09/20/exp_1113/">JVM性能优化建议</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        123456优化建议：1、一般建议Xms等于Xmx，好处是避免每次gc后，调整堆的大小，减少系统内存分配开销2、串行垃圾收集器(Serial + Serial Old |  -XX:+UseSerialGC)3、并行垃圾收集器(Parellel + Parellel Old)，吞吐量优先（JVM server 模式 默认）4、并发垃圾收集器（ParNew + CMS）响应时间优先5、本次优化...
+    
+
+        <a href="/2019/09/20/exp_1113/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/架构设计/">架构设计</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-exp_1114"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
         <time class="post-time" title="2019-09-07 22:30:31" datetime="2019-09-07T14:30:31.000Z"  itemprop="datePublished">2019-09-07</time>
 
         
@@ -191,7 +238,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/07/exp_1113/">设计实现的健壮性</a>
+      <a class="post-title-link" href="/2019/09/07/exp_1114/">设计实现的健壮性</a>
     </h3>
   
 
@@ -206,7 +253,7 @@
 严格约定WARN、ERROR级别记录的内容WARN 表示可以恢复的问题，无需人工介入。ERROR 表示需要人工介入问题。有了这样的约定，监管系统发现日志文件的中出现 ERROR 字...
     
 
-        <a href="/2019/09/07/exp_1113/" class="post-more waves-effect waves-button">
+        <a href="/2019/09/07/exp_1114/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -665,62 +712,15 @@ Hutool是一个Java工具包，也只是一个工具包，它帮助我们简化�
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-doc_1110"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-09-01 10:10:12" datetime="2019-09-01T02:10:12.000Z"  itemprop="datePublished">2019-09-01</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/开源文档/">开源文档</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/01/doc_1110/">开发者约定</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-本文档约定了服务开发人员的代码规范，从而增强代码的一致性和可维护性
-
-1、接口地址和参数严格区分大小写，接口尽量全部小写，参数使用驼峰命名；
-2、接口默认以请求参数形式传入参数，响应返回JSON格式数据；
-3、H5内所有资源引用打包自动带上日期版本号，防止发布版本引用资源在浏览器缓存导致功能异常（如：./jquery-1.11.0.js?v=201806051011）
-4、接口请求数据均需...
-    
-
-        <a href="/2019/09/01/doc_1110/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发规范/">开发规范</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微服务/">微服务</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
+<nav id="page-nav">
+    <div class="inner">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    </div>
+</nav>
+
 
 </div>
 
