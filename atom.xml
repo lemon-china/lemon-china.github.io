@@ -359,13 +359,13 @@
       <category term="开源文档" scheme="https://github.com/weiecho/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
     
     
-      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
-    
       <category term="mq" scheme="https://github.com/weiecho/tags/mq/"/>
     
       <category term="springboot" scheme="https://github.com/weiecho/tags/springboot/"/>
     
       <category term="ack/nack" scheme="https://github.com/weiecho/tags/ack-nack/"/>
+    
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
     
   </entry>
   
@@ -426,11 +426,11 @@
       <category term="开源文档" scheme="https://github.com/weiecho/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
     
     
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
+    
       <category term="微服务" scheme="https://github.com/weiecho/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
       <category term="开发规范" scheme="https://github.com/weiecho/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/"/>
-    
-      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
     
   </entry>
   
