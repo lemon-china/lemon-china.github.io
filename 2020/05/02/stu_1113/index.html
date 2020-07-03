@@ -21,16 +21,16 @@
     
     
     <meta name="keywords" content="java,开源工具,流控降级,[object Object],学习笔记">
-    <meta name="description" content="Sentinel以流量为切入点，从流量控制、熔断降级、系统保护等多个维度来帮助您保障服务的稳定性，提供更专业稳定的流量防护手段、秒级的流量水位分布分析功能。  项目地址：apollo分布式配置中心 使用场景Sentinel广泛用于秒杀场景、消息削峰填谷、集群流量控制、实时熔断等场景中，从多个维度保障您的业务稳定性。 在一个常见的分布式应用中，如下图所示。一个请求先通过终端到达 Gateway，再">
+    <meta name="description" content="Sentinel以流量为切入点，从流量控制、熔断降级、系统保护等多个维度来帮助您保障服务的稳定性，提供更专业稳定的流量防护手段、秒级的流量水位分布分析功能。  项目地址：sentinel流控防护 使用场景Sentinel广泛用于秒杀场景、消息削峰填谷、集群流量控制、实时熔断等场景中，从多个维度保障您的业务稳定性。 在一个常见的分布式应用中，如下图所示。一个请求先通过终端到达 Gateway，再经">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sentinel流控降级快速入门">
 <meta property="og:url" content="https://github.com/weiecho/2020/05/02/stu_1113/index.html">
 <meta property="og:site_name" content="Wei Echo">
-<meta property="og:description" content="Sentinel以流量为切入点，从流量控制、熔断降级、系统保护等多个维度来帮助您保障服务的稳定性，提供更专业稳定的流量防护手段、秒级的流量水位分布分析功能。  项目地址：apollo分布式配置中心 使用场景Sentinel广泛用于秒杀场景、消息削峰填谷、集群流量控制、实时熔断等场景中，从多个维度保障您的业务稳定性。 在一个常见的分布式应用中，如下图所示。一个请求先通过终端到达 Gateway，再">
+<meta property="og:description" content="Sentinel以流量为切入点，从流量控制、熔断降级、系统保护等多个维度来帮助您保障服务的稳定性，提供更专业稳定的流量防护手段、秒级的流量水位分布分析功能。  项目地址：sentinel流控防护 使用场景Sentinel广泛用于秒杀场景、消息削峰填谷、集群流量控制、实时熔断等场景中，从多个维度保障您的业务稳定性。 在一个常见的分布式应用中，如下图所示。一个请求先通过终端到达 Gateway，再经">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/img/stu/12213538915.png">
 <meta property="article:published_time" content="2020-05-02T04:18:12.000Z">
-<meta property="article:modified_time" content="2020-07-03T02:48:58.719Z">
+<meta property="article:modified_time" content="2020-07-03T02:57:44.440Z">
 <meta property="article:author" content="Wei Echo">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="开源工具">
@@ -201,7 +201,7 @@
             <blockquote>
 <p>Sentinel以流量为切入点，从流量控制、熔断降级、系统保护等多个维度来帮助您保障服务的稳定性，提供更专业稳定的流量防护手段、秒级的流量水位分布分析功能。</p>
 </blockquote>
-<p>项目地址：<a href="https://github.com/ctripcorp/apollo">apollo分布式配置中心</a></p>
+<p>项目地址：<a href="https://github.com/alibaba/Sentinel">sentinel流控防护</a></p>
 <h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>Sentinel广泛用于秒杀场景、消息削峰填谷、集群流量控制、实时熔断等场景中，从多个维度保障您的业务稳定性。</p>
 <p>在一个常见的分布式应用中，如下图所示。一个请求先通过终端到达 Gateway，再经过防火墙和网络负载均衡，其中还包括调用下游的其它服务和第三方应用，才能到达前端网络服务。AHAS 应用流控降级在不同的层次以流量为切面提供秒级实时的流量分析（例如在客户端层提供流量实时监控和水位诊断分析功能），帮助运维人员采取针对性的防护措施，全方位地保护应用的稳定性。</p>
 <figure class="image-bubble">
