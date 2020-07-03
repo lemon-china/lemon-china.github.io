@@ -186,6 +186,120 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-stu_1117"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-07-02 14:06:55" datetime="2020-07-02T06:06:55.000Z"  itemprop="datePublished">2020-07-02</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/07/02/stu_1117/">Sentinel流控降级原则</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        项目地址：sentinel流控防护
+基本原则
+Sentinel 是围绕着资源来工作的。
+编码时，只需要关心如何定义资源，即哪些方法/代码块需要保护，而不需要关注如何保护这个资源。
+通过添加规则来保护资源，规则添加即时生效。
+
+规则配置原则
+按照应用处理能力进行流控：
+按服务提供方流控原则
+削峰填谷原则
+冷启动原则
+联动控制原则
+
+
+强依赖隔离原则
+弱依赖降级原则
+系统保护原则，详情请参见[系...
+    
+
+        <a href="/2020/07/02/stu_1117/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sentinel/" rel="tag">sentinel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" rel="tag">开源工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%81%E6%8E%A7%E9%99%8D%E7%BA%A7/" rel="tag">流控降级</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-stu_1116"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-06-20 10:23:41" datetime="2020-06-20T02:23:41.000Z"  itemprop="datePublished">2020-06-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/06/20/stu_1116/">Sentinel系统防护</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+系统防护即从整体维度对应用入口流量进行控制，结合应用的 Load、总体平均 RT、入口 QPS 和线程数等几个维度的监控指标，让系统的入口流量和系统的负载达到一个平衡，让系统尽可能跑在最大吞吐量的同时保证系统整体的稳定性。
+
+项目地址：sentinel流控防护
+背景信息长期以来，系统自适应保护的思路是根据硬指标即系统的负载来做系统过载保护。即当系统负载高于某个阈值，就禁止或者减少流量的进入...
+    
+
+        <a href="/2020/06/20/stu_1116/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sentinel/" rel="tag">sentinel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" rel="tag">开源工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%81%E6%8E%A7%E9%99%8D%E7%BA%A7/" rel="tag">流控降级</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-exp_1116"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -225,6 +339,58 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shardingsphere/" rel="tag">shardingsphere</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-stu_1115"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-06-06 14:22:42" datetime="2020-06-06T06:22:42.000Z"  itemprop="datePublished">2020-06-06</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/06/06/stu_1115/">Sentinel熔断降级</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+熔断降级会在调用链路中某个资源出现不稳定状态时（例如调用超时或异常比例升高），对这个资源的调用进行限制，让请求快速失败，避免影响到其它的资源而导致级联错误。
+
+项目地址：sentinel流控防护
+除流量控制以外，对调用链路中不稳定的资源进行熔断降级也是保障高可用的重要措施之一。
+由于调用关系的复杂性，如果调用链路中的某个资源不稳定，最终会导致请求发生堆积。熔断降级会在调用链路中某个资源出现...
+    
+
+        <a href="/2020/06/06/stu_1115/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sentinel/" rel="tag">sentinel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" rel="tag">开源工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%81%E6%8E%A7%E9%99%8D%E7%BA%A7/" rel="tag">流控降级</a></li></ul>
 
     </div>
     
@@ -418,14 +584,16 @@ Sharding-db是对Sharding-jdbc的功能封装，方便功能的对接，统一�
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        123目前官方已经邀请我调整了说明文档，文档已经和最新代码一致！如果您准备自己调整配置注入方式，可以参考本次修复过程。
+        
+目前官方已经邀请我调整了说明文档，文档已经和最新代码一致！
+如果您准备自己调整配置注入方式，可以参考本次修复过程。
 
 Sharingsphere在根据官方配置为Master-slave rule configuration模式时启动会报错如下：
 
                 
                     
                     
-            ...
+             ...
     
 
         <a href="/2019/12/10/exp_1115/" class="post-more waves-effect waves-button">
@@ -538,158 +706,6 @@ lemon-rabbitmq-consumer   消息消费端
     <div class="post-footer">
         
 	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cloud/" rel="tag">cloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-stu_1112"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-11-02 12:21:22" datetime="2019-11-02T04:21:22.000Z"  itemprop="datePublished">2019-11-02</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/11/02/stu_1112/">Apollo分布式配置中心快速入门</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。
-
-项目地址：apollo分布式配置中心
-
-                
-                    
-                    
-                
-...
-    
-
-        <a href="/2019/11/02/stu_1112/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apollo/" rel="tag">apollo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" rel="tag">开源工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/" rel="tag">配置中心</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-exp_1113"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-10-20 22:30:31" datetime="2019-10-20T14:30:31.000Z"  itemprop="datePublished">2019-10-20</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/20/exp_1113/">JVM性能优化建议</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        123456优化建议：1、一般建议Xms等于Xmx，好处是避免每次gc后，调整堆的大小，减少系统内存分配开销2、串行垃圾收集器(Serial + Serial Old |  -XX:+UseSerialGC)3、并行垃圾收集器(Parellel + Parellel Old)，吞吐量优先（JVM server 模式 默认）4、并发垃圾收集器（ParNew + CMS）响应时间优先5、本次优化...
-    
-
-        <a href="/2019/10/20/exp_1113/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-exp_1114"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-10-07 22:30:31" datetime="2019-10-07T14:30:31.000Z"  itemprop="datePublished">2019-10-07</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/07/exp_1114/">设计实现的健壮性</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        日志日志是发现问题、查看问题一个最常用的手段。日志质量往往被忽视，没有日志使用上的明确约定。重视 Log 的使用，提高 Log 的信息浓度。日志过多、过于混乱，会导致有用的信息被淹没。
-要有效利用这个工具要注意：
-严格约定WARN、ERROR级别记录的内容WARN 表示可以恢复的问题，无需人工介入。ERROR 表示需要人工介入问题。有了这样的约定，监管系统发现日志文件的中出现 ERROR 字...
-    
-
-        <a href="/2019/10/07/exp_1114/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
 
     </div>
     

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/weiecho/"/>
-  <updated>2020-07-01T12:59:06.479Z</updated>
+  <updated>2020-07-03T06:10:14.732Z</updated>
   <id>https://github.com/weiecho/</id>
   
   <author>
@@ -15,6 +15,73 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Sentinel流控降级原则</title>
+    <link href="https://github.com/weiecho/2020/07/02/stu_1117/"/>
+    <id>https://github.com/weiecho/2020/07/02/stu_1117/</id>
+    <published>2020-07-02T06:06:55.000Z</published>
+    <updated>2020-07-03T06:10:14.732Z</updated>
+    
+    <content type="html"><![CDATA[<p>项目地址：<a href="https://github.com/weiecho/sentinel-client">sentinel流控防护</a></p><h3 id="基本原则"><a href="#基本原则" class="headerlink" title="基本原则"></a>基本原则</h3><ul><li>Sentinel 是围绕着资源来工作的。</li><li>编码时，只需要关心如何定义资源，即哪些方法/代码块需要保护，而不需要关注如何保护这个资源。</li><li>通过添加规则来保护资源，规则添加即时生效。</li></ul><h3 id="规则配置原则"><a href="#规则配置原则" class="headerlink" title="规则配置原则"></a>规则配置原则</h3><ul><li>按照应用处理能力进行流控：<ul><li>按服务提供方流控原则</li><li>削峰填谷原则</li><li>冷启动原则</li><li>联动控制原则</li></ul></li><li>强依赖隔离原则</li><li>弱依赖降级原则</li><li>系统保护原则，详情请参见[系统保护篇]</li></ul><h3 id="弱依赖降级"><a href="#弱依赖降级" class="headerlink" title="弱依赖降级"></a>弱依赖降级</h3><p>当若依赖的第三方应用出错不会影响而整体流程，则称之为弱依赖。对于弱依赖不稳定时，需要配置降级原则来保护系统稳定性。</p><p>在实际业务中，应用通常会调用依赖方（远程服务、数据库、第三方 API 等）来完成服务。例如，支付的时需要远程调用银联提供的 API。然而依赖方的稳定性是不能保证的。若依赖方出现不稳定的情况，则请求和调用依赖方的方法的的响应时间变长，线程产生堆积，最终可能耗尽自身的线程数，导致应用本身不可用。</p><p>在复杂链路中，若某一环不稳定，就可能会层层渲染，最终导致整个链路都不可用。</p><p>针对以上情况，可以使用对依赖方配置降级原则来保证系统稳定性。</p><p>###强依赖隔离</p><p>若依赖的第三方应用或组件，或者应用自身的内部方法出错会影响而整体流程，则称之为强依赖。对于强依赖，需要配置隔离原则来保护系统稳定性。</p><p>当强依赖出现不稳定的时候，可以通过配置并发线程数隔离原则来限制不稳定的强依赖并发数，隔离强依赖。配置并发线程数隔离原则后，无需再进行线程池隔离，sentinel 会控制资源的线程数。当请求数超过阈值时，sentinel 将拒绝多余的请求，直到堆积的线程处理完成，以此来达到信号量隔离的效果。</p><p>线程数目超出时，设置 快速失败 能够有效地防止自己被慢调用所影响。</p><h3 id="系统防护"><a href="#系统防护" class="headerlink" title="系统防护"></a>系统防护</h3><p>系统防护即从整体维度对应用入口流量进行控制，结合应用的 Load、总体平均 RT、入口 QPS 和线程数等几个维度的监控指标，让系统的入口流量和系统的负载达到一个平衡，让系统尽可能跑在最大吞吐量的同时保证系统整体的稳定性。</p><p>一般性系统自适应保护的思路是根据硬指标即系统的负载来做系统过载保护。即当系统负载高于某个阈值，就禁止或者减少流量的进入；若负载恢复，则恢复流量的进入。这样会造成两个不可避免的问题：</p><ul><li>若根据负载的情况来调节流量的通过率，则会产生延迟。若当前通过率的调整会导致负载增大，那么至少要过 1 秒之后才能被观测到；同理，若当前通过率调整会使负载降低，也需要 1 秒之后才能继续调整。这种方法会浪费系统的处理能力。导致我们看到的负载曲线产生锯齿。</li><li>通过率恢复慢。在下游应用不可靠，应用响应时间很长，从而导致负载很高的场景中，若下游应用恢复时，应用响应时间也会随之减短，此时通过率理应会大幅度增大。但由于此时负载仍然很高，所以通过率的恢复慢。</li></ul><p>为解决上述问题，sentinel在系统自适应保护的做法是：用每分钟的负载作为启动控制流量，使用请求的响应时间以及当前系统正在处理的请求速率来决定通过的流量。旨在在系统不被拖垮的情况下，提高系统的吞吐率。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/weiecho/sentinel-client&quot;&gt;sentinel流控防护&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;基本原则&quot;&gt;&lt;a href=&quot;#基本原则&quot; class=&quot;headerlink&quot; title=&quot;基本
+      
+    
+    </summary>
+    
+    
+      <category term="学习笔记" scheme="https://github.com/weiecho/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
+    
+      <category term="开源工具" scheme="https://github.com/weiecho/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="流控降级" scheme="https://github.com/weiecho/tags/%E6%B5%81%E6%8E%A7%E9%99%8D%E7%BA%A7/"/>
+    
+      <category term="sentinel" scheme="https://github.com/weiecho/tags/sentinel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sentinel系统防护</title>
+    <link href="https://github.com/weiecho/2020/06/20/stu_1116/"/>
+    <id>https://github.com/weiecho/2020/06/20/stu_1116/</id>
+    <published>2020-06-20T02:23:41.000Z</published>
+    <updated>2020-07-03T06:06:06.058Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>系统防护即从整体维度对应用入口流量进行控制，结合应用的 Load、总体平均 RT、入口 QPS 和线程数等几个维度的监控指标，让系统的入口流量和系统的负载达到一个平衡，让系统尽可能跑在最大吞吐量的同时保证系统整体的稳定性。</p></blockquote><p>项目地址：<a href="https://github.com/weiecho/sentinel-client">sentinel流控防护</a></p><h3 id="背景信息"><a href="#背景信息" class="headerlink" title="背景信息"></a>背景信息</h3><p>长期以来，系统自适应保护的思路是根据硬指标即系统的负载来做系统过载保护。即当系统负载高于某个阈值，就禁止或者减少流量的进入；若负载恢复，则恢复流量的进入。这样会造成两个不可避免的问题：</p><ul><li>若根据负载的情况来调节流量的通过率，则会产生延迟。若当前通过率的调整会导致负载增大，那么至少要过 1 秒之后才能被观测到；同理，若当前通过率调整会使负载降低，也需要 1 秒之后才能继续调整。这种方法会浪费系统的处理能力。导致我们看到的负载曲线产生锯齿。</li><li>通过率恢复慢。在下游应用不可靠，应用响应时间很长，从而导致负载很高的场景中，若下游应用恢复时，应用响应时间也会随之减短，此时通过率理应会大幅度增大。但由于此时负载仍然很高，所以通过率的恢复慢。</li></ul><p>为解决上述问题，sentinel 应用流控降级在系统自适应保护的做法是：用每分钟的负载作为启动控制流量，使用请求的响应时间以及当前系统正在处理的请求速率来决定通过的流量。旨在在系统不被拖垮的情况下，提高系统的吞吐率。</p><h3 id="功能原理"><a href="#功能原理" class="headerlink" title="功能原理"></a>功能原理</h3><p>我们把系统处理请求的过程想象为一个水管，到来的请求是往这个水管灌水，当系统处理顺畅的时候，请求不需要排队，直接从水管中穿过，这个请求的RT是最短的；反之，当请求堆积的时候，那么处理请求的时间则会变为：排队时间 + 最短处理时间。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/stu/15671348491.png" alt="image" title="功能原理">                </div>                <div class="image-caption">功能原理</div>            </figure><p>若用 T 来表示水管内部的水量，用 RT 来表示请求的处理时间，用 P 来表示进来的请求数，那么一个请求从进入水管道到从水管出来，这个水管会存在 P * RT 个请求。即当 T ≈ QPS * Avg(RT) 的时候，可以认为系统的处理能力和允许进入的请求个数达到了平衡，系统的负载不会继续增加。当入口的流量是水管出来的流量的最大的值的时候，水管的处理能力达到最大利用。</p><h3 id="系统规则"><a href="#系统规则" class="headerlink" title="系统规则"></a>系统规则</h3><p>系统保护规则是应用整体维度的，而不是资源维度的，并且仅对入口流量生效。入口流量指的是进入应用的流量（EntryType.IN），例如 Web 服务或 Dubbo 服务端接收的请求，都属于入口流量。系统规则支持四种阈值类型：</p><ul><li>Load（仅对 Linux/Unix-like 机器生效）：当系统 load1 超过阈值且系统当前的并发线程数超过系统容量时才会触发系统保护。</li><li>RT：当单台机器上所有入口流量的平均 RT 达到阈值即触发系统保护。</li><li>线程数：当单台机器上所有入口流量的并发线程数达到阈值即触发系统保护。</li><li>入口 QPS：当单台机器上所有入口流量的 QPS 达到阈值即触发系统保护。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;系统防护即从整体维度对应用入口流量进行控制，结合应用的 Load、总体平均 RT、入口 QPS 和线程数等几个维度的监控指标，让系统的入口流量和系统的负载达到一个平衡，让系统尽可能跑在最大吞吐量的同时保证系统整体的稳定性。&lt;/p&gt;
+&lt;/blockq
+      
+    
+    </summary>
+    
+    
+      <category term="学习笔记" scheme="https://github.com/weiecho/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
+    
+      <category term="开源工具" scheme="https://github.com/weiecho/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="流控降级" scheme="https://github.com/weiecho/tags/%E6%B5%81%E6%8E%A7%E9%99%8D%E7%BA%A7/"/>
+    
+      <category term="sentinel" scheme="https://github.com/weiecho/tags/sentinel/"/>
+    
+  </entry>
   
   <entry>
     <title>shardingsphere不支持LocalDateTime/LocalDate</title>
@@ -47,13 +114,48 @@
   </entry>
   
   <entry>
+    <title>Sentinel熔断降级</title>
+    <link href="https://github.com/weiecho/2020/06/06/stu_1115/"/>
+    <id>https://github.com/weiecho/2020/06/06/stu_1115/</id>
+    <published>2020-06-06T06:22:42.000Z</published>
+    <updated>2020-07-03T06:01:01.495Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>熔断降级会在调用链路中某个资源出现不稳定状态时（例如调用超时或异常比例升高），对这个资源的调用进行限制，让请求快速失败，避免影响到其它的资源而导致级联错误。</p></blockquote><p>项目地址：<a href="https://github.com/weiecho/sentinel-client">sentinel流控防护</a></p><p>除流量控制以外，对调用链路中不稳定的资源进行熔断降级也是保障高可用的重要措施之一。</p><p>由于调用关系的复杂性，如果调用链路中的某个资源不稳定，最终会导致请求发生堆积。熔断降级会在调用链路中某个资源出现不稳定状态时（例如调用超时或异常比例升高），对这个资源的调用进行限制，让请求快速失败，避免影响到其它的资源而导致级联错误。</p><p>Sentinel 熔断降级支持以下几种策略：</p><ul><li>RT 模式（秒级）：若持续进入 5 个请求，它们资源的平均响应时间都超过阈值（秒级平均 RT，以 ms 为单位），资源调用会被熔断。在接下的降级时间窗口（在降级规则中配置，以 s 为单位）之内，对这个方法的调用都会自动地返回（抛出 DegradeException）。</li><li>异常比例模式（秒级）：当资源的每秒异常数占通过量的比值超过阈值之后，资源进入降级状态，即在接下的降级时间窗口（在降级规则中配置，以 s 为单位））之内，对这个方法的调用都会自动地返回。异常比率的阈值范围是 [0.0, 1.0]，代表 0% - 100%。</li><li>异常数模式（分钟级）：当资源最近 1 分钟的异常数目超过阈值之后会进行熔断。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;熔断降级会在调用链路中某个资源出现不稳定状态时（例如调用超时或异常比例升高），对这个资源的调用进行限制，让请求快速失败，避免影响到其它的资源而导致级联错误。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;项目地址：&lt;a href=&quot;https://gi
+      
+    
+    </summary>
+    
+    
+      <category term="学习笔记" scheme="https://github.com/weiecho/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
+    
+      <category term="开源工具" scheme="https://github.com/weiecho/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="流控降级" scheme="https://github.com/weiecho/tags/%E6%B5%81%E6%8E%A7%E9%99%8D%E7%BA%A7/"/>
+    
+      <category term="sentinel" scheme="https://github.com/weiecho/tags/sentinel/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Sentinel流量控制（限流）</title>
     <link href="https://github.com/weiecho/2020/05/25/stu_1114/"/>
     <id>https://github.com/weiecho/2020/05/25/stu_1114/</id>
     <published>2020-05-25T05:18:42.000Z</published>
-    <updated>2020-07-03T03:15:21.033Z</updated>
+    <updated>2020-07-03T03:24:54.203Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>流控，即流量控制（Flow Control），根据流量、并发线程数、响应时间等指标，把随机到来的流量调整成合适的形状，即流量塑形。避免应用被瞬时的流量高峰冲垮，从而保障应用的高可用性。</p></blockquote><p>项目地址：<a href="https://github.com/alibaba/Sentinel">sentinel流控防护</a></p><h3 id="流量控制有以下几个角度"><a href="#流量控制有以下几个角度" class="headerlink" title="流量控制有以下几个角度:"></a>流量控制有以下几个角度:</h3><p>运行指标，例如 QPS、并发线程数等。</p><ul><li>资源的调用关系，例如资源的调用链路，资源和资源之间的关系，调用来源等。</li><li>控制效果，例如直接拒绝、Warm Up（预热）、排队等待等。</li></ul><p>一条流控规则主要由下面几个因素组成，我们可以组合这些元素来实现不同的限流效果：</p><ul><li>资源名：即流控规则的作用对象</li><li>阈值：流控阈值</li><li>阈值类型：流控阈值类型（QPS 或并发线程数）</li><li>来源应用：流控规则针对的调用来源，若为 default 则不区分调用来源</li><li>流控方式：调用关系限流策略</li><li>流控模式：即流控效果，包括快速失败、Warm Up、排队等待模式</li></ul><h3 id="运行指标"><a href="#运行指标" class="headerlink" title="运行指标"></a>运行指标</h3><p>流量控制支持通过以下运行指标进行流量塑形：</p><ul><li><p>基于 QPS<br>QPS 模式根据资源的实时 QPS 进行流量控制。当 QPS 超过指定阈值时采取相应的控制策略。</p></li><li><p>基于线程数<br>线程数模式按照资源的并发线程数（即该资源正在执行的线程数）进行流量控制。</p><p>并发线程数限流用于保护业务线程数不被耗尽。例如，当应用所依赖的下游应用由于某种原因导致服务不稳定、响应延迟增加，对于调用者来说，意味着吞吐量下降和更多的线程数占用，极端情况下甚至导致线程池耗尽。为应对太多线程占用的情况，业内有使用隔离的方案，比如通过不同业务逻辑使用不同线程池来隔离业务自身之间的资源争抢（线程池隔离）。这种隔离方案虽然隔离性比较好，但是代价就是线程数目太多，线程上下文切换的 overhead 比较大，特别是对低延时的调用有比较大的影响。Sentinel 并发线程数限流不负责创建和管理线程池，而是简单统计当前请求上下文的线程数目，如果超出阈值，新的请求会被立即拒绝，效果类似于信号量隔离。</p></li></ul><h3 id="控制效果"><a href="#控制效果" class="headerlink" title="控制效果"></a>控制效果</h3><p>流控方式（控制效果）指的是，当阈值类型为 QPS 时，选择如何控制流量，处理被拦截的流量，实现流量塑形。流量控制的手段包括以下几种：快速失败、Warm Up、排队等待。</p><p>说明 控制效果仅对 QPS 限流生效。</p><ul><li><p>快速失败<br>快速失败方式是默认的流量控制方式，当 QPS 超过规则的阈值后，新的请求就会被立即拒绝，拒绝方式为抛出 FlowException。这种方式适用于对系统处理能力确切已知的情况下，比如通过压测确定了系统的准确水位时。</p></li><li><p>Warm Up<br>当系统长期处于空闲的情况下，当流量突然增加时，直接把系统拉升到高水位可能瞬间把系统压垮。通过 Warm Up 模式（预热模式），让通过的流量缓慢增加，经过设置的预热时间以后，到达系统处理请求速率的设定值。</p><p>Warm Up 模式默认会从设置的 QPS 阈值的 1/3 开始慢慢往上增加至 QPS 设置值。</p></li><li><p>排队等待<br>排队等待模式下会严格控制请求通过的间隔时间，即请求会匀速通过，允许部分请求排队等待，通常用于消息队列削峰填谷等场景。需设置具体的超时时间，当计算的等待时间超过超时时间时请求就会被拒绝。</p><p>例如，QPS 配置为 5，则代表请求每 200 ms 才能通过一个，多出的请求将排队等待通过。超时时间代表最大排队时间，超出最大排队时间的请求将会直接被拒绝。排队等待模式下，QPS 设置值不要超过 1000（请求间隔 1 ms）。</p></li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/stu/12838192381.png" alt="image" title="排队等待">                </div>                <div class="image-caption">排队等待</div>            </figure>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>流控，即流量控制（Flow Control），根据流量、并发线程数、响应时间等指标，把随机到来的流量调整成合适的形状，即流量塑形。避免应用被瞬时的流量高峰冲垮，从而保障应用的高可用性。</p></blockquote><p>项目地址：<a href="https://github.com/weiecho/sentinel-client">sentinel流控防护</a></p><h3 id="流量控制有以下几个角度"><a href="#流量控制有以下几个角度" class="headerlink" title="流量控制有以下几个角度:"></a>流量控制有以下几个角度:</h3><p>运行指标，例如 QPS、并发线程数等。</p><ul><li>资源的调用关系，例如资源的调用链路，资源和资源之间的关系，调用来源等。</li><li>控制效果，例如直接拒绝、Warm Up（预热）、排队等待等。</li></ul><p>一条流控规则主要由下面几个因素组成，我们可以组合这些元素来实现不同的限流效果：</p><ul><li>资源名：即流控规则的作用对象</li><li>阈值：流控阈值</li><li>阈值类型：流控阈值类型（QPS 或并发线程数）</li><li>来源应用：流控规则针对的调用来源，若为 default 则不区分调用来源</li><li>流控方式：调用关系限流策略</li><li>流控模式：即流控效果，包括快速失败、Warm Up、排队等待模式</li></ul><h3 id="运行指标"><a href="#运行指标" class="headerlink" title="运行指标"></a>运行指标</h3><p>流量控制支持通过以下运行指标进行流量塑形：</p><ul><li><p>基于 QPS<br>QPS 模式根据资源的实时 QPS 进行流量控制。当 QPS 超过指定阈值时采取相应的控制策略。</p></li><li><p>基于线程数<br>线程数模式按照资源的并发线程数（即该资源正在执行的线程数）进行流量控制。</p><p>并发线程数限流用于保护业务线程数不被耗尽。例如，当应用所依赖的下游应用由于某种原因导致服务不稳定、响应延迟增加，对于调用者来说，意味着吞吐量下降和更多的线程数占用，极端情况下甚至导致线程池耗尽。为应对太多线程占用的情况，业内有使用隔离的方案，比如通过不同业务逻辑使用不同线程池来隔离业务自身之间的资源争抢（线程池隔离）。这种隔离方案虽然隔离性比较好，但是代价就是线程数目太多，线程上下文切换的 overhead 比较大，特别是对低延时的调用有比较大的影响。Sentinel 并发线程数限流不负责创建和管理线程池，而是简单统计当前请求上下文的线程数目，如果超出阈值，新的请求会被立即拒绝，效果类似于信号量隔离。</p></li></ul><h3 id="控制效果"><a href="#控制效果" class="headerlink" title="控制效果"></a>控制效果</h3><p>流控方式（控制效果）指的是，当阈值类型为 QPS 时，选择如何控制流量，处理被拦截的流量，实现流量塑形。流量控制的手段包括以下几种：快速失败、Warm Up、排队等待。</p><p>说明 控制效果仅对 QPS 限流生效。</p><ul><li><p>快速失败<br>快速失败方式是默认的流量控制方式，当 QPS 超过规则的阈值后，新的请求就会被立即拒绝，拒绝方式为抛出 FlowException。这种方式适用于对系统处理能力确切已知的情况下，比如通过压测确定了系统的准确水位时。</p></li><li><p>Warm Up<br>当系统长期处于空闲的情况下，当流量突然增加时，直接把系统拉升到高水位可能瞬间把系统压垮。通过 Warm Up 模式（预热模式），让通过的流量缓慢增加，经过设置的预热时间以后，到达系统处理请求速率的设定值。</p><p>Warm Up 模式默认会从设置的 QPS 阈值的 1/3 开始慢慢往上增加至 QPS 设置值。</p></li><li><p>排队等待<br>排队等待模式下会严格控制请求通过的间隔时间，即请求会匀速通过，允许部分请求排队等待，通常用于消息队列削峰填谷等场景。需设置具体的超时时间，当计算的等待时间超过超时时间时请求就会被拒绝。</p><p>例如，QPS 配置为 5，则代表请求每 200 ms 才能通过一个，多出的请求将排队等待通过。超时时间代表最大排队时间，超出最大排队时间的请求将会直接被拒绝。排队等待模式下，QPS 设置值不要超过 1000（请求间隔 1 ms）。</p></li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/stu/12838192381.png" alt="image" title="排队等待">                </div>                <div class="image-caption">排队等待</div>            </figure>]]></content>
     
     <summary type="html">
     
@@ -86,9 +188,9 @@
     <link href="https://github.com/weiecho/2020/05/02/stu_1113/"/>
     <id>https://github.com/weiecho/2020/05/02/stu_1113/</id>
     <published>2020-05-02T04:18:12.000Z</published>
-    <updated>2020-07-03T03:13:34.542Z</updated>
+    <updated>2020-07-03T03:25:00.915Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>Sentinel以流量为切入点，从流量控制、熔断降级、系统保护等多个维度来帮助您保障服务的稳定性，提供更专业稳定的流量防护手段、秒级的流量水位分布分析功能。</p></blockquote><p>项目地址：<a href="https://github.com/alibaba/Sentinel">sentinel流控防护</a></p><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>Sentinel广泛用于秒杀场景、消息削峰填谷、集群流量控制、实时熔断等场景中，从多个维度保障您的业务稳定性。</p><p>在一个常见的分布式应用中，如下图所示。一个请求先通过终端到达 Gateway，再经过防火墙和网络负载均衡，其中还包括调用下游的其它服务和第三方应用，才能到达前端网络服务。AHAS 应用流控降级在不同的层次以流量为切面提供秒级实时的流量分析（例如在客户端层提供流量实时监控和水位诊断分析功能），帮助运维人员采取针对性的防护措施，全方位地保护应用的稳定性。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/stu/12213538915.png" alt="image" title="Sentinel服务">                </div>                <div class="image-caption">Sentinel服务</div>            </figure><h3 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h3><p>秒级流量分析功能，动态规则实时推送。<br>专业多样化的防护手段：</p><ul><li>入口流量控制：按照服务容量进行流量控制，常用于应用入口，例如： Gateway、前端应用、服务提供方等。</li><li>热点隔离：将热点和普通流量隔离出来，避免无效热点抢占正常流量的容量。</li><li>对依赖方隔离 / 降级：对应用和应用之间、应用内部采用隔离 / 降级手段，将不稳定的依赖的对应用的影响减至最小，从而保证应用的稳定性。</li><li>系统防护：Sentinel可以根据系统的能力（例如 Load、CPU 使用率等）来动态调节入口的流量，保证系统稳定性。<br>实时的单机监控能力，强大的聚合监控和历史监控查询能力。</li></ul>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>Sentinel以流量为切入点，从流量控制、熔断降级、系统保护等多个维度来帮助您保障服务的稳定性，提供更专业稳定的流量防护手段、秒级的流量水位分布分析功能。</p></blockquote><p>项目地址：<a href="https://github.com/weiecho/sentinel-client">sentinel流控防护</a></p><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>Sentinel广泛用于秒杀场景、消息削峰填谷、集群流量控制、实时熔断等场景中，从多个维度保障您的业务稳定性。</p><p>在一个常见的分布式应用中，如下图所示。一个请求先通过终端到达 Gateway，再经过防火墙和网络负载均衡，其中还包括调用下游的其它服务和第三方应用，才能到达前端网络服务。AHAS 应用流控降级在不同的层次以流量为切面提供秒级实时的流量分析（例如在客户端层提供流量实时监控和水位诊断分析功能），帮助运维人员采取针对性的防护措施，全方位地保护应用的稳定性。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/stu/12213538915.png" alt="image" title="Sentinel服务">                </div>                <div class="image-caption">Sentinel服务</div>            </figure><h3 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h3><p>秒级流量分析功能，动态规则实时推送。<br>专业多样化的防护手段：</p><ul><li>入口流量控制：按照服务容量进行流量控制，常用于应用入口，例如： Gateway、前端应用、服务提供方等。</li><li>热点隔离：将热点和普通流量隔离出来，避免无效热点抢占正常流量的容量。</li><li>对依赖方隔离 / 降级：对应用和应用之间、应用内部采用隔离 / 降级手段，将不稳定的依赖的对应用的影响减至最小，从而保证应用的稳定性。</li><li>系统防护：Sentinel可以根据系统的能力（例如 Load、CPU 使用率等）来动态调节入口的流量，保证系统稳定性。<br>实时的单机监控能力，强大的聚合监控和历史监控查询能力。</li></ul>]]></content>
     
     <summary type="html">
     
@@ -154,15 +256,19 @@
     <link href="https://github.com/weiecho/2019/12/10/exp_1115/"/>
     <id>https://github.com/weiecho/2019/12/10/exp_1115/</id>
     <published>2019-12-10T13:21:36.000Z</published>
-    <updated>2020-07-03T02:32:01.251Z</updated>
+    <updated>2020-07-03T06:00:06.402Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">目前官方已经邀请我调整了说明文档，文档已经和最新代码一致！</span><br><span class="line"></span><br><span class="line">如果您准备自己调整配置注入方式，可以参考本次修复过程。</span><br></pre></td></tr></table></figure><p>Sharingsphere在根据官方配置为Master-slave rule configuration模式时启动会报错如下：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-ad259ae04f5772a5.png" alt="image" title="Master-slave">                </div>                <div class="image-caption">Master-slave</div>            </figure><p>原因在4.0.0-x版本中，将代码迁移至apache时，小伙伴傲娇的将参数实现改成了如下，同时没有了无参数构造函数。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-ca8d34c791674f3b.png" alt="image" title="新版本MasterSlaveRuleConfiguration代码">                </div>                <div class="image-caption">新版本MasterSlaveRuleConfiguration代码</div>            </figure><p>再看看3.0.x原版的旧代码实现状况</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-06426fd62bfa2564.png" alt="image" title="旧版本MasterSlaveRuleConfiguration代码">                </div>                <div class="image-caption">旧版本MasterSlaveRuleConfiguration代码</div>            </figure><p>官方示例居然还有无参数创建的示例，试问是怎么做到的</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-709903c299a77393.png" alt="image" title="shardingsphere官方文档示例">                </div>                <div class="image-caption">shardingsphere官方文档示例</div>            </figure><p>从这点看有被改写忽略的问题，同时按照官方配置，出现如上的配置启动报错问题！！！</p><h3 id="我是犀利的分割线-—-下面是硬写解决方案"><a href="#我是犀利的分割线-—-下面是硬写解决方案" class="headerlink" title="我是犀利的分割线 —- 下面是硬写解决方案"></a>我是犀利的分割线 —- 下面是硬写解决方案</h3><hr><p>创建新类MasterSlaveRuleConfig.java，复制官方新版本MasterSlaveRuleConfiguration，改为如下：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-5366273ee48d6345.png" alt="image" title="改写MasterSlaveRuleConfiguration">                </div>                <div class="image-caption">改写MasterSlaveRuleConfiguration</div>            </figure><p>1、@Getter改为@Data，支持配置读写</p><p>2、去掉内部private对象的final限定</p><p>3、加入MasterSlaveRuleConfiguration无参数构造函数</p><p>配置改造完成，下面是调整配置函数：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-21ae73c993b20185.png" alt="image" title="重写配置MasterSlaveRuleConfiguration">                </div>                <div class="image-caption">重写配置MasterSlaveRuleConfiguration</div>            </figure><p>MasterSlaveRuleConfig配置在 sharding.master-slave-rule 下面，和官方一致。</p><p>服务启动～～～～～  happy time 😄</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>目前官方已经邀请我调整了说明文档，文档已经和最新代码一致！</p><p>如果您准备自己调整配置注入方式，可以参考本次修复过程。</p></blockquote><p>Sharingsphere在根据官方配置为Master-slave rule configuration模式时启动会报错如下：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-ad259ae04f5772a5.png" alt="image" title="Master-slave">                </div>                <div class="image-caption">Master-slave</div>            </figure><p>原因在4.0.0-x版本中，将代码迁移至apache时，小伙伴傲娇的将参数实现改成了如下，同时没有了无参数构造函数。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-ca8d34c791674f3b.png" alt="image" title="新版本MasterSlaveRuleConfiguration代码">                </div>                <div class="image-caption">新版本MasterSlaveRuleConfiguration代码</div>            </figure><p>再看看3.0.x原版的旧代码实现状况</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-06426fd62bfa2564.png" alt="image" title="旧版本MasterSlaveRuleConfiguration代码">                </div>                <div class="image-caption">旧版本MasterSlaveRuleConfiguration代码</div>            </figure><p>官方示例居然还有无参数创建的示例，试问是怎么做到的</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-709903c299a77393.png" alt="image" title="shardingsphere官方文档示例">                </div>                <div class="image-caption">shardingsphere官方文档示例</div>            </figure><p>从这点看有被改写忽略的问题，同时按照官方配置，出现如上的配置启动报错问题！！！</p><h3 id="我是犀利的分割线-—-下面是硬写解决方案"><a href="#我是犀利的分割线-—-下面是硬写解决方案" class="headerlink" title="我是犀利的分割线 —- 下面是硬写解决方案"></a>我是犀利的分割线 —- 下面是硬写解决方案</h3><hr><p>创建新类MasterSlaveRuleConfig.java，复制官方新版本MasterSlaveRuleConfiguration，改为如下：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-5366273ee48d6345.png" alt="image" title="改写MasterSlaveRuleConfiguration">                </div>                <div class="image-caption">改写MasterSlaveRuleConfiguration</div>            </figure><p>1、@Getter改为@Data，支持配置读写</p><p>2、去掉内部private对象的final限定</p><p>3、加入MasterSlaveRuleConfiguration无参数构造函数</p><p>配置改造完成，下面是调整配置函数：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-21ae73c993b20185.png" alt="image" title="重写配置MasterSlaveRuleConfiguration">                </div>                <div class="image-caption">重写配置MasterSlaveRuleConfiguration</div>            </figure><p>MasterSlaveRuleConfig配置在 sharding.master-slave-rule 下面，和官方一致。</p><p>服务启动～～～～～  happy time 😄</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+        &lt;blockquote&gt;
+&lt;p&gt;目前官方已经邀请我调整了说明文档，文档已经和最新代码一致！&lt;/p&gt;
+&lt;p&gt;如果您准备自己调整配置注入方式，可以参考本次修复过程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sharingsphere在根据官方配置为Master-slave rule
       
     
     </summary>
