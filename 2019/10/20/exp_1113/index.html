@@ -24,12 +24,12 @@
     <meta name="description" content="123456优化建议：1、一般建议Xms等于Xmx，好处是避免每次gc后，调整堆的大小，减少系统内存分配开销2、串行垃圾收集器(Serial + Serial Old |  -XX:+UseSerialGC)3、并行垃圾收集器(Parellel + Parellel Old)，吞吐量优先（JVM server 模式 默认）4、并发垃圾收集器（ParNew + CMS）响应时间优先5、本次优化说明的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM性能优化建议">
-<meta property="og:url" content="https://github.com/weiecho/2019/09/20/exp_1113/index.html">
+<meta property="og:url" content="https://github.com/weiecho/2019/10/20/exp_1113/index.html">
 <meta property="og:site_name" content="Wei Echo">
 <meta property="og:description" content="123456优化建议：1、一般建议Xms等于Xmx，好处是避免每次gc后，调整堆的大小，减少系统内存分配开销2、串行垃圾收集器(Serial + Serial Old |  -XX:+UseSerialGC)3、并行垃圾收集器(Parellel + Parellel Old)，吞吐量优先（JVM server 模式 默认）4、并发垃圾收集器（ParNew + CMS）响应时间优先5、本次优化说明的">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-09-20T14:30:31.000Z">
-<meta property="article:modified_time" content="2020-06-30T09:24:35.683Z">
+<meta property="article:published_time" content="2019-10-20T14:30:31.000Z">
+<meta property="article:modified_time" content="2020-07-03T02:03:50.817Z">
 <meta property="article:author" content="Wei Echo">
 <meta property="article:tag" content="spring">
 <meta property="article:tag" content="架构设计">
@@ -161,8 +161,8 @@
         <h1 class="title">JVM性能优化建议</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-09-20T14:30:31.000Z" itemprop="datePublished" class="page-time">
-  2019-09-20
+                <time datetime="2019-10-20T14:30:31.000Z" itemprop="datePublished" class="page-time">
+  2019-10-20
 </time>
 
 
@@ -187,7 +187,7 @@
     <div class="post-card">
         <h1 class="post-card-title">JVM性能优化建议</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-09-20 22:30:31" datetime="2019-09-20T14:30:31.000Z"  itemprop="datePublished">2019-09-20</time>
+            <time class="post-time" title="2019-10-20 22:30:31" datetime="2019-10-20T14:30:31.000Z"  itemprop="datePublished">2019-10-20</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li></ul>
@@ -343,7 +343,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2019/09/20/exp_1113/&title=《JVM性能优化建议》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2019/10/20/exp_1113/&title=《JVM性能优化建议》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -353,22 +353,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2019/09/20/exp_1113/&title=《JVM性能优化建议》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2019/10/20/exp_1113/&title=《JVM性能优化建议》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2019/09/20/exp_1113/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2019/10/20/exp_1113/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JVM性能优化建议》 — Wei Echo&url=https://github.com/weiecho/2019/09/20/exp_1113/&via=https://github.com/weiecho" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JVM性能优化建议》 — Wei Echo&url=https://github.com/weiecho/2019/10/20/exp_1113/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2019/09/20/exp_1113/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2019/10/20/exp_1113/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -391,16 +391,16 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/12/10/exp_1115/" id="post-prev" class="post-nav-link">
+      <a href="/2019/11/02/stu_1112/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">修复shardingsphere-4.0.0不能正常配置问题</h4>
+        <h4 class="title">Apollo分布式配置中心快速入门</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/09/07/exp_1114/" id="post-next" class="post-nav-link">
+      <a href="/2019/10/07/exp_1114/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">设计实现的健壮性</h4>
       </a>
@@ -493,7 +493,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2019/09/20/exp_1113/&title=《JVM性能优化建议》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2019/10/20/exp_1113/&title=《JVM性能优化建议》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -503,22 +503,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2019/09/20/exp_1113/&title=《JVM性能优化建议》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2019/10/20/exp_1113/&title=《JVM性能优化建议》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2019/09/20/exp_1113/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2019/10/20/exp_1113/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JVM性能优化建议》 — Wei Echo&url=https://github.com/weiecho/2019/09/20/exp_1113/&via=https://github.com/weiecho" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JVM性能优化建议》 — Wei Echo&url=https://github.com/weiecho/2019/10/20/exp_1113/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2019/09/20/exp_1113/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2019/10/20/exp_1113/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -529,7 +529,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3aQY6DQAwFUe5/aUbKLsoA9e3OaDDVq4gg6MfCstveNrz21zr6nf77uY7uX7xkyJBxW8Z+usgLPq8fPYe8kbB/2YkMGTIewCBBlmyLB25yhX84GTJkyCBbJ0H5ImjKkCFDxlIGCc3pPTJkyJBxziDFJEkTSVDmgfgrtbgMGTJuyOg3Br73+0/7GzJkyPiXjD1c6VbSDe2lJUOGjNmM81SPHJzxTfN2Jqdu5EEyZMi4OYMfipGtrypZ46apDBkyHsNIB7nWFsCccZjhypAhYzSDD2alA2SdhmWxFpchQ8Y4Bh+PqL2epIy15DKukmXIkHFzRjqAlRa0/HPwp12cHcqQIWMQAx1mtZNCfj9var49TYYMGaMZPAXsF7ppQRuHchkyZIxm9BsAJIymgbgW0GXIkDGV0W9epilmumnyZBkyZExlBA3CdpFZGyxDPBkyZIxm8CQvLSbTD7GgcJUhQ8ZQxqoxiFqDgQR6lKrKkCFjNKOWwPFksRZA03RThgwZsxn9gMuDZm3MAl2RIUPGYxhp+EsDZW38gvBkyJAxm9G5lcNq2+XvlSFDxmzGHi6yIXJYxhsD6GkyZMgYzUjD3KoBC77doDEgQ4aM0Yw0yK49hkt5F/0NGTJkjGbwJC+N5bWhCh76ZciQIYPnlZ3GAClNL+6UIUOGjLAB0Bk4KzY+ZciQ8QBGrRnAgywvj2vltAwZMmYz1jYG0NFYabRiwdCGDBky7sf4AblvwnjzxtpTAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3a246CQBBFUf7/pzHxVYF9qhoj3bufjDrKYpKybtuGz/4+R4/TVz/P0fsHHxkyZDyWsZ8e8gWfzx99DvlGwv5yJTJkyFiAQYIsuSweuMkz/MbJkCFDxvl7LkJh6Z0yZMiQMZZBgm8t0ZQhQ4aMtIglaeI5iRe0N9biMmTIeCCjPxi47/FP5xsyZMj4S8YeHh58a2FxLx0ZMmTMzSCXUttqIGlimmhe3CAZMmRMyhi1BjG2ZI2HpjJkyJiawVtjnVYXL1bTpFOGDBkrMNJ0LQ2UnYFlUE7LkCFjAUanmORjSz4S4EF56/8yyJAh4+8ZnQWvsQsZtRtx8Z+RIUPGFIy0lcaHBGmZWlsskyFDxgqMWguss9TFC1oSamXIkLEOo7N4wcPoqJuFrkqGDBnTMfhaQ7r6MKr1hr5RhgwZkzLIyJAkeXw8WesFomULGTJkTMoYte7AQ/DthasMGTIWYKSrFbUgGy9+kUAvQ4aMqRnpCkXa4k8DKIfJkCFjBQb5uH4CxxNKkjJ+eUaGDBnLMNI/5oekkrXUE+2OyZAh4+EMHl7JYIA39LfGQUWsDBkyJmJ0QicvX2sJX/BjIEOGjKkZaZjjqWFtMJAWzzJkyFiHkV5Q/6RLHqjkliFDxgKMTpJHWvzpUkXcT5MhQ4aMRiBOG/3kemTIkCGjVnCma2RpI+9i8ClDhowFGGnjLB1S9svjwe02GTJkPIrRGQyQ9n1x3BiGaRkyZEzKeAERrMJ4TuLB9AAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
