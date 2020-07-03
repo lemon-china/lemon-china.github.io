@@ -14,27 +14,31 @@
     
     
     
-    <title>服务开发核心思想 | Wei Echo | 高效稳定 · 简洁易用 · 灵活扩展</title>
+    <title>Sentinel流控降级快速入门 | Wei Echo | 高效稳定 · 简洁易用 · 灵活扩展</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="springboot,cloud,分布式">
-    <meta name="description" content="保障服务可扩展性的七大原则1、按功能划分 2、水平切分 3、尽量避免事务 4、适当采用异步解耦 5、次流程改进为异步 6、虚拟化所有层次 7、适当使用缓存 服务拆分开发的四项原则1、先业务后技术，先逻辑后物理 2、奥卡姆剃刀：如无必须勿增实体 3、正交性：抽象出模块间无业务相关的重复代码 4、稳定性原则：服务的稳定性优先，通过拆分解耦  可参考的技术方案：接口化、消息队列、模块化、服务化、异步化">
+    <meta name="keywords" content="java,开源工具,流控降级,[object Object],学习笔记">
+    <meta name="description" content="Sentinel以流量为切入点，从流量控制、熔断降级、系统保护等多个维度来帮助您保障服务的稳定性，提供更专业稳定的流量防护手段、秒级的流量水位分布分析功能。  项目地址：apollo分布式配置中心 使用场景Sentinel广泛用于秒杀场景、消息削峰填谷、集群流量控制、实时熔断等场景中，从多个维度保障您的业务稳定性。 在一个常见的分布式应用中，如下图所示。一个请求先通过终端到达 Gateway，再">
 <meta property="og:type" content="article">
-<meta property="og:title" content="服务开发核心思想">
-<meta property="og:url" content="https://github.com/weiecho/2019/09/03/exp_1111/index.html">
+<meta property="og:title" content="Sentinel流控降级快速入门">
+<meta property="og:url" content="https://github.com/weiecho/2020/05/02/stu_1113/index.html">
 <meta property="og:site_name" content="Wei Echo">
-<meta property="og:description" content="保障服务可扩展性的七大原则1、按功能划分 2、水平切分 3、尽量避免事务 4、适当采用异步解耦 5、次流程改进为异步 6、虚拟化所有层次 7、适当使用缓存 服务拆分开发的四项原则1、先业务后技术，先逻辑后物理 2、奥卡姆剃刀：如无必须勿增实体 3、正交性：抽象出模块间无业务相关的重复代码 4、稳定性原则：服务的稳定性优先，通过拆分解耦  可参考的技术方案：接口化、消息队列、模块化、服务化、异步化">
+<meta property="og:description" content="Sentinel以流量为切入点，从流量控制、熔断降级、系统保护等多个维度来帮助您保障服务的稳定性，提供更专业稳定的流量防护手段、秒级的流量水位分布分析功能。  项目地址：apollo分布式配置中心 使用场景Sentinel广泛用于秒杀场景、消息削峰填谷、集群流量控制、实时熔断等场景中，从多个维度保障您的业务稳定性。 在一个常见的分布式应用中，如下图所示。一个请求先通过终端到达 Gateway，再">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-09-03T04:30:12.000Z">
-<meta property="article:modified_time" content="2020-07-03T02:06:50.143Z">
+<meta property="og:image" content="https://github.com/img/stu/12213538915.png">
+<meta property="article:published_time" content="2020-05-02T04:18:12.000Z">
+<meta property="article:modified_time" content="2020-07-03T02:33:50.762Z">
 <meta property="article:author" content="Wei Echo">
-<meta property="article:tag" content="springboot">
-<meta property="article:tag" content="cloud">
-<meta property="article:tag" content="分布式">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="开源工具">
+<meta property="article:tag" content="流控降级">
+<meta property="article:tag" content="[object Object]">
+<meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/img/stu/12213538915.png">
     
         <link rel="alternate" type="application/atom+xml" title="Wei Echo" href="/atom.xml">
     
@@ -136,7 +140,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">服务开发核心思想</div>
+        <div class="flex-col header-title ellipsis">Sentinel流控降级快速入门</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -158,15 +162,13 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">服务开发核心思想</h1>
+        <h1 class="title">Sentinel流控降级快速入门</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-09-03T04:30:12.000Z" itemprop="datePublished" class="page-time">
-  2019-09-03
+                <time datetime="2020-05-02T04:18:12.000Z" itemprop="datePublished" class="page-time">
+  2020-05-02
 </time>
 
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li></ul>
 
             
         </h5>
@@ -181,36 +183,39 @@
 <div class="container body-wrap">
     
 
-<article id="post-exp_1111"
+<article id="post-stu_1113"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">服务开发核心思想</h1>
+        <h1 class="post-card-title">Sentinel流控降级快速入门</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-09-03 12:30:12" datetime="2019-09-03T04:30:12.000Z"  itemprop="datePublished">2019-09-03</time>
+            <time class="post-time" title="2020-05-02 12:18:12" datetime="2020-05-02T04:18:12.000Z"  itemprop="datePublished">2020-05-02</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li></ul>
-
 
 
             
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="保障服务可扩展性的七大原则"><a href="#保障服务可扩展性的七大原则" class="headerlink" title="保障服务可扩展性的七大原则"></a>保障服务可扩展性的七大原则</h3><p>1、按功能划分</p>
-<p>2、水平切分</p>
-<p>3、尽量避免事务</p>
-<p>4、适当采用异步解耦</p>
-<p>5、次流程改进为异步</p>
-<p>6、虚拟化所有层次</p>
-<p>7、适当使用缓存</p>
-<h3 id="服务拆分开发的四项原则"><a href="#服务拆分开发的四项原则" class="headerlink" title="服务拆分开发的四项原则"></a>服务拆分开发的四项原则</h3><p>1、先业务后技术，先逻辑后物理</p>
-<p>2、奥卡姆剃刀：如无必须勿增实体</p>
-<p>3、正交性：抽象出模块间无业务相关的重复代码</p>
-<p>4、稳定性原则：服务的稳定性优先，通过拆分解耦</p>
+            <blockquote>
+<p>Sentinel以流量为切入点，从流量控制、熔断降级、系统保护等多个维度来帮助您保障服务的稳定性，提供更专业稳定的流量防护手段、秒级的流量水位分布分析功能。</p>
+</blockquote>
+<p>项目地址：<a href="https://github.com/ctripcorp/apollo">apollo分布式配置中心</a></p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>Sentinel广泛用于秒杀场景、消息削峰填谷、集群流量控制、实时熔断等场景中，从多个维度保障您的业务稳定性。</p>
+<p>在一个常见的分布式应用中，如下图所示。一个请求先通过终端到达 Gateway，再经过防火墙和网络负载均衡，其中还包括调用下游的其它服务和第三方应用，才能到达前端网络服务。AHAS 应用流控降级在不同的层次以流量为切面提供秒级实时的流量分析（例如在客户端层提供流量实时监控和水位诊断分析功能），帮助运维人员采取针对性的防护措施，全方位地保护应用的稳定性。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/stu/12213538915.png" alt="image" title="Sentinel服务">
+                </div>
+                <div class="image-caption">Sentinel服务</div>
+            </figure>
+
+
+<h3 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h3><p>秒级流量分析功能，动态规则实时推送。<br>专业多样化的防护手段：</p>
 <blockquote>
-<p>可参考的技术方案：接口化、消息队列、模块化、服务化、异步化</p>
+<p>入口流量控制：按照服务容量进行流量控制，常用于应用入口，例如： Gateway、前端应用、服务提供方等。<br>热点隔离：将热点和普通流量隔离出来，避免无效热点抢占正常流量的容量。<br>对依赖方隔离 / 降级：对应用和应用之间、应用内部采用隔离 / 降级手段，将不稳定的依赖的对应用的影响减至最小，从而保证应用的稳定性。<br>系统防护：Sentinel可以根据系统的能力（例如 Load、CPU 使用率等）来动态调节入口的流量，保证系统稳定性。<br>实时的单机监控能力，强大的聚合监控和历史监控查询能力。</p>
 </blockquote>
 
         </div>
@@ -236,7 +241,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cloud/" rel="tag">cloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/object-Object/" rel="tag">[object Object]</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" rel="tag">开源工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%81%E6%8E%A7%E9%99%8D%E7%BA%A7/" rel="tag">流控降级</a></li></ul>
 
 
             
@@ -246,7 +251,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2019/09/03/exp_1111/&title=《服务开发核心思想》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/05/02/stu_1113/&title=《Sentinel流控降级快速入门》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -256,22 +261,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2019/09/03/exp_1111/&title=《服务开发核心思想》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/05/02/stu_1113/&title=《Sentinel流控降级快速入门》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2019/09/03/exp_1111/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/05/02/stu_1113/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《服务开发核心思想》 — Wei Echo&url=https://github.com/weiecho/2019/09/03/exp_1111/&via=https://github.com/weiecho" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Sentinel流控降级快速入门》 — Wei Echo&url=https://github.com/weiecho/2020/05/02/stu_1113/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2019/09/03/exp_1111/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/05/02/stu_1113/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -294,18 +299,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/09/05/stu_1111/" id="post-prev" class="post-nav-link">
+      <a href="/2020/06/17/exp_1116/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">XXL-JOB分布式任务快速入门</h4>
+        <h4 class="title">shardingsphere不支持LocalDateTime/LocalDate</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/09/02/tool_1111/" id="post-next" class="post-nav-link">
+      <a href="/2020/03/02/doc_1113/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Hutool工具包类库</h4>
+        <h4 class="title">Sharding-db接入使用说明</h4>
       </a>
     </div>
   
@@ -396,7 +401,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2019/09/03/exp_1111/&title=《服务开发核心思想》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/05/02/stu_1113/&title=《Sentinel流控降级快速入门》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -406,22 +411,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2019/09/03/exp_1111/&title=《服务开发核心思想》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/05/02/stu_1113/&title=《Sentinel流控降级快速入门》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2019/09/03/exp_1111/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/05/02/stu_1113/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《服务开发核心思想》 — Wei Echo&url=https://github.com/weiecho/2019/09/03/exp_1111/&via=https://github.com/weiecho" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Sentinel流控降级快速入门》 — Wei Echo&url=https://github.com/weiecho/2020/05/02/stu_1113/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2019/09/03/exp_1111/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/05/02/stu_1113/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -432,7 +437,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aQYrDMAwF0Nz/0hmY1UAn7pfcFGI/r0oKtV8WqmTpOOJ1/q6r53+/ff189WT87XHHwsDAeCzjHK5kg9fnV7+T7Jiw/zkJBgbGBozx4aqBNQ/c4yf5i8PAwMAYB808KL8JmhgYGBg3M5Ln1UQTAwMDo1rE9hLB/HV8qRbHwMB4IKPaGPjm5xv7GxgYGA9hnMU1Dr7zzciztTAwMNZmJEfJE77xofN2ZjXdxMDAWJvRG4PIg2yvZK2Oa2BgYOzASC6zZq668gK1mnRiYGDswMjDYp5E9oYwEkZUxGJgYCzH6IXR6iBFwq4ml8f8vwEGBsZDGNUBr2r5ml/DVfd90xjAwMBYiDFzldZrLcy0Ey5/HwMDY2lGch02f/SojzoRfDEwMHZgfGfwohqIeyUuBgbGqow8KcwD5Wev3pJAjIGBsSqjGZXjm7xewyAvfTEwMHZgVA/3sSLzjsIVAwNjG8bMaFd+oF7ILpMwMDCWY8wUrjMpYHLQpOjFwMBYldFrKH52aKw3ZoGBgbEno1emVjeujl9ETQgMDIylGfkwxFRAbB033xcDA2Ntxllc+YBFklxWL9TKqSEGBsYSjGqYyy/3e42B/EU0wzcGBsZjGXkrsRoce52K3kvBwMDYgVENsr0xrzztK9+nYWBgYNx2udYrjzEwMDDydC0PzdV0s9zfwMDA2IDRK2LzsYleuZsPn2FgYKzN6JWO+fV9s91YDNMYGBiLMn4AbZ1R9zxOSVIAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aS27jMBAFwNz/0h4gmEWAgTnvNWUjpkorQVFElheN/vDrK74e39fP+3+v9Zv5//58cvGFgYHxsYzH8lovkDxP/pqsu/4mBgbGHRhtkE22u/5m8iTZGwYGBkZ7v/5awsbAwMDYZ+ShuX0HAwMDY82YNdHWS7bvvKkWx8DA+EDGbDDwnvuXzzcwMDB+PeNRXjvTw1fs5+/3MTAwjma0qV6yfPvObLQQZbgYGBhHM/KjEjtl7axUforBwMA4lJG82g4gZwVw2/jDwMDAyDfRhuN2YDmsxTEwMA5itM2y/BjEmtH+NMnREAwMjLMZeWnahtHZtmbHODAwMO7DyEcCbVq5E16L0QUGBsahjDxRe+EAsgy+T4tYDAyM4xht63/Wys/basOfFQMD42jGrMWfB9yrWm/1mREMDIxDGS2pDYj7pDrDxcDAOIjRNrmuaqVdUH+3HUEMDIyPZewUorPUMF+3SEYxMDBuwNgJtbPCNcHn6SMGBsapjGTTeWK3Xnh2zCIqoTEwMG7JaFtdeXuuPX6RFL0YGBhnM3YaYbNGf72JoKuGgYFxNuNRXm143XmSr4uBgXE246pi9dnn9hPNYjCAgYFxNCMPsrNw2W432QMGBsY9GUmQ3T9ykad9dbsNAwMDY1TQ5oOBdj//OTOCgYFxe8Z+rGvTzaKIxcDAOJqxM57cmaBe9RwDA+Nsxs5gYCeJ3FlreGgDAwPj8xh/ACGkwngQe/WuAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
