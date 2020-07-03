@@ -14,23 +14,23 @@
     
     
     
-    <title>Sentinel流控降级快速入门 | Wei Echo | 高效稳定 · 简洁易用 · 灵活扩展</title>
+    <title>Sentinel流量控制（限流） | Wei Echo | 高效稳定 · 简洁易用 · 灵活扩展</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="java,开源工具,流控降级,[object Object],学习笔记">
-    <meta name="description" content="Sentinel以流量为切入点，从流量控制、熔断降级、系统保护等多个维度来帮助您保障服务的稳定性，提供更专业稳定的流量防护手段、秒级的流量水位分布分析功能。  项目地址：sentinel流控防护 使用场景Sentinel广泛用于秒杀场景、消息削峰填谷、集群流量控制、实时熔断等场景中，从多个维度保障您的业务稳定性。 在一个常见的分布式应用中，如下图所示。一个请求先通过终端到达 Gateway，再经">
+    <meta name="description" content="流控，即流量控制（Flow Control），根据流量、并发线程数、响应时间等指标，把随机到来的流量调整成合适的形状，即流量塑形。避免应用被瞬时的流量高峰冲垮，从而保障应用的高可用性。  项目地址：sentinel流控防护 流量控制有以下几个角度:运行指标，例如 QPS、并发线程数等。  资源的调用关系，例如资源的调用链路，资源和资源之间的关系，调用来源等。  控制效果，例如直接拒绝、Warm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sentinel流控降级快速入门">
-<meta property="og:url" content="https://github.com/weiecho/2020/05/02/stu_1113/index.html">
+<meta property="og:title" content="Sentinel流量控制（限流）">
+<meta property="og:url" content="https://github.com/weiecho/2020/05/25/stu_1114/index.html">
 <meta property="og:site_name" content="Wei Echo">
-<meta property="og:description" content="Sentinel以流量为切入点，从流量控制、熔断降级、系统保护等多个维度来帮助您保障服务的稳定性，提供更专业稳定的流量防护手段、秒级的流量水位分布分析功能。  项目地址：sentinel流控防护 使用场景Sentinel广泛用于秒杀场景、消息削峰填谷、集群流量控制、实时熔断等场景中，从多个维度保障您的业务稳定性。 在一个常见的分布式应用中，如下图所示。一个请求先通过终端到达 Gateway，再经">
+<meta property="og:description" content="流控，即流量控制（Flow Control），根据流量、并发线程数、响应时间等指标，把随机到来的流量调整成合适的形状，即流量塑形。避免应用被瞬时的流量高峰冲垮，从而保障应用的高可用性。  项目地址：sentinel流控防护 流量控制有以下几个角度:运行指标，例如 QPS、并发线程数等。  资源的调用关系，例如资源的调用链路，资源和资源之间的关系，调用来源等。  控制效果，例如直接拒绝、Warm">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.com/img/stu/12213538915.png">
-<meta property="article:published_time" content="2020-05-02T04:18:12.000Z">
-<meta property="article:modified_time" content="2020-07-03T02:57:44.440Z">
+<meta property="og:image" content="https://github.com/img/stu/12838192381.png">
+<meta property="article:published_time" content="2020-05-25T05:18:42.000Z">
+<meta property="article:modified_time" content="2020-07-03T03:06:40.960Z">
 <meta property="article:author" content="Wei Echo">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="开源工具">
@@ -38,7 +38,7 @@
 <meta property="article:tag" content="[object Object]">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/img/stu/12213538915.png">
+<meta name="twitter:image" content="https://github.com/img/stu/12838192381.png">
     
         <link rel="alternate" type="application/atom+xml" title="Wei Echo" href="/atom.xml">
     
@@ -140,7 +140,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Sentinel流控降级快速入门</div>
+        <div class="flex-col header-title ellipsis">Sentinel流量控制（限流）</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -162,11 +162,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Sentinel流控降级快速入门</h1>
+        <h1 class="title">Sentinel流量控制（限流）</h1>
         <h5 class="subtitle">
             
-                <time datetime="2020-05-02T04:18:12.000Z" itemprop="datePublished" class="page-time">
-  2020-05-02
+                <time datetime="2020-05-25T05:18:42.000Z" itemprop="datePublished" class="page-time">
+  2020-05-25
 </time>
 
 
@@ -183,13 +183,13 @@
 <div class="container body-wrap">
     
 
-<article id="post-stu_1113"
+<article id="post-stu_1114"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Sentinel流控降级快速入门</h1>
+        <h1 class="post-card-title">Sentinel流量控制（限流）</h1>
         <div class="post-meta">
-            <time class="post-time" title="2020-05-02 12:18:12" datetime="2020-05-02T04:18:12.000Z"  itemprop="datePublished">2020-05-02</time>
+            <time class="post-time" title="2020-05-25 13:18:42" datetime="2020-05-25T05:18:42.000Z"  itemprop="datePublished">2020-05-25</time>
 
             
 
@@ -199,27 +199,56 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <blockquote>
-<p>Sentinel以流量为切入点，从流量控制、熔断降级、系统保护等多个维度来帮助您保障服务的稳定性，提供更专业稳定的流量防护手段、秒级的流量水位分布分析功能。</p>
+<p>流控，即流量控制（Flow Control），根据流量、并发线程数、响应时间等指标，把随机到来的流量调整成合适的形状，即流量塑形。避免应用被瞬时的流量高峰冲垮，从而保障应用的高可用性。</p>
 </blockquote>
 <p>项目地址：<a href="https://github.com/alibaba/Sentinel">sentinel流控防护</a></p>
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>Sentinel广泛用于秒杀场景、消息削峰填谷、集群流量控制、实时熔断等场景中，从多个维度保障您的业务稳定性。</p>
-<p>在一个常见的分布式应用中，如下图所示。一个请求先通过终端到达 Gateway，再经过防火墙和网络负载均衡，其中还包括调用下游的其它服务和第三方应用，才能到达前端网络服务。AHAS 应用流控降级在不同的层次以流量为切面提供秒级实时的流量分析（例如在客户端层提供流量实时监控和水位诊断分析功能），帮助运维人员采取针对性的防护措施，全方位地保护应用的稳定性。</p>
+<h3 id="流量控制有以下几个角度"><a href="#流量控制有以下几个角度" class="headerlink" title="流量控制有以下几个角度:"></a>流量控制有以下几个角度:</h3><p>运行指标，例如 QPS、并发线程数等。</p>
+<ul>
+<li><p>资源的调用关系，例如资源的调用链路，资源和资源之间的关系，调用来源等。</p>
+</li>
+<li><p>控制效果，例如直接拒绝、Warm Up（预热）、排队等待等。<br>一条流控规则主要由下面几个因素组成，我们可以组合这些元素来实现不同的限流效果：</p>
+</li>
+<li><p>资源名：即流控规则的作用对象</p>
+</li>
+<li><p>阈值：流控阈值</p>
+</li>
+<li><p>阈值类型：流控阈值类型（QPS 或并发线程数）</p>
+</li>
+<li><p>来源应用：流控规则针对的调用来源，若为 default 则不区分调用来源</p>
+</li>
+<li><p>流控方式：调用关系限流策略</p>
+</li>
+<li><p>流控模式：即流控效果，包括快速失败、Warm Up、排队等待模式</p>
+</li>
+</ul>
+<h3 id="运行指标"><a href="#运行指标" class="headerlink" title="运行指标"></a>运行指标</h3><p>流量控制支持通过以下运行指标进行流量塑形：</p>
+<ul>
+<li><p>基于 QPS<br>QPS 模式根据资源的实时 QPS 进行流量控制。当 QPS 超过指定阈值时采取相应的控制策略。</p>
+</li>
+<li><p>基于线程数<br>线程数模式按照资源的并发线程数（即该资源正在执行的线程数）进行流量控制。</p>
+<p>并发线程数限流用于保护业务线程数不被耗尽。例如，当应用所依赖的下游应用由于某种原因导致服务不稳定、响应延迟增加，对于调用者来说，意味着吞吐量下降和更多的线程数占用，极端情况下甚至导致线程池耗尽。为应对太多线程占用的情况，业内有使用隔离的方案，比如通过不同业务逻辑使用不同线程池来隔离业务自身之间的资源争抢（线程池隔离）。这种隔离方案虽然隔离性比较好，但是代价就是线程数目太多，线程上下文切换的 overhead 比较大，特别是对低延时的调用有比较大的影响。Sentinel 并发线程数限流不负责创建和管理线程池，而是简单统计当前请求上下文的线程数目，如果超出阈值，新的请求会被立即拒绝，效果类似于信号量隔离。</p>
+</li>
+</ul>
+<h3 id="控制效果"><a href="#控制效果" class="headerlink" title="控制效果"></a>控制效果</h3><p>流控方式（控制效果）指的是，当阈值类型为 QPS 时，选择如何控制流量，处理被拦截的流量，实现流量塑形。流量控制的手段包括以下几种：快速失败、Warm Up、排队等待。</p>
+<p>说明 控制效果仅对 QPS 限流生效。</p>
+<ul>
+<li><p>快速失败<br>快速失败方式是默认的流量控制方式，当 QPS 超过规则的阈值后，新的请求就会被立即拒绝，拒绝方式为抛出 FlowException。这种方式适用于对系统处理能力确切已知的情况下，比如通过压测确定了系统的准确水位时。</p>
+</li>
+<li><p>Warm Up<br>当系统长期处于空闲的情况下，当流量突然增加时，直接把系统拉升到高水位可能瞬间把系统压垮。通过 Warm Up 模式（预热模式），让通过的流量缓慢增加，经过设置的预热时间以后，到达系统处理请求速率的设定值。</p>
+<p>Warm Up 模式默认会从设置的 QPS 阈值的 1/3 开始慢慢往上增加至 QPS 设置值。</p>
+</li>
+<li><p>排队等待<br>排队等待模式下会严格控制请求通过的间隔时间，即请求会匀速通过，允许部分请求排队等待，通常用于消息队列削峰填谷等场景。需设置具体的超时时间，当计算的等待时间超过超时时间时请求就会被拒绝。</p>
+<p>例如，QPS 配置为 5，则代表请求每 200 ms 才能通过一个，多出的请求将排队等待通过。超时时间代表最大排队时间，超出最大排队时间的请求将会直接被拒绝。排队等待模式下，QPS 设置值不要超过 1000（请求间隔 1 ms）。</p>
+</li>
+</ul>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/img/stu/12213538915.png" alt="image" title="Sentinel服务">
+                    <img src="/img/stu/12838192381.png" alt="image" title="排队等待">
                 </div>
-                <div class="image-caption">Sentinel服务</div>
+                <div class="image-caption">排队等待</div>
             </figure>
 
-
-<h3 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h3><p>秒级流量分析功能，动态规则实时推送。<br>专业多样化的防护手段：</p>
-<ul>
-<li>入口流量控制：按照服务容量进行流量控制，常用于应用入口，例如： Gateway、前端应用、服务提供方等。</li>
-<li>热点隔离：将热点和普通流量隔离出来，避免无效热点抢占正常流量的容量。</li>
-<li>对依赖方隔离 / 降级：对应用和应用之间、应用内部采用隔离 / 降级手段，将不稳定的依赖的对应用的影响减至最小，从而保证应用的稳定性。</li>
-<li>系统防护：Sentinel可以根据系统的能力（例如 Load、CPU 使用率等）来动态调节入口的流量，保证系统稳定性。<br>实时的单机监控能力，强大的聚合监控和历史监控查询能力。</li>
-</ul>
 
         </div>
 
@@ -254,7 +283,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/05/02/stu_1113/&title=《Sentinel流控降级快速入门》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/05/25/stu_1114/&title=《Sentinel流量控制（限流）》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -264,22 +293,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/05/02/stu_1113/&title=《Sentinel流控降级快速入门》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/05/25/stu_1114/&title=《Sentinel流量控制（限流）》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/05/02/stu_1113/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/05/25/stu_1114/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Sentinel流控降级快速入门》 — Wei Echo&url=https://github.com/weiecho/2020/05/02/stu_1113/&via=https://github.com/weiecho" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Sentinel流量控制（限流）》 — Wei Echo&url=https://github.com/weiecho/2020/05/25/stu_1114/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/05/02/stu_1113/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/05/25/stu_1114/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -302,18 +331,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2020/05/25/stu_1114/" id="post-prev" class="post-nav-link">
+      <a href="/2020/06/17/exp_1116/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Sentinel流量控制（限流）</h4>
+        <h4 class="title">shardingsphere不支持LocalDateTime/LocalDate</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2020/03/02/doc_1113/" id="post-next" class="post-nav-link">
+      <a href="/2020/05/02/stu_1113/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Sharding-db接入使用说明</h4>
+        <h4 class="title">Sentinel流控降级快速入门</h4>
       </a>
     </div>
   
@@ -404,7 +433,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/05/02/stu_1113/&title=《Sentinel流控降级快速入门》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/05/25/stu_1114/&title=《Sentinel流量控制（限流）》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -414,22 +443,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/05/02/stu_1113/&title=《Sentinel流控降级快速入门》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/05/25/stu_1114/&title=《Sentinel流量控制（限流）》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/05/02/stu_1113/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/05/25/stu_1114/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Sentinel流控降级快速入门》 — Wei Echo&url=https://github.com/weiecho/2020/05/02/stu_1113/&via=https://github.com/weiecho" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Sentinel流量控制（限流）》 — Wei Echo&url=https://github.com/weiecho/2020/05/25/stu_1114/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/05/02/stu_1113/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/05/25/stu_1114/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -440,7 +469,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aS27jMBAFwNz/0h4gmEWAgTnvNWUjpkorQVFElheN/vDrK74e39fP+3+v9Zv5//58cvGFgYHxsYzH8lovkDxP/pqsu/4mBgbGHRhtkE22u/5m8iTZGwYGBkZ7v/5awsbAwMDYZ+ShuX0HAwMDY82YNdHWS7bvvKkWx8DA+EDGbDDwnvuXzzcwMDB+PeNRXjvTw1fs5+/3MTAwjma0qV6yfPvObLQQZbgYGBhHM/KjEjtl7axUforBwMA4lJG82g4gZwVw2/jDwMDAyDfRhuN2YDmsxTEwMA5itM2y/BjEmtH+NMnREAwMjLMZeWnahtHZtmbHODAwMO7DyEcCbVq5E16L0QUGBsahjDxRe+EAsgy+T4tYDAyM4xht63/Wys/basOfFQMD42jGrMWfB9yrWm/1mREMDIxDGS2pDYj7pDrDxcDAOIjRNrmuaqVdUH+3HUEMDIyPZewUorPUMF+3SEYxMDBuwNgJtbPCNcHn6SMGBsapjGTTeWK3Xnh2zCIqoTEwMG7JaFtdeXuuPX6RFL0YGBhnM3YaYbNGf72JoKuGgYFxNuNRXm143XmSr4uBgXE246pi9dnn9hPNYjCAgYFxNCMPsrNw2W432QMGBsY9GUmQ3T9ykad9dbsNAwMDY1TQ5oOBdj//OTOCgYFxe8Z+rGvTzaKIxcDAOJqxM57cmaBe9RwDA+Nsxs5gYCeJ3FlreGgDAwPj8xh/ACGkwngQe/WuAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aQU7EMAwFUO5/6SIhFkgDnW+7RWryskKdkuTNwhPb+fiIx/E1Xp/8HK9v/vXp+f++rnXZwMDAeCzjOB35hhJksmLC/oWKgYGxAeM8yPa2mwfu83WTeTAwMDDyIHg+W/4mBgYGxoSR55LV8I2BgYFxzkiSySShPSflCe2NuTgGBsYDGdXGwH/+fWN/AwMD4yGMozh6s923n+/5MTAwlmbk1ybyhXvJbe/LiraCgYGxAaPa4JynrNXrGhgYGLsxkifVY18Cqxb+MDAwMHrtgWrbIGlMNpNYDAyMbRjVxarhu3oJ483eMDAwNmBMrnnNy3CTKxoYGBg7MHrlrSRAV0NztS2KgYGxD+N8E9ViWbMBWQy+hd8NDAyMhzPy0n+yfBKyq19HlAxjYGAszZiX+HPepPTWvGyBgYGxBKMa+CaHxTkpOhpiYGBswCgfyFrJ6mX5d17tw8DAWIKRLJmEv2pIrXYwonIbBgbGQozJRueJa5Kg9lqnGBgYKzGqx758yUmRrtxAxcDA2JIxKZP1ktjq9YtRjMfAwHgUY1IIy8tkVVjOjmbDwMB4OOMojmp4nTxpHg0xMDCWY1x7vpo3BpK6YPl3AwMDYwnGtSWzXuDOeRgYGDszkkbmpHxfPW7moR8DAwMjCnaDE2iemr55EwMDA6OV+04Ol+XGJwYGxgaMO6525eX++XMMDIy1GZPQWV3+vjCNgYGxKOMT1IQUGXnvmUUAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
