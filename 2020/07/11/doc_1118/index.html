@@ -14,22 +14,22 @@
     
     
     
-    <title>lemon-echo项目命名规范 | Wei Echo | 高效稳定 · 简洁易用 · 灵活扩展</title>
+    <title>lemon-echo项目数据库约定 | Wei Echo | 高效稳定 · 简洁易用 · 灵活扩展</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="微服务,java,架构,lemon-echo">
-    <meta name="description" content="高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构 1、统一：对于同一个概念，在程序中用同一种表示方法，比如对于供应商，既可以用supplier，也可以用provider，但是我们只能选定一个使用。 2、达意：标识符能准确的表达出它所代表的意义，比如： newSupplier, OrderPaymentService等；而 supplier1, service2，idtt">
+    <meta name="description" content="高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构 1、数据库全部使用小写字母，下划线分割，包括库名，表名，字段名，索引名 2、不能使用数据库保留字,比如：key，desc，delete，order等 3、索引列不能存储null，可以为空串”” 4、使用innodb存储引擎，使用utf8mb4 5、每张表都要有一个整型类型自增长主键id，不允许使用联合主键 6、轻约束设计">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lemon-echo项目命名规范">
-<meta property="og:url" content="https://github.com/weiecho/2020/07/10/doc_1116/index.html">
+<meta property="og:title" content="lemon-echo项目数据库约定">
+<meta property="og:url" content="https://github.com/weiecho/2020/07/11/doc_1118/index.html">
 <meta property="og:site_name" content="Wei Echo">
-<meta property="og:description" content="高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构 1、统一：对于同一个概念，在程序中用同一种表示方法，比如对于供应商，既可以用supplier，也可以用provider，但是我们只能选定一个使用。 2、达意：标识符能准确的表达出它所代表的意义，比如： newSupplier, OrderPaymentService等；而 supplier1, service2，idtt">
+<meta property="og:description" content="高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构 1、数据库全部使用小写字母，下划线分割，包括库名，表名，字段名，索引名 2、不能使用数据库保留字,比如：key，desc，delete，order等 3、索引列不能存储null，可以为空串”” 4、使用innodb存储引擎，使用utf8mb4 5、每张表都要有一个整型类型自增长主键id，不允许使用联合主键 6、轻约束设计">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-10T00:30:46.000Z">
-<meta property="article:modified_time" content="2020-07-10T02:32:14.386Z">
+<meta property="article:published_time" content="2020-07-11T12:13:06.000Z">
+<meta property="article:modified_time" content="2020-07-10T02:41:36.301Z">
 <meta property="article:author" content="Wei Echo">
 <meta property="article:tag" content="微服务">
 <meta property="article:tag" content="java">
@@ -137,7 +137,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">lemon-echo项目命名规范</div>
+        <div class="flex-col header-title ellipsis">lemon-echo项目数据库约定</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -159,11 +159,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">lemon-echo项目命名规范</h1>
+        <h1 class="title">lemon-echo项目数据库约定</h1>
         <h5 class="subtitle">
             
-                <time datetime="2020-07-10T00:30:46.000Z" itemprop="datePublished" class="page-time">
-  2020-07-10
+                <time datetime="2020-07-11T12:13:06.000Z" itemprop="datePublished" class="page-time">
+  2020-07-11
 </time>
 
 
@@ -182,13 +182,13 @@
 <div class="container body-wrap">
     
 
-<article id="post-doc_1116"
+<article id="post-doc_1118"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">lemon-echo项目命名规范</h1>
+        <h1 class="post-card-title">lemon-echo项目数据库约定</h1>
         <div class="post-meta">
-            <time class="post-time" title="2020-07-10 08:30:46" datetime="2020-07-10T00:30:46.000Z"  itemprop="datePublished">2020-07-10</time>
+            <time class="post-time" title="2020-07-11 20:13:06" datetime="2020-07-11T12:13:06.000Z"  itemprop="datePublished">2020-07-11</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/">开源文档</a></li></ul>
@@ -200,12 +200,18 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h6 id="高效稳定-·-简洁易用-·-灵活扩展"><a href="#高效稳定-·-简洁易用-·-灵活扩展" class="headerlink" title="高效稳定 · 简洁易用 · 灵活扩展"></a><code>高效稳定 · 简洁易用 · 灵活扩展</code></h6><p>项目地址：<a href="https://github.com/weiecho/lemon-echo">lemon-echo微服务架构</a></p>
-<p>1、统一：对于同一个概念，在程序中用同一种表示方法，比如对于供应商，既可以用supplier，也可以用provider，但是我们只能选定一个使用。</p>
-<p>2、达意：标识符能准确的表达出它所代表的意义，比如： newSupplier, OrderPaymentService等；而 supplier1, service2，idtts等则不是好的命名方式。</p>
-<p>3、简洁：在统一和达意的前提下，用尽量少的标识符。如果不能达意，宁愿不要简洁。</p>
-<p>4、驼峰法则：Java中除了包名，静态常量等特殊情况，大部分情况下标识符使用驼峰法则，即单词之间不使用特殊符号分割，而是通过首字母大写来分割。比如: supplierName, addNewContract，而不是 supplier_name, add_new_contract。</p>
-<p>5、英文 vs 拼音：尽量使用通俗易懂的英文单词，如果不会可以向队友求助，避免拼音与英文混用。</p>
-<p>6、包名 &amp; 类名：包名使用小写字母，如 com.xxx.service，类名要首字母大写，比如 SupplierService。</p>
+<p>1、数据库全部使用小写字母，下划线分割，包括库名，表名，字段名，索引名</p>
+<p>2、不能使用数据库保留字,比如：key，desc，delete，order等</p>
+<p>3、索引列不能存储null，可以为空串””</p>
+<p>4、使用innodb存储引擎，使用utf8mb4</p>
+<p>5、每张表都要有一个整型类型自增长主键id，不允许使用联合主键</p>
+<p>6、轻约束设计，不建议表之间设计外键，以提升性能和避免设计的复杂性</p>
+<p>7、冗余设计（反范式化），避免后续大表关联查询，可考虑冗余部分字段</p>
+<p>8、普通索引命名idx_(前缀) + 列名，唯一索引命名udx_(前缀) + 列名</p>
+<p>9、避免在索引列进行函数运算、!=/&lt;&gt;、not in等的使用（索引不能被使用）</p>
+<p>10、varchar(M) M代表的意思是存储的最大字符数，不是字节数。M的值如果没有特别需要，建议不超过255（超过后存储方式会变化）</p>
+<p>11、不要使用blob，text，longblob,longtext等超长的数据类型。对于要存储log日志的需求，建议程序端使用外部文件存储的方式</p>
+<p>12、线上库truncate table xx、drop table xx操作需要邮件提前通知各部门，以防误删</p>
 
         </div>
 
@@ -240,7 +246,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/07/10/doc_1116/&title=《lemon-echo项目命名规范》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/07/11/doc_1118/&title=《lemon-echo项目数据库约定》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -250,22 +256,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/07/10/doc_1116/&title=《lemon-echo项目命名规范》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/07/11/doc_1118/&title=《lemon-echo项目数据库约定》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/07/10/doc_1116/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/07/11/doc_1118/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lemon-echo项目命名规范》 — Wei Echo&url=https://github.com/weiecho/2020/07/10/doc_1116/&via=https://github.com/weiecho" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lemon-echo项目数据库约定》 — Wei Echo&url=https://github.com/weiecho/2020/07/11/doc_1118/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/07/10/doc_1116/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/07/11/doc_1118/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -288,18 +294,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2020/07/11/doc_1117/" id="post-prev" class="post-nav-link">
+      <a href="/2020/07/13/exp_1116/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">lemon-echo项目代码规范</h4>
+        <h4 class="title">Maven项目本地仓库引用强制刷新</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2020/07/09/doc_1115/" id="post-next" class="post-nav-link">
+      <a href="/2020/07/11/doc_1117/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">lemon-echo模块划分原则</h4>
+        <h4 class="title">lemon-echo项目代码规范</h4>
       </a>
     </div>
   
@@ -390,7 +396,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/07/10/doc_1116/&title=《lemon-echo项目命名规范》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/07/11/doc_1118/&title=《lemon-echo项目数据库约定》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -400,22 +406,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/07/10/doc_1116/&title=《lemon-echo项目命名规范》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/07/11/doc_1118/&title=《lemon-echo项目数据库约定》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/07/10/doc_1116/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/07/11/doc_1118/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lemon-echo项目命名规范》 — Wei Echo&url=https://github.com/weiecho/2020/07/10/doc_1116/&via=https://github.com/weiecho" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lemon-echo项目数据库约定》 — Wei Echo&url=https://github.com/weiecho/2020/07/11/doc_1118/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/07/10/doc_1116/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/07/11/doc_1118/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -426,7 +432,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3aSVLDQBAEQP7/aRPB1diq6rEINMo5ObwIpQ5Nb19f8Xn8nOd3ns+rT5MrJ99fOhgYGJdlPN6eV4z2hpK/8v46B48GAwPjBozZbb0Px8n12yu/fB8DAwOjvK1Z2M0DPQYGBkab6rUBdPZbDAwMjFn7LGmWzQrXE2txDAyMCzLawcBfvj5xvoGBgXERxqM8szSubbTVd4WBgbE1I2nrr5e171tyeWp48LAwMDA2ZeTDxbZ9n5eaeRlc7KxhYGBszWhXtfJHkP82TysxMDDuw0ha9kkAzXkra2e/vMbAwLgNo/3xSghub/3gahgYGDdgtJPBWQrYrmIUowgMDIytGbMWf1votgll0m47KGUxMDA2YpwRKFeCabuOhoGBcQfG7IbaiL4yGMibdxgYGLsyZsOA5NPZaGG4R4GBgbE1Y5aKrcDaMcBs4QMDA2MnxqxYbUNku5ZRNwExMDBuwFgvMpO2ftJ0a4vqQoyBgXFZxqfWs9ZL4vydlw8aAwNjU0a0bhUndrO0sl1NK76EgYGxESNP4FaWLfL/AHXLDwMDY2vGGWF3feVi2M7DwMDYlPEoTzt6bAP3cFyKgYGxNWMW5vLh4mzkmYdpDAyM+zBWRox5QdsWsW2YxsDAuANjFmRXVsfaqH/wHwMDAwOjzDTzhC9v/BWDTAwMjNsz2iCbtOpmq2PD1BADA+OyjKSIbRttZySXxbIFBgbGRowPFJD5ZseHJhgfG2FiYGD8d8Y31hd/rfCmm0cAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3ay07DMBAFUP7/p8sWCRruHRukOMerqk3jnCxGnsfHR7xeX9b3b5Jfr+/8bpfNCwMD47aM1+VKrkn+9f2hZ6/jLRUDA+MBjCQU5tcnj3h9ZbsXBgYGRn7rJOC2IRsDAwNjhdEmq0mCioGBgbGSxObIa94sDd6Wi2NgYNyQkVfd///zn/Q3MDAwbsWYlfvz4lpyKNzQhMDAwDiakQe4nNReMzv2YWBgPI2xMmGVBN/ZqFlSENw2KIaBgXETxuyxkmPf7A7Ji/uly4GBgXE0I7lRfuxrD3ntGBkGBsbZjFkpLTmVzcpw7fAZBgbGExj5H9rCWVv0bw+Uw7eIgYFxQ0Y+7JV/0wbcttD2wx0wMDAewFjZIAmdbVBOXusvMyMYGBiHMvaW+/OyWhvc36avGBgYRzPaEJlf3/YohsMWGBgYRzPaEtuuAJ23AYaBHgMD42jGSoK6smXRx5iFXQwMjIMYSdDcFaDztkF9TMTAwDiUkRfx28Cak1Z2wcDAOJsxK3vNmpqz1maU+mJgYDyMkfP+os05THExMDAewGiL9W35bAYr9sXAwDiU8SrXSo1r1hCtD4UYGBjHMWZNzV0thPXhjA3jYhgYGDdhzFoCbXF/VyMBAwPjyYw28K0U6YaTINe7Y2BgYIwalrvanFESi4GBgVEOXqwkpe3rwMDAeA4jH9JaL7G1bYbN5TYMDIwbMmYjDu3RsG2Lro+DYGBgHMH4BD4qIuBSutxwAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

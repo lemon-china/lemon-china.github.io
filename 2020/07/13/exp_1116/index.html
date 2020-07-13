@@ -14,28 +14,32 @@
     
     
     
-    <title>lemon-echo项目命名规范 | Wei Echo | 高效稳定 · 简洁易用 · 灵活扩展</title>
+    <title>Maven项目本地仓库引用强制刷新 | Wei Echo | 高效稳定 · 简洁易用 · 灵活扩展</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="微服务,java,架构,lemon-echo">
-    <meta name="description" content="高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构 1、统一：对于同一个概念，在程序中用同一种表示方法，比如对于供应商，既可以用supplier，也可以用provider，但是我们只能选定一个使用。 2、达意：标识符能准确的表达出它所代表的意义，比如： newSupplier, OrderPaymentService等；而 supplier1, service2，idtt">
+    <meta name="keywords" content="spring,idea,maven">
+    <meta name="description" content="很多时候我们会遇到realse版本的包发布到maven仓库使用后，出现了一点问题需要修复，但是又想让大家静默升级或者遇到一些包之间到引用混乱，需要重拉整理仓库引用我们可以使用mvn dependency:purge-local-repository命令来进行全局刷新但很多时候我们需要的只是个别包的强刷，下面简单说明下个别包的强刷  1）点击右侧Maven Projects的 M图标(Execut">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lemon-echo项目命名规范">
-<meta property="og:url" content="https://github.com/weiecho/2020/07/10/doc_1116/index.html">
+<meta property="og:title" content="Maven项目本地仓库引用强制刷新">
+<meta property="og:url" content="https://github.com/weiecho/2020/07/13/exp_1116/index.html">
 <meta property="og:site_name" content="Wei Echo">
-<meta property="og:description" content="高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构 1、统一：对于同一个概念，在程序中用同一种表示方法，比如对于供应商，既可以用supplier，也可以用provider，但是我们只能选定一个使用。 2、达意：标识符能准确的表达出它所代表的意义，比如： newSupplier, OrderPaymentService等；而 supplier1, service2，idtt">
+<meta property="og:description" content="很多时候我们会遇到realse版本的包发布到maven仓库使用后，出现了一点问题需要修复，但是又想让大家静默升级或者遇到一些包之间到引用混乱，需要重拉整理仓库引用我们可以使用mvn dependency:purge-local-repository命令来进行全局刷新但很多时候我们需要的只是个别包的强刷，下面简单说明下个别包的强刷  1）点击右侧Maven Projects的 M图标(Execut">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-10T00:30:46.000Z">
-<meta property="article:modified_time" content="2020-07-10T02:32:14.386Z">
+<meta property="og:image" content="https://github.com/img/1293812302.png">
+<meta property="og:image" content="https://github.com/img/1233827383.png">
+<meta property="og:image" content="https://github.com/img/1233473782.png">
+<meta property="og:image" content="https://github.com/img/1233473782.png">
+<meta property="article:published_time" content="2020-07-13T08:39:26.000Z">
+<meta property="article:modified_time" content="2020-07-13T10:58:10.162Z">
 <meta property="article:author" content="Wei Echo">
-<meta property="article:tag" content="微服务">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="架构">
-<meta property="article:tag" content="lemon-echo">
+<meta property="article:tag" content="spring">
+<meta property="article:tag" content="idea">
+<meta property="article:tag" content="maven">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/img/1293812302.png">
     
         <link rel="alternate" type="application/atom+xml" title="Wei Echo" href="/atom.xml">
     
@@ -137,7 +141,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">lemon-echo项目命名规范</div>
+        <div class="flex-col header-title ellipsis">Maven项目本地仓库引用强制刷新</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -159,15 +163,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">lemon-echo项目命名规范</h1>
+        <h1 class="title">Maven项目本地仓库引用强制刷新</h1>
         <h5 class="subtitle">
             
-                <time datetime="2020-07-10T00:30:46.000Z" itemprop="datePublished" class="page-time">
-  2020-07-10
+                <time datetime="2020-07-13T08:39:26.000Z" itemprop="datePublished" class="page-time">
+  2020-07-13
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/">开源文档</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li></ul>
 
             
         </h5>
@@ -182,16 +186,16 @@
 <div class="container body-wrap">
     
 
-<article id="post-doc_1116"
+<article id="post-exp_1116"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">lemon-echo项目命名规范</h1>
+        <h1 class="post-card-title">Maven项目本地仓库引用强制刷新</h1>
         <div class="post-meta">
-            <time class="post-time" title="2020-07-10 08:30:46" datetime="2020-07-10T00:30:46.000Z"  itemprop="datePublished">2020-07-10</time>
+            <time class="post-time" title="2020-07-13 16:39:26" datetime="2020-07-13T08:39:26.000Z"  itemprop="datePublished">2020-07-13</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/">开源文档</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li></ul>
 
 
 
@@ -199,13 +203,41 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h6 id="高效稳定-·-简洁易用-·-灵活扩展"><a href="#高效稳定-·-简洁易用-·-灵活扩展" class="headerlink" title="高效稳定 · 简洁易用 · 灵活扩展"></a><code>高效稳定 · 简洁易用 · 灵活扩展</code></h6><p>项目地址：<a href="https://github.com/weiecho/lemon-echo">lemon-echo微服务架构</a></p>
-<p>1、统一：对于同一个概念，在程序中用同一种表示方法，比如对于供应商，既可以用supplier，也可以用provider，但是我们只能选定一个使用。</p>
-<p>2、达意：标识符能准确的表达出它所代表的意义，比如： newSupplier, OrderPaymentService等；而 supplier1, service2，idtts等则不是好的命名方式。</p>
-<p>3、简洁：在统一和达意的前提下，用尽量少的标识符。如果不能达意，宁愿不要简洁。</p>
-<p>4、驼峰法则：Java中除了包名，静态常量等特殊情况，大部分情况下标识符使用驼峰法则，即单词之间不使用特殊符号分割，而是通过首字母大写来分割。比如: supplierName, addNewContract，而不是 supplier_name, add_new_contract。</p>
-<p>5、英文 vs 拼音：尽量使用通俗易懂的英文单词，如果不会可以向队友求助，避免拼音与英文混用。</p>
-<p>6、包名 &amp; 类名：包名使用小写字母，如 com.xxx.service，类名要首字母大写，比如 SupplierService。</p>
+            <blockquote>
+<p>很多时候我们会遇到realse版本的包发布到maven仓库使用后，出现了一点问题需要修复，但是又想让大家静默升级<br>或者遇到一些包之间到引用混乱，需要重拉整理仓库引用<br>我们可以使用mvn dependency:purge-local-repository命令来进行全局刷新<br>但很多时候我们需要的只是个别包的强刷，下面简单说明下个别包的强刷</p>
+</blockquote>
+<h5 id="1）点击右侧Maven-Projects的-M图标-Execute-Maven-Goal-，填入命令点击执行即可强制刷新引用"><a href="#1）点击右侧Maven-Projects的-M图标-Execute-Maven-Goal-，填入命令点击执行即可强制刷新引用" class="headerlink" title="1）点击右侧Maven Projects的 M图标(Execute Maven Goal)，填入命令点击执行即可强制刷新引用"></a>1）点击右侧Maven Projects的 M图标(Execute Maven Goal)，填入命令点击执行即可强制刷新引用</h5><p>命令：dependency:purge-local-repository -Dinclude=”com.ctrip.framework.apollo:apollo-client” -U idea:idea</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/1293812302.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/1233827383.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h5 id="2）检查项目引用apollo-client是否更新为版本-1-4-1"><a href="#2）检查项目引用apollo-client是否更新为版本-1-4-1" class="headerlink" title="2）检查项目引用apollo-client是否更新为版本 1.4.1"></a>2）检查项目引用apollo-client是否更新为版本 1.4.1</h5><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/1233473782.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h5 id="3）如果不是全局查找一下是否有项目强制设置版本为1-4-0，如果存在设置去除版本号，再刷新检查引用"><a href="#3）如果不是全局查找一下是否有项目强制设置版本为1-4-0，如果存在设置去除版本号，再刷新检查引用" class="headerlink" title="3）如果不是全局查找一下是否有项目强制设置版本为1.4.0，如果存在设置去除版本号，再刷新检查引用"></a>3）如果不是全局查找一下是否有项目强制设置版本为1.4.0，如果存在设置去除版本号，再刷新检查引用</h5><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/1233473782.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 
         </div>
 
@@ -230,7 +262,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lemon-echo/" rel="tag">lemon-echo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idea/" rel="tag">idea</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/" rel="tag">maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/" rel="tag">spring</a></li></ul>
 
 
             
@@ -240,7 +272,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/07/10/doc_1116/&title=《lemon-echo项目命名规范》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/07/13/exp_1116/&title=《Maven项目本地仓库引用强制刷新》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -250,22 +282,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/07/10/doc_1116/&title=《lemon-echo项目命名规范》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/07/13/exp_1116/&title=《Maven项目本地仓库引用强制刷新》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/07/10/doc_1116/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/07/13/exp_1116/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lemon-echo项目命名规范》 — Wei Echo&url=https://github.com/weiecho/2020/07/10/doc_1116/&via=https://github.com/weiecho" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Maven项目本地仓库引用强制刷新》 — Wei Echo&url=https://github.com/weiecho/2020/07/13/exp_1116/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/07/10/doc_1116/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/07/13/exp_1116/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -285,21 +317,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2020/07/11/doc_1117/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">lemon-echo项目代码规范</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2020/07/09/doc_1115/" id="post-next" class="post-nav-link">
+      <a href="/2020/07/11/doc_1118/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">lemon-echo模块划分原则</h4>
+        <h4 class="title">lemon-echo项目数据库约定</h4>
       </a>
     </div>
   
@@ -390,7 +415,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/07/10/doc_1116/&title=《lemon-echo项目命名规范》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/07/13/exp_1116/&title=《Maven项目本地仓库引用强制刷新》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -400,22 +425,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/07/10/doc_1116/&title=《lemon-echo项目命名规范》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/07/13/exp_1116/&title=《Maven项目本地仓库引用强制刷新》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/07/10/doc_1116/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/07/13/exp_1116/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lemon-echo项目命名规范》 — Wei Echo&url=https://github.com/weiecho/2020/07/10/doc_1116/&via=https://github.com/weiecho" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Maven项目本地仓库引用强制刷新》 — Wei Echo&url=https://github.com/weiecho/2020/07/13/exp_1116/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/07/10/doc_1116/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/07/13/exp_1116/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -426,7 +451,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3aSVLDQBAEQP7/aRPB1diq6rEINMo5ObwIpQ5Nb19f8Xn8nOd3ns+rT5MrJ99fOhgYGJdlPN6eV4z2hpK/8v46B48GAwPjBozZbb0Px8n12yu/fB8DAwOjvK1Z2M0DPQYGBkab6rUBdPZbDAwMjFn7LGmWzQrXE2txDAyMCzLawcBfvj5xvoGBgXERxqM8szSubbTVd4WBgbE1I2nrr5e171tyeWp48LAwMDA2ZeTDxbZ9n5eaeRlc7KxhYGBszWhXtfJHkP82TysxMDDuw0ha9kkAzXkra2e/vMbAwLgNo/3xSghub/3gahgYGDdgtJPBWQrYrmIUowgMDIytGbMWf1votgll0m47KGUxMDA2YpwRKFeCabuOhoGBcQfG7IbaiL4yGMibdxgYGLsyZsOA5NPZaGG4R4GBgbE1Y5aKrcDaMcBs4QMDA2MnxqxYbUNku5ZRNwExMDBuwFgvMpO2ftJ0a4vqQoyBgXFZxqfWs9ZL4vydlw8aAwNjU0a0bhUndrO0sl1NK76EgYGxESNP4FaWLfL/AHXLDwMDY2vGGWF3feVi2M7DwMDYlPEoTzt6bAP3cFyKgYGxNWMW5vLh4mzkmYdpDAyM+zBWRox5QdsWsW2YxsDAuANjFmRXVsfaqH/wHwMDAwOjzDTzhC9v/BWDTAwMjNsz2iCbtOpmq2PD1BADA+OyjKSIbRttZySXxbIFBgbGRowPFJD5ZseHJhgfG2FiYGD8d8Y31hd/rfCmm0cAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHElEQVR42u3aSW7DMBAEQP//08kDAsvdQzmAyNIpCGyapcNgttcrfn7i593nr0/++63XNx4MDIzHMmbXar/199LXJ+d3w8DAOIeRhMLrb7VXvP5kfjcMDAyM2aWT/+QhGwMDA6NlFOnaJTIvazEwMDBmga8tO9vm3RdrcQwMjAcy8q77///9lfkGBgbGoxizdn+eLCZJ4Q1DCAwMjK0ZeYBrh5QzdlvoYmBgnMDIB4rXZW0yJFhZC/twDgYGxgGMu5pr7RXbF/H2NAwMjK0Zs0Fm/gPDXHVU+mJgYOzKyJOwtgG3UgDXp2FgYGzNuLeV1p6QBOVitQIDA2NTRtK+Tz6fX6UtSqMbYmBgHMBYH0nmTbr1ht2HriEGBsbWjNnRs3WN9eA+LF8xMDAeyLhrzWJWpq4E97oux8DA2I7RDiaTInb2d7tAhoGBcQIjT8Vy2KwlVwdZDAyMIxl5ypg8CbINuxgYGKcx2uPyH1hJK4e5LQYGxnaM9RWKlUZbO5x4+4oxMDAOYORl6mx5qw2s7WvFwMA4h5EnhbNwXLf189/FwMDYlLHSMmtTvfWRQ5QUYmBgbMeYDQa+EYKTMvWGkI2BgfFYRru0eu8V2zUODAyMkxkrgS8fGMyCdYTEwMDAiK+b7z+0IfVDQMfAwMAYJXCzorR9HRgYGOcw1pe08qDZjhlubrdhYGA8kDFbcUiSvPX11raExsDA2I7xC9SfQc+BGysrAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/weiecho/"/>
-  <updated>2020-07-10T02:32:14.386Z</updated>
+  <updated>2020-07-13T10:58:10.162Z</updated>
   <id>https://github.com/weiecho/</id>
   
   <author>
@@ -15,6 +15,101 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Maven项目本地仓库引用强制刷新</title>
+    <link href="https://github.com/weiecho/2020/07/13/exp_1116/"/>
+    <id>https://github.com/weiecho/2020/07/13/exp_1116/</id>
+    <published>2020-07-13T08:39:26.000Z</published>
+    <updated>2020-07-13T10:58:10.162Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>很多时候我们会遇到realse版本的包发布到maven仓库使用后，出现了一点问题需要修复，但是又想让大家静默升级<br>或者遇到一些包之间到引用混乱，需要重拉整理仓库引用<br>我们可以使用mvn dependency:purge-local-repository命令来进行全局刷新<br>但很多时候我们需要的只是个别包的强刷，下面简单说明下个别包的强刷</p></blockquote><h5 id="1）点击右侧Maven-Projects的-M图标-Execute-Maven-Goal-，填入命令点击执行即可强制刷新引用"><a href="#1）点击右侧Maven-Projects的-M图标-Execute-Maven-Goal-，填入命令点击执行即可强制刷新引用" class="headerlink" title="1）点击右侧Maven Projects的 M图标(Execute Maven Goal)，填入命令点击执行即可强制刷新引用"></a>1）点击右侧Maven Projects的 M图标(Execute Maven Goal)，填入命令点击执行即可强制刷新引用</h5><p>命令：dependency:purge-local-repository -Dinclude=”com.ctrip.framework.apollo:apollo-client” -U idea:idea</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/1293812302.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/1233827383.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><h5 id="2）检查项目引用apollo-client是否更新为版本-1-4-1"><a href="#2）检查项目引用apollo-client是否更新为版本-1-4-1" class="headerlink" title="2）检查项目引用apollo-client是否更新为版本 1.4.1"></a>2）检查项目引用apollo-client是否更新为版本 1.4.1</h5><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/1233473782.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><h5 id="3）如果不是全局查找一下是否有项目强制设置版本为1-4-0，如果存在设置去除版本号，再刷新检查引用"><a href="#3）如果不是全局查找一下是否有项目强制设置版本为1-4-0，如果存在设置去除版本号，再刷新检查引用" class="headerlink" title="3）如果不是全局查找一下是否有项目强制设置版本为1.4.0，如果存在设置去除版本号，再刷新检查引用"></a>3）如果不是全局查找一下是否有项目强制设置版本为1.4.0，如果存在设置去除版本号，再刷新检查引用</h5><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/1233473782.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;很多时候我们会遇到realse版本的包发布到maven仓库使用后，出现了一点问题需要修复，但是又想让大家静默升级&lt;br&gt;或者遇到一些包之间到引用混乱，需要重拉整理仓库引用&lt;br&gt;我们可以使用mvn dependency:purge-local-re
+      
+    
+    </summary>
+    
+    
+      <category term="经验分享" scheme="https://github.com/weiecho/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="spring" scheme="https://github.com/weiecho/tags/spring/"/>
+    
+      <category term="idea" scheme="https://github.com/weiecho/tags/idea/"/>
+    
+      <category term="maven" scheme="https://github.com/weiecho/tags/maven/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>lemon-echo项目数据库约定</title>
+    <link href="https://github.com/weiecho/2020/07/11/doc_1118/"/>
+    <id>https://github.com/weiecho/2020/07/11/doc_1118/</id>
+    <published>2020-07-11T12:13:06.000Z</published>
+    <updated>2020-07-10T02:41:36.301Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="高效稳定-·-简洁易用-·-灵活扩展"><a href="#高效稳定-·-简洁易用-·-灵活扩展" class="headerlink" title="高效稳定 · 简洁易用 · 灵活扩展"></a><code>高效稳定 · 简洁易用 · 灵活扩展</code></h6><p>项目地址：<a href="https://github.com/weiecho/lemon-echo">lemon-echo微服务架构</a></p><p>1、数据库全部使用小写字母，下划线分割，包括库名，表名，字段名，索引名</p><p>2、不能使用数据库保留字,比如：key，desc，delete，order等</p><p>3、索引列不能存储null，可以为空串””</p><p>4、使用innodb存储引擎，使用utf8mb4</p><p>5、每张表都要有一个整型类型自增长主键id，不允许使用联合主键</p><p>6、轻约束设计，不建议表之间设计外键，以提升性能和避免设计的复杂性</p><p>7、冗余设计（反范式化），避免后续大表关联查询，可考虑冗余部分字段</p><p>8、普通索引命名idx_(前缀) + 列名，唯一索引命名udx_(前缀) + 列名</p><p>9、避免在索引列进行函数运算、!=/&lt;&gt;、not in等的使用（索引不能被使用）</p><p>10、varchar(M) M代表的意思是存储的最大字符数，不是字节数。M的值如果没有特别需要，建议不超过255（超过后存储方式会变化）</p><p>11、不要使用blob，text，longblob,longtext等超长的数据类型。对于要存储log日志的需求，建议程序端使用外部文件存储的方式</p><p>12、线上库truncate table xx、drop table xx操作需要邮件提前通知各部门，以防误删</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h6 id=&quot;高效稳定-·-简洁易用-·-灵活扩展&quot;&gt;&lt;a href=&quot;#高效稳定-·-简洁易用-·-灵活扩展&quot; class=&quot;headerlink&quot; title=&quot;高效稳定 · 简洁易用 · 灵活扩展&quot;&gt;&lt;/a&gt;&lt;code&gt;高效稳定 · 简洁易用 · 灵活扩展&lt;/code&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="开源文档" scheme="https://github.com/weiecho/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
+    
+    
+      <category term="微服务" scheme="https://github.com/weiecho/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
+    
+      <category term="架构" scheme="https://github.com/weiecho/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="lemon-echo" scheme="https://github.com/weiecho/tags/lemon-echo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>lemon-echo项目代码规范</title>
+    <link href="https://github.com/weiecho/2020/07/11/doc_1117/"/>
+    <id>https://github.com/weiecho/2020/07/11/doc_1117/</id>
+    <published>2020-07-11T08:23:46.000Z</published>
+    <updated>2020-07-10T02:38:19.860Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="高效稳定-·-简洁易用-·-灵活扩展"><a href="#高效稳定-·-简洁易用-·-灵活扩展" class="headerlink" title="高效稳定 · 简洁易用 · 灵活扩展"></a><code>高效稳定 · 简洁易用 · 灵活扩展</code></h6><p>项目地址：<a href="https://github.com/weiecho/lemon-echo">lemon-echo微服务架构</a></p><p>1、if else语句不超过三层，代码嵌套层次达3层以上时，一般人理解起来都会困难，尽量避免用到else，可以使用if(xx) return替代。</p><p>2、每个if while for等语句，都不要省略大括号{}。</p><p>3、公用逻辑抽取成公用方法，并加以注释说明。</p><p>4、在实体字段、类、方法使用Java Doc注释方式 /** **/，方法注释时除非特殊说明不强制要求对方法每个参数进行注释，注释宜少而精，不宜多而滥，更不能误导。</p><p>5、在代码中加入 //TODO: ，IDE会提示让你知道你还有什么事没有做，如已经处理过的重写方法需要将自动生成的TODO注释删除。</p><p>6、如果某个方法是故意留空不写，需要注释说明</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!exists(order)) &#123;</span><br><span class="line">    <span class="comment">//nothing to do</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>7、变量的声明，初始化和被使用尽量放到一起。</p><p>8、能用局部变量的，不要使用实例变量，能用实例变量的，不要使用类变量。变量的生存期越短，以为着它被误用的机会越小，同一时刻要关注的变量的状态越少。</p><p>9、尽量不要用参数来带回方法运算结果，而是使用return返回。</p><p>10、尽量使用HashMap、ArrayList、StringBuilder，除非线程安全需要，否则不推荐使用Hashtable、Vector、StringBuffer，后三者由于使用同步机制而导致了性能开销。</p><p>11、字符串变量和字符串常量equals的时候将字符串常量写在前面 “abc”.equals(obj)，这么做可以避免空指针异常。</p><p>12、把一个基本数据类型转为字符串，基本数据类型.toString()是最快的方式、String.valueOf(数据)次之、数据+””最慢。</p><p>13、尽量不捕获Java类库中定义的继承自RuntimeException的运行时异常类，而是使用全局处理方法统一记录日志并处理。</p><p>14、打印日志时候，使用log而不是System.out.println()，注意日志级别 info/warn/error。</p><p>15、不要想着等完成了功能，再来优化代码的格式和结构，等真的把功能完成，很少有人会再愿意回头调整代码。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h6 id=&quot;高效稳定-·-简洁易用-·-灵活扩展&quot;&gt;&lt;a href=&quot;#高效稳定-·-简洁易用-·-灵活扩展&quot; class=&quot;headerlink&quot; title=&quot;高效稳定 · 简洁易用 · 灵活扩展&quot;&gt;&lt;/a&gt;&lt;code&gt;高效稳定 · 简洁易用 · 灵活扩展&lt;/code&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="开源文档" scheme="https://github.com/weiecho/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
+    
+    
+      <category term="微服务" scheme="https://github.com/weiecho/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
+    
+      <category term="架构" scheme="https://github.com/weiecho/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="lemon-echo" scheme="https://github.com/weiecho/tags/lemon-echo/"/>
+    
+  </entry>
   
   <entry>
     <title>lemon-echo项目命名规范</title>
@@ -181,10 +276,10 @@
   
   <entry>
     <title>shardingsphere不支持LocalDateTime/LocalDate</title>
-    <link href="https://github.com/weiecho/2020/06/17/exp_1116/"/>
-    <id>https://github.com/weiecho/2020/06/17/exp_1116/</id>
+    <link href="https://github.com/weiecho/2020/06/17/exp_1117/"/>
+    <id>https://github.com/weiecho/2020/06/17/exp_1117/</id>
     <published>2020-06-17T07:56:39.000Z</published>
-    <updated>2020-07-01T12:59:06.479Z</updated>
+    <updated>2020-07-13T08:40:31.743Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">shardingsphere默认使用等jdk版本是1.7，所以并没有支持jdk1.8+的LocalDateTime等特性</span><br><span class="line"></span><br><span class="line">我已经在fork上扩展了这个特性，并将JDK的功能升级到jdk1.8。</span><br><span class="line"></span><br><span class="line">主要验证了支持 Mybatis5+</span><br><span class="line"></span><br><span class="line">4.0.0-RC2-1.8</span><br><span class="line">https:&#x2F;&#x2F;github.com&#x2F;lonyee1989&#x2F;incubator-shardingsphere&#x2F;tree&#x2F;4.0.0-RC2-1.8</span><br></pre></td></tr></table></figure><h3 id="直接上实现代码"><a href="#直接上实现代码" class="headerlink" title="直接上实现代码"></a>直接上实现代码</h3><p><a href="https://github.com/lonyee1989/incubator-shardingsphere/tree/4.0.0-RC2-1.8">fork代码</a></p><p>1、package org.apache.shardingsphere.shardingjdbc.jdbc.core.resultset;</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Convert value via expected class type.</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> value original value</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> convertType expected class type</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> converted value</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">convertValue</span><span class="params">(<span class="keyword">final</span> Object value, <span class="keyword">final</span> Class&lt;?&gt; convertType)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> == value) &#123;</span><br><span class="line">        <span class="keyword">return</span> convertNullValue(convertType);</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span> (value.getClass() == convertType) &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (LocalDateTime.class.equals(convertType)) &#123;</span><br><span class="line">        <span class="keyword">return</span> convertLocalDateTimeValue(value, convertType);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (LocalDate.class.equals(convertType)) &#123;</span><br><span class="line">        <span class="keyword">return</span> convertLocalDateValue(value, convertType);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (LocalTime.class.equals(convertType)) &#123;</span><br><span class="line">        <span class="keyword">return</span> convertLocalTimeValue(value, convertType);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (value <span class="keyword">instanceof</span> Number) &#123;</span><br><span class="line">        <span class="keyword">return</span> convertNumberValue(value, convertType);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (value <span class="keyword">instanceof</span> Date) &#123;</span><br><span class="line">        <span class="keyword">return</span> convertDateValue(value, convertType);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (value <span class="keyword">instanceof</span> <span class="keyword">byte</span>[]) &#123;</span><br><span class="line">        <span class="keyword">return</span> convertByteArrayValue(value, convertType);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (String.class.equals(convertType)) &#123;</span><br><span class="line">        <span class="keyword">return</span> value.toString();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Object <span class="title">convertLocalDateTimeValue</span><span class="params">(<span class="keyword">final</span> Object value, <span class="keyword">final</span> Class&lt;?&gt; convertType)</span> </span>&#123;</span><br><span class="line">    Timestamp timestamp = (Timestamp) value;</span><br><span class="line">    <span class="keyword">return</span> timestamp.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Object <span class="title">convertLocalDateValue</span><span class="params">(<span class="keyword">final</span> Object value, <span class="keyword">final</span> Class&lt;?&gt; convertType)</span> </span>&#123;</span><br><span class="line">    Timestamp timestamp = (Timestamp) value;</span><br><span class="line">    <span class="keyword">return</span> timestamp.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Object <span class="title">convertLocalTimeValue</span><span class="params">(<span class="keyword">final</span> Object value, <span class="keyword">final</span> Class&lt;?&gt; convertType)</span> </span>&#123;</span><br><span class="line">    Timestamp timestamp = (Timestamp) value;</span><br><span class="line">    <span class="keyword">return</span> timestamp.toInstant().atZone(ZoneId.systemDefault()).toLocalTime();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2、package org.apache.shardingsphere.shardingjdbc.jdbc.core.resultset;</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">getObject</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> columnIndex, <span class="keyword">final</span> Class&lt;T&gt; type)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (LocalDateTime.class.equals(type) || LocalDate.class.equals(type) || LocalTime.class.equals(type)) &#123;</span><br><span class="line">        <span class="keyword">return</span> (T) ResultSetUtil.convertValue(mergeResultSet.getValue(columnIndex, Timestamp.class), type);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> SQLFeatureNotSupportedException(<span class="string">"getObject with type"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">getObject</span><span class="params">(<span class="keyword">final</span> String columnLabel, <span class="keyword">final</span> Class&lt;T&gt; type)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (LocalDateTime.class.equals(type) || LocalDate.class.equals(type) || LocalTime.class.equals(type)) &#123;</span><br><span class="line">        <span class="keyword">return</span> (T) ResultSetUtil.convertValue(mergeResultSet.getValue(columnLabel, Timestamp.class), type);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> SQLFeatureNotSupportedException(<span class="string">"getObject with type"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3、package org.apache.shardingsphere.shardingjdbc.jdbc.core.resultset;</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">getObject</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> columnIndex, <span class="keyword">final</span> Class&lt;T&gt; type)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (LocalDateTime.class.equals(type) || LocalDate.class.equals(type) || LocalTime.class.equals(type)) &#123;</span><br><span class="line">        <span class="keyword">return</span> (T) ResultSetUtil.convertValue(resultSet.getValue(columnIndex, Timestamp.class), type);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> SQLFeatureNotSupportedException(<span class="string">"getObject with type"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">getObject</span><span class="params">(<span class="keyword">final</span> String columnLabel, <span class="keyword">final</span> Class&lt;T&gt; type)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (LocalDateTime.class.equals(type) || LocalDate.class.equals(type) || LocalTime.class.equals(type)) &#123;</span><br><span class="line">        <span class="keyword">return</span> (T) ResultSetUtil.convertValue(resultSet.getValue(columnLabel, Timestamp.class), type);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> SQLFeatureNotSupportedException(<span class="string">"getObject with type"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>4、package org.apache.shardingsphere.shardingjdbc.jdbc.unsupported;</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">getObject</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> columnIndex, <span class="keyword">final</span> Class&lt;T&gt; type)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> SQLFeatureNotSupportedException(<span class="string">"getObject with type"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">getObject</span><span class="params">(<span class="keyword">final</span> String columnLabel, <span class="keyword">final</span> Class&lt;T&gt; type)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> SQLFeatureNotSupportedException(<span class="string">"getObject with type"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -571,106 +666,6 @@
       <category term="开源工具" scheme="https://github.com/weiecho/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
     
       <category term="定时任务" scheme="https://github.com/weiecho/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>乐檬框架之cloud微服务框架</title>
-    <link href="https://github.com/weiecho/2019/09/06/doc_1112/"/>
-    <id>https://github.com/weiecho/2019/09/06/doc_1112/</id>
-    <published>2019-09-06T10:34:12.000Z</published>
-    <updated>2020-07-03T02:04:54.950Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式</p></blockquote><p>项目地址：<a href="https://github.com/weiecho/lemon-consul-cloud">lemon-consul-cloud</a></p><p>本项目预启动时间为2019-03-01，实现以下内容：</p><h4 id="开发计划"><a href="#开发计划" class="headerlink" title="开发计划"></a>开发计划</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">v0.1版本 整体服务结构划分，服务边界设定</span><br><span class="line">v0.2版本 服务网关授权模式搭建</span><br><span class="line">v0.3版本 前后端技术框架接入</span><br><span class="line">v0.4版本 服务开发技术规范文档</span><br><span class="line">v0.5版本 用户基础服务功能</span><br></pre></td></tr></table></figure><h4 id="服务框架总览"><a href="#服务框架总览" class="headerlink" title="服务框架总览"></a>服务框架总览</h4><ul><li>lemon-gateway  服务网关</li><li>lemon-monitor  服务监控</li></ul><p>commons  服务基础组件中心</p><ul><li>lemon-common  服务通用组件</li><li>lemon-distribution  分布业务锁&amp;任务锁</li><li>lemon-framework  服务基础功能类包</li><li>lemon-rabbit  服务Rabbit功能统一封装组件</li><li>lemon-sharding  数据库分库分表封装组件</li></ul><p>services  微服务中心</p><ul><li>lemon-auth  授权&amp;鉴权服务</li><li>lemon-user  用户服务</li><li>lemon-xxx   </li></ul><h4 id="服务划分说明"><a href="#服务划分说明" class="headerlink" title="服务划分说明"></a>服务划分说明</h4><p><em>明确划分每个服务的功能</em></p><table><thead><tr><th>NO.</th><th>Module</th><th>Name</th><th>Desc</th></tr></thead><tbody><tr><td>1</td><td>lemon-auth</td><td>授权服务</td><td>用户授权中心管理</td></tr><tr><td>2</td><td>lemon-user</td><td>用户服务</td><td>用户信息中心服务</td></tr><tr><td>3</td><td>lemon-payment</td><td>账务服务</td><td>用户交易中心服务</td></tr><tr><td>4</td><td>lemon-adjust</td><td>核算服务</td><td>账户核算中心服务</td></tr><tr><td>5</td><td>lemon-message</td><td>消息服务</td><td>用户消息中心服务</td></tr></tbody></table><h4 id="服务项目结构约定"><a href="#服务项目结构约定" class="headerlink" title="服务项目结构约定"></a>服务项目结构约定</h4><table><thead><tr><th>NO.</th><th>Package</th><th>Desc</th></tr></thead><tbody><tr><td>1</td><td>cn.lemon.{xxxx}.api.rest</td><td>提供对外服务rest接口</td></tr><tr><td>2</td><td>cn.lemon.{xxxx}.api.rpc</td><td>提供对内服务rpc接口</td></tr><tr><td>3</td><td>cn.lemon.{xxxx}.config</td><td>提供服务配置相关</td></tr><tr><td>4</td><td>cn.lemon.{xxxx}.entity.enums</td><td>提供业务枚举类</td></tr><tr><td>5</td><td>cn.lemon.{xxxx}.entity.po</td><td>提供数据库映射实体</td></tr><tr><td>6</td><td>cn.lemon.{xxxx}.entity.vo</td><td>提供对外接口映射实体</td></tr><tr><td>7</td><td>cn.lemon.{xxxx}.rpc.client</td><td>提供对内服务rpc调用接口 (api层不能调用rpc接口)</td></tr><tr><td>8</td><td>cn.lemon.{xxxx}.rpc.client.fallback</td><td>提供对内服务rpc调用失败业务处理</td></tr><tr><td>9</td><td>cn.lemon.{xxxx}.service</td><td>提供业务逻辑接口 (api层调用业务接口)</td></tr><tr><td>10</td><td>cn.lemon.{xxxx}.service.impl</td><td>提供业务逻辑实现</td></tr><tr><td>11</td><td>cn.lemon.{xxxx}.dao</td><td>提供数据库操作</td></tr><tr><td>12</td><td>cn.lemon.{xxxx}.events.pub</td><td>提供MQ发送事件</td></tr><tr><td>13</td><td>cn.lemon.{xxxx}.events.sub</td><td>提供MQ接收事件</td></tr><tr><td>14</td><td>cn.lemon.{xxxx}.task</td><td>提供任务定时执行逻辑</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;基于consul注册中心实现微服务框架，使用consul替代eureka和git config模式&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/weiecho/lemon-consul
-      
-    
-    </summary>
-    
-    
-      <category term="开源文档" scheme="https://github.com/weiecho/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
-    
-    
-      <category term="springboot" scheme="https://github.com/weiecho/tags/springboot/"/>
-    
-      <category term="cloud" scheme="https://github.com/weiecho/tags/cloud/"/>
-    
-      <category term="consul" scheme="https://github.com/weiecho/tags/consul/"/>
-    
-      <category term="lemon" scheme="https://github.com/weiecho/tags/lemon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XXL-JOB分布式任务快速入门</title>
-    <link href="https://github.com/weiecho/2019/09/05/stu_1111/"/>
-    <id>https://github.com/weiecho/2019/09/05/stu_1111/</id>
-    <published>2019-09-05T07:21:11.000Z</published>
-    <updated>2020-07-03T02:06:28.839Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>XXL-JOB是一个轻量级分布式任务调度平台，其核心设计目标是开发迅速、学习简单、轻量级、易扩展。现已开放源代码并接入多家公司线上产品线，开箱即用。</p></blockquote><p>项目地址：<a href="http://www.xuxueli.com/xxl-job/" target="_blank" rel="noopener">xxl-job分布式任务调度平台</a></p><h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><ul><li>调度中心 xxl-job-admin</li><li>公共依赖 xxl-job-core</li><li>任务执行器 opay-xxx</li></ul><h3 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h3><ul><li>调度中心集群</li><li>DB配置保持一致</li><li>登陆账号配置保持一致</li><li>集群机器时钟保持一致<br><em>建议：推荐通过nginx为调度中心集群做负载均衡，分配域名</em></li><li>调度中心访问、执行器回调配置、调用API服务等操作均通过该域名进行。</li><li>执行器集群<ul><li>执行器回调地址保持一致<br><em>xxl.job.admin.addresses</em></li><li>执行器集群内AppName保持一致<br><em>xxl.job.executor.appname​</em></li></ul></li></ul><h3 id="任务关键点"><a href="#任务关键点" class="headerlink" title="任务关键点"></a>任务关键点</h3><ul><li>执行器</li><li>任务描述</li><li>路由策略<ul><li>FIRST（第一个）<br><em>固定选择第一个机器</em></li><li>LAST（最后一个）<br><em>固定选择最后一个机器</em></li><li>ROUND（轮询）</li><li>RANDOM（随机）<br><em>随机选择在线的机器</em></li><li>CONSISTENT_HASH（一致性HASH）<br><em>每个任务按照Hash算法固定选择某一台机器，且所有任务均匀散列在不同机器上</em></li><li>LEAST_FREQUENTLY_USED（最不经常使用）<br><em>使用频率最低的机器优先被选举</em></li><li>LEAST_RECENTLY_USED（最近最久未使用）<br><em>最久为使用的机器优先被选举</em></li><li>FAILOVER（故障转移）<br><em>按照顺序依次进行心跳检测，第一个心跳检测成功的机器选定为目标执行器并发起调度</em></li><li>BUSYOVER（忙碌转移）<br><em>按照顺序依次进行空闲检测，第一个空闲检测成功的机器选定为目标执行器并发起调度</em></li><li>SHARDING_BROADCAST(分片广播)<br><em>广播触发对应集群中所有机器执行一次任务，同时系统自动传递分片参数，可根据分片参数开发分片任务</em> </li></ul></li><li>Cron表达式<ul><li>运行模式<ul><li>BEAN</li><li>GLUE</li><li>JobHandler<br><em>任务bean名称@JobHandler</em></li></ul></li></ul></li><li>阻塞策略<ul><li>单机串行<br><em>进入单机执行器后，进入FIFO队列并以串行方式运行</em></li><li>丢弃后续调度<br><em>进入单机执行器后，发现执行器存在运行的调度任务，本次请求将会被丢弃并标记为失败</em></li><li>覆盖之前调度<br><em>进入单机执行器后，发现执行器存在运行的调度任务，将会终止运行中的调度任务并清空队列</em></li></ul></li><li>负责人</li><li>其他<ul><li>子任务ID</li><li>超时时间</li><li>重试次数</li><li>报警邮件</li><li>任务参数</li></ul></li></ul><h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul><li>日志文件目录需要权限<br><em>默认 /data/applogs/xxl-job/jobhandler​</em></li><li>设置日志保存天数<br><em>xxl.job.executor.logretentiondays=-1 //大于3生效</em></li><li>执行日志需要通过 “XxlJobLogger.log” 打印执行日志</li><li>admin执行任务时报错 Communications link failure<br><em>数据库链接地址加上 &amp;autoReconnect=true&amp;failOverReadOnly=false</em></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;XXL-JOB是一个轻量级分布式任务调度平台，其核心设计目标是开发迅速、学习简单、轻量级、易扩展。现已开放源代码并接入多家公司线上产品线，开箱即用。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;项目地址：&lt;a href=&quot;http://www.xux
-      
-    
-    </summary>
-    
-    
-      <category term="学习笔记" scheme="https://github.com/weiecho/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
-    
-      <category term="开源工具" scheme="https://github.com/weiecho/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="定时任务" scheme="https://github.com/weiecho/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>服务开发核心思想</title>
-    <link href="https://github.com/weiecho/2019/09/03/exp_1111/"/>
-    <id>https://github.com/weiecho/2019/09/03/exp_1111/</id>
-    <published>2019-09-03T04:30:12.000Z</published>
-    <updated>2020-07-03T02:06:50.143Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="保障服务可扩展性的七大原则"><a href="#保障服务可扩展性的七大原则" class="headerlink" title="保障服务可扩展性的七大原则"></a>保障服务可扩展性的七大原则</h3><p>1、按功能划分</p><p>2、水平切分</p><p>3、尽量避免事务</p><p>4、适当采用异步解耦</p><p>5、次流程改进为异步</p><p>6、虚拟化所有层次</p><p>7、适当使用缓存</p><h3 id="服务拆分开发的四项原则"><a href="#服务拆分开发的四项原则" class="headerlink" title="服务拆分开发的四项原则"></a>服务拆分开发的四项原则</h3><p>1、先业务后技术，先逻辑后物理</p><p>2、奥卡姆剃刀：如无必须勿增实体</p><p>3、正交性：抽象出模块间无业务相关的重复代码</p><p>4、稳定性原则：服务的稳定性优先，通过拆分解耦</p><blockquote><p>可参考的技术方案：接口化、消息队列、模块化、服务化、异步化</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;保障服务可扩展性的七大原则&quot;&gt;&lt;a href=&quot;#保障服务可扩展性的七大原则&quot; class=&quot;headerlink&quot; title=&quot;保障服务可扩展性的七大原则&quot;&gt;&lt;/a&gt;保障服务可扩展性的七大原则&lt;/h3&gt;&lt;p&gt;1、按功能划分&lt;/p&gt;
-&lt;p&gt;2、水平切分&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="经验分享" scheme="https://github.com/weiecho/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="springboot" scheme="https://github.com/weiecho/tags/springboot/"/>
-    
-      <category term="cloud" scheme="https://github.com/weiecho/tags/cloud/"/>
-    
-      <category term="分布式" scheme="https://github.com/weiecho/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
     
   </entry>
   
