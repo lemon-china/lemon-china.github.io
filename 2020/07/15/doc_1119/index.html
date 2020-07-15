@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>lemon-echo核心功能说明 | Wei Echo | 高效稳定 · 简洁易用 · 灵活扩展</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="微服务,java,架构,lemon-echo">
+    <meta name="description" content="高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构 1、服务采用rest + json返回数据，正常数据直接返回数据对象，提示码&#x2F;异常统一封装ResultError返回，正常状况下controller只需返回正常数据对象就可以，service业务异常抛出由框架DefaultGlobalExceptionHandler统一处理。 1234567891011121314151">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lemon-echo核心功能说明">
+<meta property="og:url" content="https://github.com/weiecho/2020/07/15/doc_1119/index.html">
+<meta property="og:site_name" content="Wei Echo">
+<meta property="og:description" content="高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构 1、服务采用rest + json返回数据，正常数据直接返回数据对象，提示码&#x2F;异常统一封装ResultError返回，正常状况下controller只需返回正常数据对象就可以，service业务异常抛出由框架DefaultGlobalExceptionHandler统一处理。 1234567891011121314151">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-15T03:31:47.000Z">
+<meta property="article:modified_time" content="2020-07-15T03:30:55.940Z">
+<meta property="article:author" content="Wei Echo">
+<meta property="article:tag" content="微服务">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="架构">
+<meta property="article:tag" content="lemon-echo">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="Wei Echo" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Wei Echo</h5>
+          <a href="mailto:lonyee@live.com" title="lonyee@live.com" class="mail">lonyee@live.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"  >
+                <i class="icon icon-lg icon-mortar-board"></i>
+                学习笔记
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB"  >
+                <i class="icon icon-lg icon-puzzle-piece"></i>
+                经验分享
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7"  >
+                <i class="icon icon-lg icon-cubes"></i>
+                常用工具
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/weiecho" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                我的项目
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3"  >
+                <i class="icon icon-lg icon-gbp"></i>
+                开源文档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章列表
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                友情链接
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">lemon-echo核心功能说明</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">lemon-echo核心功能说明</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-07-15T03:31:47.000Z" itemprop="datePublished" class="page-time">
+  2020-07-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/">开源文档</a></li></ul>
+
+            
+        </h5>
+    </div>
+    
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-doc_1119"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">lemon-echo核心功能说明</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-07-15 11:31:47" datetime="2020-07-15T03:31:47.000Z"  itemprop="datePublished">2020-07-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/">开源文档</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h6 id="高效稳定-·-简洁易用-·-灵活扩展"><a href="#高效稳定-·-简洁易用-·-灵活扩展" class="headerlink" title="高效稳定 · 简洁易用 · 灵活扩展"></a><code>高效稳定 · 简洁易用 · 灵活扩展</code></h6><p>项目地址：<a href="https://github.com/weiecho/lemon-echo">lemon-echo微服务架构</a></p>
+<p>1、服务采用rest + json返回数据，正常数据直接返回数据对象，提示码/异常统一封装ResultError返回，正常状况下controller只需返回正常数据对象就可以，service业务异常抛出由框架DefaultGlobalExceptionHandler统一处理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">带结果返回实例</span><br><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/menus"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Menu&gt; <span class="title">getMenus</span><span class="params">(Long projectId)</span> </span>&#123;</span><br><span class="line">   List&lt;Menu&gt; list = menuService.getMenus(projectId);</span><br><span class="line">   <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">无结果返回实例：</span><br><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/code"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mobileCode</span><span class="params">(AuthType authType, String mobile)</span> </span>&#123;</span><br><span class="line">   mobileCodeService.sendMobileCode(authType, mobile);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">业务代码实例：</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMobileCode</span><span class="params">(<span class="keyword">final</span> AuthType authType, <span class="keyword">final</span> Long userId)</span> </span>&#123;</span><br><span class="line">   String mobile = userAuthService.getMobileByUserId(userId);</span><br><span class="line">   <span class="keyword">if</span> (StringUtils.isEmpty(mobile)) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> BizServiceException(F11615);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">this</span>.sendMobileCode(authType, mobile);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">异常码返回Json（http状态码大于<span class="number">300</span>）：</span><br><span class="line">&#123;</span><br><span class="line">   code: <span class="number">11615</span>,</span><br><span class="line">   msg: <span class="string">"未绑定手机号码"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、服务功能配置采用预配置方式，需继承基础功能包内的配置类并注解@Configuration</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MybatisConfig</span> <span class="keyword">extends</span> <span class="title">MybatisConfigurator</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、服务引入auth-rpc进行权限校验，在WebMvcConfig配置相应的权限拦截器即可实现，需要控制权限的接口仅需加上注解@RequestPermissions({xxx})</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">配置权限拦截：</span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebMvcConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurator</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> PermissionInterceptor <span class="title">permissionInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> PermissionInterceptor();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**加入拦截器 */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.addInterceptors(registry);</span><br><span class="line">        registry.addInterceptor(permissionInterceptor())</span><br><span class="line">                 .addPathPatterns(<span class="string">"/portal/**"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">接口权限配置</span><br><span class="line"><span class="meta">@RequestPermissions</span>(&#123;<span class="string">"user_freeze"</span>&#125;)</span><br><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/portal/user/freeze"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">freeze</span><span class="params">(Long userId, FreezeTime freezeTime, String reason)</span> </span>&#123;</span><br><span class="line">   userFreezeService.freeze(userId, freezeTime, reason);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4、rabbit消息队列在实际开发中，绝大部分情况下仅需使用topic模式和延时模式，框架封装并简化了rabbit的topic模式和延时模式功能，生产和消费时的方法采用相同的方法，降低多种方法的配置和学习成本。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">消费端声明消息队列</span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RabbitConfig</span> <span class="keyword">extends</span> <span class="title">RabbitConfigurator</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Collection&lt;QueueBinding&gt; <span class="title">getQueueBinding</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;QueueBinding&gt; queueBindings = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        queueBindings.add(<span class="keyword">new</span> QueueBinding(USER_UNFREEZE, <span class="string">"user.topic"</span>, <span class="string">"user.unfreeze"</span>));</span><br><span class="line">        <span class="keyword">return</span> queueBindings;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">消费端消费队列消息</span><br><span class="line"><span class="meta">@RabbitListener</span>(queues = &#123;USER_UNFREEZE&#125;)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unfreezeUser</span><span class="params">(Long userId)</span> </span>&#123;</span><br><span class="line">    userAuthService.unfreeze(userId);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">生产端生产队列消息</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unfreezeUser</span><span class="params">(Long userId)</span> </span>&#123;</span><br><span class="line">    rabbitTopicSender.send(USER_UNFREEZE, userId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注:</p>
+<ol>
+<li>RoutingKey命名规则：生产服务名称.业务功能<br>如：USER_UNFREEZE = “user.unfreeze”;</li>
+<li>Queue命名规则：消费服务名称_RoutingKey<br>如：USER_UNFREEZE = “auth_user.unfreeze”;</li>
+</ol>
+</blockquote>
+<p>5、分布式锁采用redis特性作为锁凭证中心，封装了@DistributionLock和@LockKey降低对系统业务的侵入性，同时利用LockKey参数细分控制每个锁元素，增大服务的吞吐量。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">帐户入账时锁定对应帐户类型+用户ID</span><br><span class="line"><span class="meta">@DistributionLock</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">(@LockKey AccountType accountType, @LockKey Long userId, AccountTradePo accountTrade)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>6、利用@cache进行数据缓存，可选择使用本地caffeine缓存器和远程redis缓存器，根据业务灵活使用缓存可以保障业务对高效稳定。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Cacheable</span>(value=<span class="string">"userCaches"</span>, key=<span class="string">"'user_' + #userId"</span>, cacheManager=<span class="string">"caffeineCacheManager"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> UserPo <span class="title">getUserInfoById</span><span class="params">(Long userId)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> userPo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Cacheable</span>(value=<span class="string">"userCaches"</span>, key=<span class="string">"'user_' + #userId"</span>, cacheManager=<span class="string">"redisCacheManager"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> UserPo <span class="title">getUserInfoById</span><span class="params">(Long userId)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> userPo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>7、定时任务采用xxl-job分布式调度中心，利用统一调度策略（单点执行/分片执行），完成定时业务需求。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@XxlJob</span>(<span class="string">"pendUnFreezeUserHandler"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ReturnT&lt;String&gt; <span class="title">pendUnFreezeUserHandler</span><span class="params">(String param)</span> <span class="keyword">throws</span> Exception  </span>&#123;</span><br><span class="line">    XxlJobLogger.log(<span class="string">"job exec unfreeze user."</span>);</span><br><span class="line">    <span class="keyword">return</span> ReturnT.SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>8、项目pom引入auth-rpc后，在WebMvcConfig使用拦截器设置需要的权限规则</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> PermissionInterceptor <span class="title">permissionInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> PermissionInterceptor();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**加入拦截器 */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.addInterceptors(registry);</span><br><span class="line">    registry.addInterceptor(permissionInterceptor()).addPathPatterns(<span class="string">"/portal/**"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>9、接口请求时经过授权检查会解析x-auth-token，在请求的header参数增加用户ID参数x-user-id，业务参数使用时可以直接获取改值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/api/withdraw/apply"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">applyWithdraw</span><span class="params">(@RequestHeader(value = AUTH_USER_ID)</span> Long userId,</span></span><br><span class="line"><span class="function">       Long bankCardId, BigDecimal coins) </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>10、接口请求数据均需要携带header参数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">AUTH_SCOPE = <span class="string">"x-auth-scope"</span>;  <span class="comment">//授权作用域</span></span><br><span class="line">AUTH_TOKEN = <span class="string">"x-auth-token"</span>;  <span class="comment">//访问授权码</span></span><br><span class="line">CLIENT_NAME = <span class="string">"x-client-name"</span>;  <span class="comment">//客户端名称</span></span><br><span class="line">CLIENT_IMEI = <span class="string">"x-client-imei"</span>;  <span class="comment">//客户端设备号</span></span><br><span class="line">CLIENT_TYPE = <span class="string">"x-client-type"</span>;  <span class="comment">//客户端类型</span></span><br><span class="line">CLIENT_VERSION = <span class="string">"x-client-version"</span>;  <span class="comment">//客户端版本</span></span><br><span class="line">APP_VERSION = <span class="string">"x-app-version"</span>;  <span class="comment">//客户端应用版本</span></span><br><span class="line">APP_CHANNEL = <span class="string">"x-app-channel"</span>;  <span class="comment">//客户端应用渠道</span></span><br><span class="line">BUNDLE_ID = <span class="string">"x-bundle-id"</span>;  <span class="comment">//app包名(IOS: bundle id, 安卓: package name)</span></span><br><span class="line">TIMESTAMP = <span class="string">"x-timestamp"</span>;  <span class="comment">//时间戳</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <!-- 
+	
+	-->
+    <footer>
+        <a href="https://github.com/weiecho">
+            <img src="/img/avatar.jpg" alt="Wei Echo">
+            Wei Echo
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lemon-echo/" rel="tag">lemon-echo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/07/15/doc_1119/&title=《lemon-echo核心功能说明》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/07/15/doc_1119/&title=《lemon-echo核心功能说明》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/07/15/doc_1119/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lemon-echo核心功能说明》 — Wei Echo&url=https://github.com/weiecho/2020/07/15/doc_1119/&via=https://github.com/weiecho" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/07/15/doc_1119/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/07/13/exp_1116/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Maven项目本地仓库引用强制刷新</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的支持~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p><span>Copyright &copy; 2017 - 2020</span>
+            <span>
+                
+                Wei Echo All Rights Reserved
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/07/15/doc_1119/&title=《lemon-echo核心功能说明》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/07/15/doc_1119/&title=《lemon-echo核心功能说明》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/07/15/doc_1119/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lemon-echo核心功能说明》 — Wei Echo&url=https://github.com/weiecho/2020/07/15/doc_1119/&via=https://github.com/weiecho" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/07/15/doc_1119/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aQXLEIAwF0bn/pZ0DOLH7SyQpRHuVmmDMY6ESSJ8Pfq7bc//vfeTzPHz+ZY8MGTK2ZVyPz32h5C0yDx//PEaGDBnnMH6KYDykcioP6GRtMmTIkPE8hrPJt2TIkCGjzyCpHjlj1rZDhgwZMjqHyU4S+Q9ncRkyZGzI4Lfuf//3r9Q3ZMiQsRWjc7lPEsda2TJelQwZMkYzaiVMTkrTQb4F34RmGTJkDGV0wuiqEkKt5ClDhoxzGHwpNSQPxPyLL4FYhgwZBzD4y/2Ls3iJJGWUIUPGOAY/uNZ+qR19+cUcyihlyJCxOSNNCtPDJy8qpJslQ4aMcxh8uk4fR5p0xgFdhgwZBzD4cTENu7WjL08lUZ1ThgwZQxmdT/J7vlqC+NIQJkOGjHGMWpDlobDWqJHOIEOGjNkMckHGP8wDMS8DBNdtMmTIGM3oLJFsAUGmGyFDhozTGHy6tSGVX8a9fFGGDBmjGZ2lp21e/QLDsrtDGTJkbMsggPTivtZGVix8ypAh4xgGCZpButZo+Uq3VYYMGbMZ/IW0gaz2e62wKkOGjKmMK3xqIZuPbyWFMmTIGMqoNYqliV3aQkGWHieLMmTI2JyRXn51WiV4+I6TVBkyZBzAIIGvttBamSFGypAhQ0bYAJE2avAS6bKAK0OGjNEMPiZt/OockmXIkHECo9akVbvc501jwbbKkCFjNIMfHVeF43QRywqZMmTI2I/xBSq99RsL5Xu+AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
