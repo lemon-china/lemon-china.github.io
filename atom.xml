@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/weiecho/"/>
-  <updated>2020-07-15T03:30:55.940Z</updated>
+  <updated>2020-07-15T06:02:22.931Z</updated>
   <id>https://github.com/weiecho/</id>
   
   <author>
@@ -15,6 +15,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>lemon-echo文件存储OSS样式</title>
+    <link href="https://github.com/weiecho/2020/07/17/doc_1121/"/>
+    <id>https://github.com/weiecho/2020/07/17/doc_1121/</id>
+    <published>2020-07-17T08:54:13.000Z</published>
+    <updated>2020-07-15T06:02:22.931Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="高效稳定-·-简洁易用-·-灵活扩展"><a href="#高效稳定-·-简洁易用-·-灵活扩展" class="headerlink" title="高效稳定 · 简洁易用 · 灵活扩展"></a><code>高效稳定 · 简洁易用 · 灵活扩展</code></h6><p>项目地址：<a href="https://github.com/weiecho/lemon-echo">lemon-echo微服务架构</a></p><blockquote><p>默认使用：域名/sample.jpg?x-oss-process=style/stylename</p></blockquote><h5 id="1、正方形图"><a href="#1、正方形图" class="headerlink" title="1、正方形图"></a>1、正方形图</h5><p><code>square-mini</code>  强制 高 120 宽 120</p><p>代码: <em>image/auto-orient,1/resize,m_fixed,w_120,h_120/quality,q_90</em></p><p><code>square-small</code>  强制 高 360 宽 360</p><p>代码: <em>image/auto-orient,1/resize,m_fixed,w_360,h_360/quality,q_90</em></p><p><code>square-medium</code>  强制 高 750 宽 750</p><p>代码: <em>image/auto-orient,1/resize,m_fixed,w_750,h_750/quality,q_90</em></p><h5 id="2、长方形图"><a href="#2、长方形图" class="headerlink" title="2、长方形图"></a>2、长方形图</h5><p><code>rectangle-mini</code>  强制 宽 120 高自适应</p><p>代码: <em>image/auto-orient,1/resize,m_lfit,w_120/quality,q_90</em></p><p><code>rectangle-small</code>  强制 宽 360 高自适应</p><p>代码: <em>image/auto-orient,1/resize,m_lfit,w_360/quality,q_90</em></p><p><code>rectangle-medium</code>  强制 宽 750 高自适应</p><p>代码: <em>image/auto-orient,1/resize,m_lfit,w_750/quality,q_90</em></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h6 id=&quot;高效稳定-·-简洁易用-·-灵活扩展&quot;&gt;&lt;a href=&quot;#高效稳定-·-简洁易用-·-灵活扩展&quot; class=&quot;headerlink&quot; title=&quot;高效稳定 · 简洁易用 · 灵活扩展&quot;&gt;&lt;/a&gt;&lt;code&gt;高效稳定 · 简洁易用 · 灵活扩展&lt;/code&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="开源文档" scheme="https://github.com/weiecho/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
+    
+    
+      <category term="微服务" scheme="https://github.com/weiecho/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
+    
+      <category term="架构" scheme="https://github.com/weiecho/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="lemon-echo" scheme="https://github.com/weiecho/tags/lemon-echo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>lemon-echo编号规则说明</title>
+    <link href="https://github.com/weiecho/2020/07/16/doc_1120/"/>
+    <id>https://github.com/weiecho/2020/07/16/doc_1120/</id>
+    <published>2020-07-16T12:24:23.000Z</published>
+    <updated>2020-07-15T05:59:21.511Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="高效稳定-·-简洁易用-·-灵活扩展"><a href="#高效稳定-·-简洁易用-·-灵活扩展" class="headerlink" title="高效稳定 · 简洁易用 · 灵活扩展"></a><code>高效稳定 · 简洁易用 · 灵活扩展</code></h6><p>项目地址：<a href="https://github.com/weiecho/lemon-echo">lemon-echo微服务架构</a></p><h5 id="1、用户ID规则：n位-预期号池量90亿"><a href="#1、用户ID规则：n位-预期号池量90亿" class="headerlink" title="1、用户ID规则：n位/预期号池量90亿+"></a>1、用户ID规则：n位/预期号池量90亿+</h5><p><code>n序号+2随机</code></p><p>n序列号：1000000001～9999999999<br>2随机：00～99</p><h5 id="2、用户账号规则：8-9位-预期号池量80亿-去靓号4位同号-4位连号"><a href="#2、用户账号规则：8-9位-预期号池量80亿-去靓号4位同号-4位连号" class="headerlink" title="2、用户账号规则：8-9位/预期号池量80亿/去靓号4位同号-4位连号"></a>2、用户账号规则：8-9位/预期号池量80亿/去靓号4位同号-4位连号</h5><p><code>8~10伪随机</code></p><p>8~10伪随机：100000000～9999999999</p><h5 id="3、用户靓号规则：6-8位-预期号池量5000w-6位号-4位同号-4位连号"><a href="#3、用户靓号规则：6-8位-预期号池量5000w-6位号-4位同号-4位连号" class="headerlink" title="3、用户靓号规则：6-8位/预期号池量5000w/6位号-4位同号-4位连号"></a>3、用户靓号规则：6-8位/预期号池量5000w/6位号-4位同号-4位连号</h5><p><code>6-8指定号</code></p><p>6-8指定号：100000～99999999</p><h5 id="4、订单号规则：15位-预期号池量100亿-可按年重置"><a href="#4、订单号规则：15位-预期号池量100亿-可按年重置" class="headerlink" title="4、订单号规则：15位/预期号池量100亿/可按年重置"></a>4、订单号规则：15位/预期号池量100亿/可按年重置</h5><p><code>1年份+2业务类型+10序号+2随机</code></p><p>1年份：n % 10 + 1 (2020年元年)<br>2类型：A类单 11 B类单 12<br>10序列号：0000000001～9999999999<br>2随机：00～99</p><h5 id="5、交易单号规则：16位-预期号池量10000亿-可按年重置"><a href="#5、交易单号规则：16位-预期号池量10000亿-可按年重置" class="headerlink" title="5、交易单号规则：16位/预期号池量10000亿/可按年重置"></a>5、交易单号规则：16位/预期号池量10000亿/可按年重置</h5><p><code>1年份+2业务类型+12序号+1随机</code></p><p>1年份：n % 10 + 1 (2020年元年)<br>2类型：充值 01 支付 02 退款 05 提现 09<br>12序列号：000000000001～999999999999<br>1随机：0～9</p><h5 id="6、SerialID规则：BIGINT-Serial控制-业务ID"><a href="#6、SerialID规则：BIGINT-Serial控制-业务ID" class="headerlink" title="6、SerialID规则：BIGINT/Serial控制/业务ID"></a>6、SerialID规则：BIGINT/Serial控制/业务ID</h5><p><code>1～&gt;无限量</code></p><h5 id="7、自增ID规则：BIGINT-设置自增"><a href="#7、自增ID规则：BIGINT-设置自增" class="headerlink" title="7、自增ID规则：BIGINT/设置自增"></a>7、自增ID规则：BIGINT/设置自增</h5><p><code>1～&gt;无限量</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h6 id=&quot;高效稳定-·-简洁易用-·-灵活扩展&quot;&gt;&lt;a href=&quot;#高效稳定-·-简洁易用-·-灵活扩展&quot; class=&quot;headerlink&quot; title=&quot;高效稳定 · 简洁易用 · 灵活扩展&quot;&gt;&lt;/a&gt;&lt;code&gt;高效稳定 · 简洁易用 · 灵活扩展&lt;/code&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="开源文档" scheme="https://github.com/weiecho/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
+    
+    
+      <category term="微服务" scheme="https://github.com/weiecho/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
+    
+      <category term="架构" scheme="https://github.com/weiecho/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="lemon-echo" scheme="https://github.com/weiecho/tags/lemon-echo/"/>
+    
+  </entry>
   
   <entry>
     <title>lemon-echo核心功能说明</title>
@@ -605,66 +669,6 @@
       <category term="配置中心" scheme="https://github.com/weiecho/tags/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/"/>
     
       <category term="apollo" scheme="https://github.com/weiecho/tags/apollo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM性能优化建议</title>
-    <link href="https://github.com/weiecho/2019/10/20/exp_1113/"/>
-    <id>https://github.com/weiecho/2019/10/20/exp_1113/</id>
-    <published>2019-10-20T14:30:31.000Z</published>
-    <updated>2020-07-03T02:03:50.817Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">优化建议：</span><br><span class="line">1、一般建议Xms等于Xmx，好处是避免每次gc后，调整堆的大小，减少系统内存分配开销</span><br><span class="line">2、串行垃圾收集器(Serial + Serial Old |  -XX:+UseSerialGC)</span><br><span class="line">3、并行垃圾收集器(Parellel + Parellel Old)，吞吐量优先（JVM server 模式 默认）</span><br><span class="line">4、并发垃圾收集器（ParNew + CMS）响应时间优先</span><br><span class="line">5、本次优化说明的JDK版本为1.8</span><br></pre></td></tr></table></figure><h4 id="通用配置"><a href="#通用配置" class="headerlink" title="通用配置"></a>通用配置</h4><p>1、java -Xmx2g -Xms2g -XX:MetaspaceSize=256m -XX:+UseConcMarkSweepGC</p><h4 id="并发大，对象小"><a href="#并发大，对象小" class="headerlink" title="并发大，对象小"></a>并发大，对象小</h4><p>2、java -Xmx2g -Xms2g -Xmn512m  -XX:MetaspaceSize=256m -XX:+UseConcMarkSweepGC -XX:CMSFullGCsBeforeCompaction=2  -XX:+UseCMSCompactAtFullCollection</p><h4 id="并发大，对象大"><a href="#并发大，对象大" class="headerlink" title="并发大，对象大"></a>并发大，对象大</h4><p>3、java -Xmx4g -Xms4g -Xmn2g  -XX:MetaspaceSize=512m -XX:+UseConcMarkSweepGC -XX:CMSFullGCsBeforeCompaction=2  -XX:+UseCMSCompactAtFullCollection</p><table><thead><tr><th>核心参数</th><th>说明</th><th>默认值</th><th>备注</th></tr></thead><tbody><tr><td>-Xms</td><td>最小堆内存</td><td></td><td>默认为物理内存的1/64，不会超过1G</td></tr><tr><td>-Xmx</td><td>最大堆内存</td><td></td><td>默认为物理内存的1/4</td></tr><tr><td>-Xmn</td><td>新生代内存大小</td><td></td><td>默认值为-Xmx的3/8，老年代内存则为5/8 优先级较NewRatio高</td></tr><tr><td>-XX:NewRatio</td><td>新生代与老生代的内存的比值</td><td>2</td><td></td></tr><tr><td>-XX:SurvivorRatio</td><td>Eden和2个存活区内存的比值</td><td>8</td><td></td></tr><tr><td>-XX:MetaspaceSize</td><td>元空间最小值</td><td></td><td>元空间并不在虚拟机中，而是使用本地内存</td></tr><tr><td>-XX:MaxMetaspaceSize</td><td>元空间最大值</td><td></td><td></td></tr><tr><td>-Xss</td><td>栈大小</td><td>1M</td><td></td></tr><tr><td>-XX:ParallelGCThreads</td><td>并行收集器的线程数</td><td>默认为服务器CPU数目</td><td>此值最好配置与处理器数目相等 同样适用于CMS不用设置</td></tr><tr><td>-XX:PretenureSizeThreshold</td><td>手动指定对象大小</td><td></td><td>当对象达到指定大小时直接存放到老年代中，由于新生代大多使用复制算法，为了节省复制消耗</td></tr><tr><td>-XX:MaxTenuringThreshold</td><td>手动设置对象在新生代中存活年龄(存活次数)</td><td>15</td><td></td></tr><tr><td>-XX:+UseConcMarkSweepGC</td><td>手动指定老年代使用CMS收集器</td><td></td><td></td></tr><tr><td>-XX:-CMSParallelRemarkEnabled</td><td>手动配置开启并行标记，节省年轻代标记时间</td><td></td><td>废弃</td></tr><tr><td>-XX:CMSInitiatingOccupancyFraction=80</td><td>手动指定当老年代已用空间达到80%时，触发老年代回收(默认92%)</td><td>-1</td><td></td></tr><tr><td>-XX:+UseCMSCompactAtFullCollection</td><td>在进行Full GC时对内存进行压缩</td><td></td><td>JDK1.6以前不需要配置，默认开启</td></tr><tr><td>-XX:CMSFullGCsBeforeCompaction=2</td><td>与XX:+UseCMSCompactAtFullCollection关联使用标识着每经过多少次Full GC</td><td>0</td><td>触发对内存进行一次压缩，默认是0次</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-    
-      <category term="经验分享" scheme="https://github.com/weiecho/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="spring" scheme="https://github.com/weiecho/tags/spring/"/>
-    
-      <category term="架构设计" scheme="https://github.com/weiecho/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="JVM" scheme="https://github.com/weiecho/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计实现的健壮性</title>
-    <link href="https://github.com/weiecho/2019/10/07/exp_1114/"/>
-    <id>https://github.com/weiecho/2019/10/07/exp_1114/</id>
-    <published>2019-10-07T14:30:31.000Z</published>
-    <updated>2020-07-03T02:03:46.069Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p>日志是发现问题、查看问题一个最常用的手段。日志质量往往被忽视，没有日志使用上的明确约定。重视 Log 的使用，提高 Log 的信息浓度。日志过多、过于混乱，会导致有用的信息被淹没。</p><p>要有效利用这个工具要注意：</p><h4 id="严格约定WARN、ERROR级别记录的内容"><a href="#严格约定WARN、ERROR级别记录的内容" class="headerlink" title="严格约定WARN、ERROR级别记录的内容"></a>严格约定WARN、ERROR级别记录的内容</h4><p>WARN 表示可以恢复的问题，无需人工介入。<br>ERROR 表示需要人工介入问题。<br>有了这样的约定，监管系统发现日志文件的中出现 ERROR 字串就报警，又尽量减少了发生。过多的报警会让人疲倦，使人对报警失去警惕性，使 ERROR 日志失去意义。再辅以人工定期查看 WARN 级别信息，以评估系统的“亚健康”程度。</p><h4 id="日志中，尽量多的收集关键信息"><a href="#日志中，尽量多的收集关键信息" class="headerlink" title="日志中，尽量多的收集关键信息"></a>日志中，尽量多的收集关键信息</h4><p>出问题时的现场信息，即排查问题要用到的信息。如服务调用失败时，要给出使用 Dubbo 的版本、服务提供者的 IP、使用的是哪个注册中心；调用的是哪个服务、哪个方法等等。这些信息如果不给出，那么事后人工收集的，问题过后现场可能已经不能复原，加大排查问题的难度。<br>如果可能，给出问题的原因和解决方法。这让维护和问题解决变得简单，而不是寻求精通者（往往是实现者）的帮助。</p><h4 id="同一个或是一类问题不要重复记录多次"><a href="#同一个或是一类问题不要重复记录多次" class="headerlink" title="同一个或是一类问题不要重复记录多次"></a>同一个或是一类问题不要重复记录多次</h4><p>同一个或是一类异常日志连续出现几十遍的情况，还是常常能看到的。人眼很容易漏掉淹没在其中不一样的重要日志信息。要尽量避免这种情况。在可以预见会出现的情况，有必要加一些逻辑来避免。</p><p>如为一个问题准备一个标志，出问题后打日志后设置标志，避免重复打日志。问题恢复后清除标志。</p><p>虽然有点麻烦，但是这样做保证日志信息浓度，让监控更有效。</p><h2 id="界限设置"><a href="#界限设置" class="headerlink" title="界限设置"></a>界限设置</h2><p>资源是有限的，CPU、内存、IO 等等。不要因为外部的请求、数据不受限的而崩溃。</p><h4 id="线程池-ExectorService-的大小和饱和策略"><a href="#线程池-ExectorService-的大小和饱和策略" class="headerlink" title="线程池(ExectorService)的大小和饱和策略"></a>线程池(ExectorService)的大小和饱和策略</h4><p>Server 端用于处理请求的 ExectorService 设置上限。ExecutorService 的任务等待队列使用有限队列，避免资源耗尽。当任务等待队列饱和时，选择一个合适的饱和策略。这样保证平滑劣化。</p><p>在一些设计中，饱和策略是丢弃数据，等待结果也只是请求的超时。</p><p>达到饱和时，说明已经达到服务提供方的负荷上限，要在饱和策略的操作中日志记录这个问题，以发出监控警报。记得注意不要重复多次记录哦。（注意，缺省的饱和策略不会有这些附加的操作。）根据警报的频率，已经决定扩容调整等等，避免系统问题被忽略。</p><h4 id="集合容量"><a href="#集合容量" class="headerlink" title="集合容量"></a>集合容量</h4><p>如果确保进入集合的元素是可控的且是足够少，则可以放心使用。这是大部分的情况。如果不能保证，则使用有有界的集合。当到达界限时，选择一个合适的丢弃策略。</p><h2 id="容错-重试-恢复"><a href="#容错-重试-恢复" class="headerlink" title="容错-重试-恢复"></a>容错-重试-恢复</h2><p>高可用组件要容忍其依赖组件的失败。</p><h4 id="服务注册中心"><a href="#服务注册中心" class="headerlink" title="服务注册中心"></a>服务注册中心</h4><p>目前服务注册中心使用了数据库来保存服务提供者和消费者的信息。注册中心集群不同注册中心也通过数据库来进行同步数据，以感知其它注册中心上提供者的变化。注册中心会在内存中保存一份提供者和消费者数据，数据库不可用时，注册中心独立对外提供服务以保证正常运转，只是拿不到其它注册中心的数据。当数据库恢复时，重试逻辑会将内存中修改的数据写回数据库，并拿到数据库中新数据。</p><h4 id="服务的消费者"><a href="#服务的消费者" class="headerlink" title="服务的消费者"></a>服务的消费者</h4><p>服务消费者从注册中心拿到提供者列表后，会保存提供者列表到内存和磁盘文件中。这样注册中心宕机后消费者可以正常运转，甚至可以在注册中心宕机过程中重启消费者。消费者启动时，发现注册中心不可用，会读取保存在磁盘文件中提供者列表。重试逻辑保证注册中心恢复后，更新信息。</p><h2 id="重试延迟策略"><a href="#重试延迟策略" class="headerlink" title="重试延迟策略"></a>重试延迟策略</h2><h4 id="数据库上的活锁"><a href="#数据库上的活锁" class="headerlink" title="数据库上的活锁"></a>数据库上的活锁</h4><p>注册中心会定时更新数据库一条记录的时间戳，这样集群中其它的注册中心感知它是存活。过期注册中心和它的相关数据 会被清除。数据库正常时，这个机制运行良好。但是数据库负荷高时，其上的每个操作都会很慢。这就出现：</p><p>A 注册中心认为 B 过期，删除 B 的数据。 B 发现自己的数据没有了，重新写入自己的数据的反复操作。这些反复的操作又加重了数据库的负荷，恶化问题。</p><h4 id="可以使用下面逻辑："><a href="#可以使用下面逻辑：" class="headerlink" title="可以使用下面逻辑："></a>可以使用下面逻辑：</h4><p>当 B 发现自己数据被删除时（写入失败），选择等待这段时间再重试。重试时间可以选择指数级增长，如第一次等 1 分钟，第二次 10 分钟、第三次 100 分钟。</p><p>这样操作减少后，保证数据库可以冷却（Cool Down）下来。</p><h4 id="Client-重连注册中心"><a href="#Client-重连注册中心" class="headerlink" title="Client 重连注册中心"></a>Client 重连注册中心</h4><p>当一个注册中心停机时，其它的 Client 会同时接收事件，而去重连另一个注册中心。Client 数量相对比较多，会对注册中心造成冲击。避免方法可以是 Client 重连时随机延时 3 分钟，把重连分散开。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;日志&quot;&gt;&lt;a href=&quot;#日志&quot; class=&quot;headerlink&quot; title=&quot;日志&quot;&gt;&lt;/a&gt;日志&lt;/h2&gt;&lt;p&gt;日志是发现问题、查看问题一个最常用的手段。日志质量往往被忽视，没有日志使用上的明确约定。重视 Log 的使用，提高 Log 的信息浓度。日志
-      
-    
-    </summary>
-    
-    
-      <category term="经验分享" scheme="https://github.com/weiecho/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="微服务" scheme="https://github.com/weiecho/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
-    
-      <category term="spring" scheme="https://github.com/weiecho/tags/spring/"/>
-    
-      <category term="架构设计" scheme="https://github.com/weiecho/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
