@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/weiecho/"/>
-  <updated>2020-07-24T06:03:59.173Z</updated>
+  <updated>2020-07-28T12:21:55.684Z</updated>
   <id>https://github.com/weiecho/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>lemon-echo 概要说明</title>
+    <link href="https://github.com/weiecho/2020/07/28/doc_1125/"/>
+    <id>https://github.com/weiecho/2020/07/28/doc_1125/</id>
+    <published>2020-07-28T12:21:55.000Z</published>
+    <updated>2020-07-28T12:21:55.684Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="高效稳定-·-简洁易用-·-灵活扩展"><a href="#高效稳定-·-简洁易用-·-灵活扩展" class="headerlink" title="高效稳定 · 简洁易用 · 灵活扩展"></a><code>高效稳定 · 简洁易用 · 灵活扩展</code></h6><p>项目地址：<a href="https://github.com/weiecho/lemon-echo">lemon-echo微服务架构</a></p><p>lemon-echo微服务架构是基于springcloud的微服务框架设计体系，以人员、时效、成本、品质为基础设计思路，极度适用于小中型开发设计团队，可通过简单调整扩展支持中大型开发设计团队。框架设计过程中整合实际项目经验，利用接口化、消息队列、模块化、服务化、异步化等技术方案保障服务稳定性和可扩展性。</p><p>根据互联网产品多年经验分析，我们的产品无论从任何角度为切入点，最终都希望完成用户支付-服务的闭环思维，在本架构体系设计时期直接将用户、帐户、商品、订单、交易、消息作为功能架构的基础模块体系，从而结合实际项目体系完成整体微服务体系搭建，以协助团队快速集成完善的开发结构体系。</p><p>依托功能预代入模式的完善架构体系思想，后续功能开发仅需对相应业务逻辑进行部分调整、增加对应的服务模块（如IM、聊天室等），利用类似二次开发方式极大降低开发团队的技术壁垒，降低微服务开发及治理难度，结合代码快速生成器可以在10分钟内完成简单功能开发，非常快发迭代开发的技术团队，尤其适用于50人以下的技术开发团队。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h6 id=&quot;高效稳定-·-简洁易用-·-灵活扩展&quot;&gt;&lt;a href=&quot;#高效稳定-·-简洁易用-·-灵活扩展&quot; class=&quot;headerlink&quot; title=&quot;高效稳定 · 简洁易用 · 灵活扩展&quot;&gt;&lt;/a&gt;&lt;code&gt;高效稳定 · 简洁易用 · 灵活扩展&lt;/code&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="开源文档" scheme="https://github.com/weiecho/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
+    
+    
+      <category term="微服务" scheme="https://github.com/weiecho/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
+    
+      <category term="架构" scheme="https://github.com/weiecho/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="lemon-echo" scheme="https://github.com/weiecho/tags/lemon-echo/"/>
+    
+  </entry>
   
   <entry>
     <title>lemon-echo HTTP状态码说明</title>
@@ -631,40 +663,6 @@
       <category term="分库分表" scheme="https://github.com/weiecho/tags/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/"/>
     
       <category term="shardingsphere" scheme="https://github.com/weiecho/tags/shardingsphere/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>修复shardingsphere-4.0.0不能正常配置问题</title>
-    <link href="https://github.com/weiecho/2019/12/10/exp_1115/"/>
-    <id>https://github.com/weiecho/2019/12/10/exp_1115/</id>
-    <published>2019-12-10T13:21:36.000Z</published>
-    <updated>2020-07-03T06:00:06.402Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>目前官方已经邀请我调整了说明文档，文档已经和最新代码一致！</p><p>如果您准备自己调整配置注入方式，可以参考本次修复过程。</p></blockquote><p>Sharingsphere在根据官方配置为Master-slave rule configuration模式时启动会报错如下：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-ad259ae04f5772a5.png" alt="image" title="Master-slave">                </div>                <div class="image-caption">Master-slave</div>            </figure><p>原因在4.0.0-x版本中，将代码迁移至apache时，小伙伴傲娇的将参数实现改成了如下，同时没有了无参数构造函数。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-ca8d34c791674f3b.png" alt="image" title="新版本MasterSlaveRuleConfiguration代码">                </div>                <div class="image-caption">新版本MasterSlaveRuleConfiguration代码</div>            </figure><p>再看看3.0.x原版的旧代码实现状况</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-06426fd62bfa2564.png" alt="image" title="旧版本MasterSlaveRuleConfiguration代码">                </div>                <div class="image-caption">旧版本MasterSlaveRuleConfiguration代码</div>            </figure><p>官方示例居然还有无参数创建的示例，试问是怎么做到的</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-709903c299a77393.png" alt="image" title="shardingsphere官方文档示例">                </div>                <div class="image-caption">shardingsphere官方文档示例</div>            </figure><p>从这点看有被改写忽略的问题，同时按照官方配置，出现如上的配置启动报错问题！！！</p><h3 id="我是犀利的分割线-—-下面是硬写解决方案"><a href="#我是犀利的分割线-—-下面是硬写解决方案" class="headerlink" title="我是犀利的分割线 —- 下面是硬写解决方案"></a>我是犀利的分割线 —- 下面是硬写解决方案</h3><hr><p>创建新类MasterSlaveRuleConfig.java，复制官方新版本MasterSlaveRuleConfiguration，改为如下：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-5366273ee48d6345.png" alt="image" title="改写MasterSlaveRuleConfiguration">                </div>                <div class="image-caption">改写MasterSlaveRuleConfiguration</div>            </figure><p>1、@Getter改为@Data，支持配置读写</p><p>2、去掉内部private对象的final限定</p><p>3、加入MasterSlaveRuleConfiguration无参数构造函数</p><p>配置改造完成，下面是调整配置函数：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/exp/1721717-21ae73c993b20185.png" alt="image" title="重写配置MasterSlaveRuleConfiguration">                </div>                <div class="image-caption">重写配置MasterSlaveRuleConfiguration</div>            </figure><p>MasterSlaveRuleConfig配置在 sharding.master-slave-rule 下面，和官方一致。</p><p>服务启动～～～～～  happy time 😄</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;目前官方已经邀请我调整了说明文档，文档已经和最新代码一致！&lt;/p&gt;
-&lt;p&gt;如果您准备自己调整配置注入方式，可以参考本次修复过程。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Sharingsphere在根据官方配置为Master-slave rule
-      
-    
-    </summary>
-    
-    
-      <category term="经验分享" scheme="https://github.com/weiecho/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="shardingsphere" scheme="https://github.com/weiecho/tags/shardingsphere/"/>
-    
-      <category term="spring" scheme="https://github.com/weiecho/tags/spring/"/>
-    
-      <category term="架构设计" scheme="https://github.com/weiecho/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
