@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/weiecho/"/>
-  <updated>2020-07-24T06:00:30.510Z</updated>
+  <updated>2020-07-24T06:03:59.173Z</updated>
   <id>https://github.com/weiecho/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>lemon-echo HTTP状态码说明</title>
+    <link href="https://github.com/weiecho/2020/07/27/doc_1124/"/>
+    <id>https://github.com/weiecho/2020/07/27/doc_1124/</id>
+    <published>2020-07-27T14:18:43.000Z</published>
+    <updated>2020-07-24T06:03:59.173Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="高效稳定-·-简洁易用-·-灵活扩展"><a href="#高效稳定-·-简洁易用-·-灵活扩展" class="headerlink" title="高效稳定 · 简洁易用 · 灵活扩展"></a><code>高效稳定 · 简洁易用 · 灵活扩展</code></h6><p>项目地址：<a href="https://github.com/weiecho/lemon-echo">lemon-echo微服务架构</a></p><h4 id="1、成功-2XX-（Successful-2XX）"><a href="#1、成功-2XX-（Successful-2XX）" class="headerlink" title="1、成功 2XX （Successful 2XX）"></a>1、成功 2XX （Successful 2XX）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">200 成功（OK）</span><br><span class="line">201 已创建（Created）</span><br><span class="line">202 已接受请求（Accepted）</span><br><span class="line">203 非权威性的信息（Non-Authoritative Information）</span><br><span class="line">204 无内容（No Content）</span><br><span class="line">205 重置内容（Reset Content）</span><br><span class="line">206 部分内容（Partial Content）</span><br></pre></td></tr></table></figure><h4 id="2、重定向-3XX-（Redirection-3XX）"><a href="#2、重定向-3XX-（Redirection-3XX）" class="headerlink" title="2、重定向 3XX （Redirection 3XX）"></a>2、重定向 3XX （Redirection 3XX）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">300 可选重定向（Multiple Choices）</span><br><span class="line">301 永久重定向（Moved Permanently）</span><br><span class="line">302 临时重定向（Found &#x2F; Moved Temporarily）</span><br><span class="line">303 看其他（See Other）</span><br><span class="line">304 未修改（Not Modified）</span><br><span class="line">305 必须使用代理（Use Proxy）</span><br><span class="line">306 未使用（Unused）</span><br><span class="line">307 临时重定向（Temporary Redirect）</span><br></pre></td></tr></table></figure><h4 id="3、客户端错误-4XX-（Client-Error-4XX）"><a href="#3、客户端错误-4XX-（Client-Error-4XX）" class="headerlink" title="3、客户端错误 4XX （Client Error 4XX）"></a>3、客户端错误 4XX （Client Error 4XX）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">400 请求异常（Bad Request）</span><br><span class="line">401 无授权（Unauthorized）</span><br><span class="line">402 所需付款 （Payment Required）</span><br><span class="line">403 禁止访问（Forbidden）</span><br><span class="line">404 地址不存在 （Not Found）</span><br><span class="line">405 方法不允许 （Method Not Allowed）</span><br><span class="line">406 非可接受的（Not Acceptable）</span><br><span class="line">407 需要代理身份验证（Proxy Authentication Required）</span><br><span class="line">408 请求超时 (Request Timeout)</span><br><span class="line">409 冲突(Conflict)</span><br><span class="line">410 网页已经失效（Gone）</span><br><span class="line">411 所需长度（Length Required ）</span><br><span class="line">412 先决条件失败（Precondition Failed）</span><br><span class="line">413 请求实体太大（Payload Too Large）</span><br><span class="line">414 请求URI太长（URI Too Long）</span><br><span class="line">415 不支持的媒体类型（Unsupported Media Type）</span><br><span class="line">416 不能满足所请求的范围（Requested Range Not Satisfiable）</span><br><span class="line">417 预期结果失败（Expectation Failed）</span><br></pre></td></tr></table></figure><h4 id="4、服务端错误-5XX（Server-Error-5XX）"><a href="#4、服务端错误-5XX（Server-Error-5XX）" class="headerlink" title="4、服务端错误 5XX（Server Error 5XX）"></a>4、服务端错误 5XX（Server Error 5XX）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">500 内部服务器错误（Internal Server Error）</span><br><span class="line">501 未执行（Not Implemented）</span><br><span class="line">502 坏网关 （Bad Gateway）</span><br><span class="line">503 服务不可用（Service Unavailable）</span><br><span class="line">504 网关超时（Gateway Timeout）</span><br><span class="line">505 不支持的HTTP版本（HTTP Version Not Supported ）</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h6 id=&quot;高效稳定-·-简洁易用-·-灵活扩展&quot;&gt;&lt;a href=&quot;#高效稳定-·-简洁易用-·-灵活扩展&quot; class=&quot;headerlink&quot; title=&quot;高效稳定 · 简洁易用 · 灵活扩展&quot;&gt;&lt;/a&gt;&lt;code&gt;高效稳定 · 简洁易用 · 灵活扩展&lt;/code&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="开源文档" scheme="https://github.com/weiecho/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
+    
+    
+      <category term="微服务" scheme="https://github.com/weiecho/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
+    
+      <category term="架构" scheme="https://github.com/weiecho/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="lemon-echo" scheme="https://github.com/weiecho/tags/lemon-echo/"/>
+    
+  </entry>
   
   <entry>
     <title>lemon-echo异常码规则说明</title>
@@ -633,40 +665,6 @@
       <category term="spring" scheme="https://github.com/weiecho/tags/spring/"/>
     
       <category term="架构设计" scheme="https://github.com/weiecho/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>lemon-rabbitmq实现rabbitMQ的解耦方式</title>
-    <link href="https://github.com/weiecho/2019/12/02/doc_1111/"/>
-    <id>https://github.com/weiecho/2019/12/02/doc_1111/</id>
-    <published>2019-12-02T02:34:12.000Z</published>
-    <updated>2020-07-08T03:16:30.613Z</updated>
-    
-    <content type="html"><![CDATA[<p>项目地址：<a href="https://github.com/weiecho/lemon-rabbitmq">lemon-rabbitmq</a></p><p>lemon-rabbitmq   消息生产端</p><p>lemon-rabbitmq-protocol   消息协议层</p><p>lemon-rabbitmq-consumer   消息消费端</p><hr><h4 id="消息协议层"><a href="#消息协议层" class="headerlink" title="消息协议层"></a>消息协议层</h4><p>通过Jackson2序列化/反序列化，实现消息传递和对象接收</p><h4 id="消息生产端"><a href="#消息生产端" class="headerlink" title="消息生产端"></a>消息生产端</h4><p>1、通过发送带有消费端服务类名称和方法请求头，控制消费端调用执行消费发送的信息</p><p>2、利用消息回调接口ConfirmCallback确保消息安全发送至broker服务器，处理效率比事物方式更高</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(<span class="keyword">final</span> String serviceName, <span class="keyword">final</span> String serviceMethodName,<span class="keyword">final</span> String correlationId, Object request)</span> </span>&#123;</span><br><span class="line">   logger.info(<span class="string">"sendMessage [this.&#123;&#125;, serviceMethodName:&#123;&#125; serviceName:&#123;&#125; correlationId: &#123;&#125;]"</span>, <span class="keyword">this</span>.getClass(), serviceMethodName, serviceName, correlationId);</span><br><span class="line">   rabbitTemplate.setConfirmCallback(<span class="keyword">this</span>);</span><br><span class="line">   rabbitTemplate.setCorrelationKey(correlationId);</span><br><span class="line">   rabbitTemplate.convertAndSend(routingkey, request, <span class="keyword">new</span> MessagePostProcessor() &#123;            </span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> Message <span class="title">postProcessMessage</span><span class="params">(Message message)</span> <span class="keyword">throws</span> AmqpException </span>&#123;</span><br><span class="line">              message.getMessageProperties().setAppId(appId);</span><br><span class="line">              message.getMessageProperties().setTimestamp(<span class="keyword">new</span> Date());</span><br><span class="line">              message.getMessageProperties().setMessageId(UUID.randomUUID().toString());</span><br><span class="line">              message.getMessageProperties().setCorrelationId(correlationId.getBytes());</span><br><span class="line">              message.getMessageProperties().setHeader(<span class="string">"ServiceMethodName"</span>, serviceMethodName);</span><br><span class="line">              message.getMessageProperties().setHeader(<span class="string">"ServiceName"</span>, serviceName);</span><br><span class="line">              <span class="keyword">return</span> message;</span><br><span class="line">          &#125;</span><br><span class="line">   &#125;, <span class="keyword">new</span> CorrelationData(correlationId));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="消息消费端"><a href="#消息消费端" class="headerlink" title="消息消费端"></a>消息消费端</h4><p>1、监听MQ消息，利用method.invoke调用指定的服务类名称和方法，消费接收到的消息</p><p>2、使用Ack/Nack手动确认消息处理状态，保证broker消息被正确消费</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(Message message, Channel channel)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"----- received"</span> + message.getMessageProperties());</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">Object msg = messageConverter.fromMessage(message);</span><br><span class="line"><span class="keyword">if</span> (!appId.equals(message.getMessageProperties().getAppId()))&#123;</span><br><span class="line">        channel.basicNack(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> SecurityException(<span class="string">"非法应用appId:"</span> + message.getMessageProperties().getAppId());</span><br><span class="line">&#125;</span><br><span class="line">Object service = ctx.getBean(message.getMessageProperties().getHeaders().get(<span class="string">"ServiceName"</span>).toString());</span><br><span class="line">String serviceMethodName = message.getMessageProperties().getHeaders().get(<span class="string">"ServiceMethodName"</span>).toString();</span><br><span class="line">Method method = service.getClass().getMethod(serviceMethodName, msg.getClass());</span><br><span class="line">       method.invoke(service, msg);</span><br><span class="line">       <span class="comment">//确认消息成功消费</span></span><br><span class="line">       channel.basicAck(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) &#123;</span><br><span class="line">System.out.println(<span class="string">"------ err"</span>+ e.getMessage());</span><br><span class="line">       channel.basicNack(message.getMessageProperties().getDeliveryTag(), <span class="keyword">false</span>, <span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/weiecho/lemon-rabbitmq&quot;&gt;lemon-rabbitmq&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;lemon-rabbitmq   消息生产端&lt;/p&gt;
-&lt;p&gt;lemon-rabbitmq-protocol 
-      
-    
-    </summary>
-    
-    
-      <category term="开源文档" scheme="https://github.com/weiecho/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/"/>
-    
-    
-      <category term="java" scheme="https://github.com/weiecho/tags/java/"/>
-    
-      <category term="springboot" scheme="https://github.com/weiecho/tags/springboot/"/>
-    
-      <category term="mq" scheme="https://github.com/weiecho/tags/mq/"/>
-    
-      <category term="ack/nack" scheme="https://github.com/weiecho/tags/ack-nack/"/>
     
   </entry>
   
