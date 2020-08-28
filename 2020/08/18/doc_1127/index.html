@@ -14,30 +14,30 @@
     
     
     
-    <title>lemon-echo 规划架构说明 | Wei Echo | 高效稳定 · 简洁易用 · 灵活扩展</title>
+    <title>lemon-echo 部署架构说明 | Wei Echo | 高效稳定 · 简洁易用 · 灵活扩展</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="微服务,java,架构,lemon-echo">
-    <meta name="description" content="高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构  lemon-echo架构考虑多设备、多应用场景，从应用入口区分了各类应用入口的控制和管理，在功能方面分为应用入口、服务网关、核心服务、公共模块、风控模块、运营管理后台、数据支持等模块。">
+    <meta name="description" content="高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构  用户访问APP、WEB、H5页面通过LBS算法调用到最佳的nginx服务器，nginx通过规则转发调用到指定的服务或服务网关，gatway经过鉴权、风控等安全校验后通过consul注册中心LB路由到指定的业务服务，业务服务根据需要调用对应的数据支持端、RPC服务短信或第三方服务端，完成业务功能后返回对应的数据。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lemon-echo 规划架构说明">
-<meta property="og:url" content="https://github.com/weiecho/2020/08/12/doc_1126/index.html">
+<meta property="og:title" content="lemon-echo 部署架构说明">
+<meta property="og:url" content="https://github.com/weiecho/2020/08/18/doc_1127/index.html">
 <meta property="og:site_name" content="Wei Echo">
-<meta property="og:description" content="高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构  lemon-echo架构考虑多设备、多应用场景，从应用入口区分了各类应用入口的控制和管理，在功能方面分为应用入口、服务网关、核心服务、公共模块、风控模块、运营管理后台、数据支持等模块。">
+<meta property="og:description" content="高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构  用户访问APP、WEB、H5页面通过LBS算法调用到最佳的nginx服务器，nginx通过规则转发调用到指定的服务或服务网关，gatway经过鉴权、风控等安全校验后通过consul注册中心LB路由到指定的业务服务，业务服务根据需要调用对应的数据支持端、RPC服务短信或第三方服务端，完成业务功能后返回对应的数据。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.com/img/doc/a109928913.png">
-<meta property="article:published_time" content="2020-08-12T15:11:35.000Z">
-<meta property="article:modified_time" content="2020-08-28T08:24:54.986Z">
+<meta property="og:image" content="https://github.com/img/doc/a293092839.png">
+<meta property="article:published_time" content="2020-08-18T10:27:35.000Z">
+<meta property="article:modified_time" content="2020-08-28T08:24:21.255Z">
 <meta property="article:author" content="Wei Echo">
 <meta property="article:tag" content="微服务">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="架构">
 <meta property="article:tag" content="lemon-echo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/img/doc/a109928913.png">
+<meta name="twitter:image" content="https://github.com/img/doc/a293092839.png">
     
         <link rel="alternate" type="application/atom+xml" title="Wei Echo" href="/atom.xml">
     
@@ -139,7 +139,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">lemon-echo 规划架构说明</div>
+        <div class="flex-col header-title ellipsis">lemon-echo 部署架构说明</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -161,11 +161,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">lemon-echo 规划架构说明</h1>
+        <h1 class="title">lemon-echo 部署架构说明</h1>
         <h5 class="subtitle">
             
-                <time datetime="2020-08-12T15:11:35.000Z" itemprop="datePublished" class="page-time">
-  2020-08-12
+                <time datetime="2020-08-18T10:27:35.000Z" itemprop="datePublished" class="page-time">
+  2020-08-18
 </time>
 
 
@@ -184,13 +184,13 @@
 <div class="container body-wrap">
     
 
-<article id="post-doc_1126"
+<article id="post-doc_1127"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">lemon-echo 规划架构说明</h1>
+        <h1 class="post-card-title">lemon-echo 部署架构说明</h1>
         <div class="post-meta">
-            <time class="post-time" title="2020-08-12 23:11:35" datetime="2020-08-12T15:11:35.000Z"  itemprop="datePublished">2020-08-12</time>
+            <time class="post-time" title="2020-08-18 18:27:35" datetime="2020-08-18T10:27:35.000Z"  itemprop="datePublished">2020-08-18</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/">开源文档</a></li></ul>
@@ -203,23 +203,22 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h6 id="高效稳定-·-简洁易用-·-灵活扩展"><a href="#高效稳定-·-简洁易用-·-灵活扩展" class="headerlink" title="高效稳定 · 简洁易用 · 灵活扩展"></a><code>高效稳定 · 简洁易用 · 灵活扩展</code></h6><p>项目地址：<a href="https://github.com/weiecho/lemon-echo">lemon-echo微服务架构</a></p>
 <blockquote>
-<p>lemon-echo架构考虑多设备、多应用场景，从应用入口区分了各类应用入口的控制和管理，在功能方面分为应用入口、服务网关、核心服务、公共模块、风控模块、运营管理后台、数据支持等模块。</p>
+<p>用户访问APP、WEB、H5页面通过LBS算法调用到最佳的nginx服务器，nginx通过规则转发调用到指定的服务或服务网关，gatway经过鉴权、风控等安全校验后通过consul注册中心LB路由到指定的业务服务，业务服务根据需要调用对应的数据支持端、RPC服务短信或第三方服务端，完成业务功能后返回对应的数据。</p>
 </blockquote>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/img/doc/a109928913.png" alt="image" title="规划架构说明">
+                    <img src="/img/doc/a293092839.png" alt="image" title="部署架构说明">
                 </div>
-                <div class="image-caption">规划架构说明</div>
+                <div class="image-caption">部署架构说明</div>
             </figure>
 
-<h5 id="应用入口"><a href="#应用入口" class="headerlink" title="应用入口"></a>应用入口</h5><p>应用入口可以接受APP、WEB、小程序、A应用、B应用、外部应用等应用接入，利用服务的项目管理功能可以实现无限扩展的应用接入方式，从而达到类中台的服务架构体系。</p>
-<h5 id="服务网关"><a href="#服务网关" class="headerlink" title="服务网关"></a>服务网关</h5><p>服务网关主要考虑安全、流控、风控等风险因素，接入参数验证、身份验证、路由策略、流控策略、风控验证等安全模块，保障整体服务安全稳定运行。</p>
-<h5 id="核心服务"><a href="#核心服务" class="headerlink" title="核心服务"></a>核心服务</h5><p>核心服务为项目主要业务服务，目前规划分为聚合服务、用户服务、帐户服务、商品服务、订单服务、交易服务、对账服务、清算服务、消息服务、授权服务、营销服务、售后服务等。市场运营需求可以增加推广服务、广告服务，即时沟通类需求可以扩展IM服务，直播类需求可以扩展直播服务，打赏服务等。</p>
-<h5 id="公共模块"><a href="#公共模块" class="headerlink" title="公共模块"></a>公共模块</h5><p>公共模块作为业务的支持服务，主要包含授权服务、报警服务、消息服务、单号生成器、注册中心、配置中心、定时任务、分布式锁、分库分表模块，服务成熟后可逐步考虑接入生物识别、内容识别、数据服务等模块。</p>
-<h5 id="风控模块"><a href="#风控模块" class="headerlink" title="风控模块"></a>风控模块</h5><p>风控模块为服务安全等核心领域，包含安全认证、资质审查、用户分级、黑白名单、风险预警、风险处置、支付风险、信用风险、征信相关等，可以根据需要完善该模块内容保障整体服务等安全性。</p>
-<h5 id="运营管理后台"><a href="#运营管理后台" class="headerlink" title="运营管理后台"></a>运营管理后台</h5><p>运营管理后台为管理整个服务的入口，通过精确的权限管控分配用户是使用功能，对系统用户、帐户、订单、交易、对账、投诉等信息的查看和维护操作。</p>
-<h5 id="数据支持"><a href="#数据支持" class="headerlink" title="数据支持"></a>数据支持</h5><p>数据支持分为内部数据支持和三方支持，其中内部数据支持包含mysql、redis、rabbit mq、promethes、elk、innerdb等，三方支持包含短信服务、消息服务、OSS文件存储、支付通道、实名认证、生物检测等功能。</p>
+<p>整个部署架构分为入口访问组、核心服务组、基础支撑组和服务监控组。</p>
+<p>1、LBS域名指向服务域名，开通https、防ddocs等安全性功能。</p>
+<p>2、入口访问组包含nginx、potal web、activity web、gateway服务，nginx需要开通外网流量权限，gateway需打通与核心业务组网段调用，potal web和activity web为前端网页服务，可视情况与nginx服务同机器部署或单独部署。</p>
+<p>3、核心服务组根据各服务压测和预估QPS状况，部署相应量级的服务节点，为保障服务高可用，每个服务至少部署两个节点。</p>
+<p>4、基础支撑组需开放核心业务组网络相互访问，部署consul注册中心集群，consul集群请独立部署并至少部署3个server节点和2+个client节点，DB至少保证主从节点配置，rabbitmq集群使用镜像模式保障服务的高可用，redis根据服务需要主从、集群部署，其他支持服务根据需要部署相应套件。</p>
+<p>5、服务监控组需开放核心业务组网络相互访问，zabbix、prometheus、zipkin server根据服务需要部署相应节点套件，ELK部署至少3个master节点和3个data节点，数据节点建议内存30G，master节点建议10G，聚合节点等根据需要配置，日志类索引根据需要设置n*3个Primaries（如无特殊需要Replicas设置为0），日志索引名称按天存储。日志收集采用filebeat -&gt; kafka -&gt; logstash -&gt; elasticsearch套件，logstash路由pipeline简化配置和服务管理。</p>
 
         </div>
 
@@ -254,7 +253,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/08/12/doc_1126/&title=《lemon-echo 规划架构说明》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/08/18/doc_1127/&title=《lemon-echo 部署架构说明》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -264,22 +263,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/08/12/doc_1126/&title=《lemon-echo 规划架构说明》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/08/18/doc_1127/&title=《lemon-echo 部署架构说明》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/08/12/doc_1126/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/08/18/doc_1127/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lemon-echo 规划架构说明》 — Wei Echo&url=https://github.com/weiecho/2020/08/12/doc_1126/&via=https://github.com/weiecho" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lemon-echo 部署架构说明》 — Wei Echo&url=https://github.com/weiecho/2020/08/18/doc_1127/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/08/12/doc_1126/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/08/18/doc_1127/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -302,18 +301,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2020/08/18/doc_1127/" id="post-prev" class="post-nav-link">
+      <a href="/2020/08/28/doc_1128/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">lemon-echo 部署架构说明</h4>
+        <h4 class="title">lemon-echo 项目源码结构</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2020/07/28/doc_1125/" id="post-next" class="post-nav-link">
+      <a href="/2020/08/12/doc_1126/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">lemon-echo 概要说明</h4>
+        <h4 class="title">lemon-echo 规划架构说明</h4>
       </a>
     </div>
   
@@ -404,7 +403,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/08/12/doc_1126/&title=《lemon-echo 规划架构说明》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/weiecho/2020/08/18/doc_1127/&title=《lemon-echo 部署架构说明》 — Wei Echo&pic=https://github.com/weiecho/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -414,22 +413,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/08/12/doc_1126/&title=《lemon-echo 规划架构说明》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/weiecho/2020/08/18/doc_1127/&title=《lemon-echo 部署架构说明》 — Wei Echo&source=致力于中小型技术团队高效稳定的开发框架，全力打造简洁易用、灵活扩展的技术团队解决方案" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/08/12/doc_1126/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/weiecho/2020/08/18/doc_1127/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lemon-echo 规划架构说明》 — Wei Echo&url=https://github.com/weiecho/2020/08/12/doc_1126/&via=https://github.com/weiecho" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lemon-echo 部署架构说明》 — Wei Echo&url=https://github.com/weiecho/2020/08/18/doc_1127/&via=https://github.com/weiecho" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/08/12/doc_1126/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/weiecho/2020/08/18/doc_1127/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -440,7 +439,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACOUlEQVR42u3aS27jMBAFwNz/0g4wmF0i6b2mZgBRxZURWzTLiw778/UVr8+f9fMvP9fRu8nOyeeXFgYGxmMZn9N1xGgPlO98/tQhFQMD4wWM2bHyoyT7z57FwMDAyA99HmSTAJoHegwMDIw2vcyP0ia9GBgYGG0Smx8xRybB/eZcHAMD44GMtjHwP1//w/4GBgbGQxifciWBdfa9s/P8fRYDA2NrRlLWz8v9eXtydjW8+LEwMDC2Zqzctdrjzop6SykrBgbGwxlt4LurSVCU+0/3x8DAeANjJci2X9A2FYaFOQwMjK0ZbVrbpr750NhsNwwMjF0ZydUw0edHzEcxiuEwDAyMrRmzYlk7ItZeKGdUDAyMXRntdW1W0L+rAHf4FAYGxtaM/AqYNxfbstp6YoyBgfEeRl7ob0NnUeeLYYedDQwMjO0Y7bDFrK14QzMyueFiYGC8gHEeQNeHLdpPFgk2BgbG1oz1a9lsPKJtKuTJLQYGxnsYeWq6MhY2GzgrkmEMDIwtGLOtowmOuNCWXBAvPomBgfECRh4i25Ry1s6sR80wMDC2ZrSHzktmKyMXbWqNgYGxN+NTrvbqlu+QB9Zf3sXAwNiacUO0HoXjNmFeamFiYGBswVhpMbbXvrsGXi/aAxgYGJsyZl85i9+zi93FfwwMDAyM0ShY24w8D/cXeAwMDIyFslf+c7TDH8OrIQYGxmMZSRKbH/p8h3qQIrlWYmBgbM1YSSDvHUvNOxg3tDAxMDCewfgGXY6TYQ8y9asAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACO0lEQVR42u3aQW7DMAxE0dz/0i7QbWD7D6kWEPW1KprY0dsQFEefD17X7/r+z/e6+5S8mXy/tWTIkLEt43pczwy+odqbyd5kyJBxDqNTCslWyPtrz8qQIUPG83fuCjcvu2mhlyFDhoxOq0e2kh56ZciQISM9xHIMH8yR1nDxWVyGDBkbMtJg4D///sN8Q4YMGZswrnCtKoK1N9/+ogwZMkYzeDyZHmvJFY20NXwpxzJkyBjN6HRc6XZrQWmr55UhQ8bmjNognly8IM0fGveDPcuQIWM2ozOzSotsGioUB3MyZMgYx0gf5ltMh2s8HniZGsqQIWMogxfE/uiNX8UIGlYZMmSMZtSGZbyZI0O3dHgXR5gyZMjYnNE/QPJjbX8Ad/uUDBkyRjP4hjqD+04wEBybZciQMZTBC2VtfJa2iRz2ksTKkCFjNCMNIEkhLmaq/MKHDBkyRjNWXYbgW0FXu8KwQYYMGbMZtcNqekBNQ0o+yEMnXRkyZGzOWHs9K408eeFuNYUyZMjYnLHq8lZn0MYbxNtvypAh4wBG7WFeKGutJG8rZciQMZtBIsnacK1z5SINNWXIkDGbcYWLj97Swv1cZF/eKUOGjNGMBdU6beDCFjNOYmXIkDGUkUaMncaxNtpD1zVkyJBxAKP2k7X6XWvs0L02GTJkHM8g1yz4uD8d/LWCTBkyZBzGSIssCRtqV8eKraEMGTK2ZfAyml6PSEPNNByVIUPGCYxVRTMNEjoJxoIIU4YMGXswfgCkjhkG55lvKQAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

@@ -186,6 +186,106 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-doc_1128"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-08-28 16:24:16" datetime="2020-08-28T08:24:16.000Z"  itemprop="datePublished">2020-08-28</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/">开源文档</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/08/28/doc_1128/">lemon-echo 项目源码结构</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构
+
+项目源码采用maven模块化切分，将所有功能划分为三大块：控制模块、组件模块、服务模块，通过三个大模块再细分具体大功能模块，通过pom控制核心组件的版本和功能，保障所有服务的功能规范统一。
+
+    
+
+        <a href="/2020/08/28/doc_1128/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lemon-echo/" rel="tag">lemon-echo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-doc_1127"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-08-18 18:27:35" datetime="2020-08-18T10:27:35.000Z"  itemprop="datePublished">2020-08-18</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/">开源文档</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/08/18/doc_1127/">lemon-echo 部署架构说明</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构
+
+用户访问APP、WEB、H5页面通过LBS算法调用到最佳的nginx服务器，nginx通过规则转发调用到指定的服务或服务网关，gatway经过鉴权、风控等安全校验后通过consul注册中心LB路由到指定的业务服务，业务服务根据需要调用对应的数据支持端、RPC服务短信或第三方服务端，完成业务功能后返回对应的数据。
+...
+    
+
+        <a href="/2020/08/18/doc_1127/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lemon-echo/" rel="tag">lemon-echo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-doc_1126"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -218,7 +318,11 @@
 
 lemon-echo架构考虑多设备、多应用场景，从应用入口区分了各类应用入口的控制和管理，在功能方面分为应用入口、服务网关、核心服务、公共模块、风控模块、运营管理后台、数据支持等模块。
 
-应用入口应用入口可以接受APP、WEB、小程序、A应用、B应用、外部应用等应用接入，利用服务的项目管理功能可以实现无限扩展的应...
+
+                
+                    
+                    
+   ...
     
 
         <a href="/2020/08/12/doc_1126/" class="post-more waves-effect waves-button">
@@ -575,109 +679,6 @@ n序列号：1000000001～99999999992随机：00～99
     
 
         <a href="/2020/07/15/doc_1119/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lemon-echo/" rel="tag">lemon-echo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-exp_1116"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2020-07-13 16:39:26" datetime="2020-07-13T08:39:26.000Z"  itemprop="datePublished">2020-07-13</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2020/07/13/exp_1116/">Maven项目本地仓库引用强制刷新</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-很多时候我们会遇到realse版本的包发布到maven仓库使用后，出现了一点问题需要修复，但是又想让大家静默升级或者遇到一些包之间到引用混乱，需要重拉整理仓库引用我们可以使用mvn dependency:purge-local-repository命令来进行全局刷新但很多时候我们需要的只是个别包的强刷，下面简单说明下个别包的强刷
-
-1）点击右侧Maven Projects的 M图标(Exe...
-    
-
-        <a href="/2020/07/13/exp_1116/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idea/" rel="tag">idea</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/" rel="tag">maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/" rel="tag">spring</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-doc_1118"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2020-07-11 20:13:06" datetime="2020-07-11T12:13:06.000Z"  itemprop="datePublished">2020-07-11</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3/">开源文档</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2020/07/11/doc_1118/">lemon-echo项目数据库约定</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        高效稳定 · 简洁易用 · 灵活扩展项目地址：lemon-echo微服务架构
-1、数据库全部使用小写字母，下划线分割，包括库名，表名，字段名，索引名
-2、不能使用数据库保留字,比如：key，desc，delete，order等
-3、索引列不能存储null，可以为空串””
-4、使用innodb存储引擎，使用utf8mb4
-5、每张表都要有一个整型类型自增长主键id，不允许使用联合主键
-6、轻约...
-    
-
-        <a href="/2020/07/11/doc_1118/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
