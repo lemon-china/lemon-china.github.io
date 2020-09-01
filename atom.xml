@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/weiecho/"/>
-  <updated>2020-09-01T09:18:37.614Z</updated>
+  <updated>2020-09-01T09:20:35.294Z</updated>
   <id>https://github.com/weiecho/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://github.com/weiecho/2020/09/01/stu_1118/"/>
     <id>https://github.com/weiecho/2020/09/01/stu_1118/</id>
     <published>2020-09-01T09:02:25.000Z</published>
-    <updated>2020-09-01T09:18:37.614Z</updated>
+    <updated>2020-09-01T09:20:35.294Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>SonarQube 是一个开源的代码质量分析平台，便于管理代码的质量，可检查出项目代码的漏洞和潜在的逻辑问题。同时，它提供了丰富的插件，支持多种语言的检测， 如 Java、Python、Groovy、C、C++等几十种编程语言的检测。</p></blockquote><h5 id="SonarQube主要的核心价值体现在如下几个方面："><a href="#SonarQube主要的核心价值体现在如下几个方面：" class="headerlink" title="SonarQube主要的核心价值体现在如下几个方面："></a>SonarQube主要的核心价值体现在如下几个方面：</h5><p>检查代码是否遵循编程标准：如命名规范，编写的规范等。</p><p>检查设计存在的潜在缺陷：SonarQube 通过插件 Findbugs、Checkstyle 等工具检测代码存在的缺陷。</p><p>检测代码的重复代码量：SonarQube 可 以展示项目中存在大量复制粘贴的代码。</p><p>检测代码中注释的程度：源码注释过多或者太少都不好，影响程序的可读可理解性。</p><p>检测代码中包、类之间的关系：分析类之间的关系是否合理，复杂度情况。</p><p><img src="/img/stu/12389382821.jpg" alt="SonarQube 4大组件"></p><h5 id="一个SonarQube服务器启动3个主要流程："><a href="#一个SonarQube服务器启动3个主要流程：" class="headerlink" title="一个SonarQube服务器启动3个主要流程："></a>一个SonarQube服务器启动3个主要流程：</h5><p>Web服务器，供开发人员，管理人员浏览高质量快照并配置SonarQube实例</p><p>基于Elasticsearch的Search Server从UI返回搜索</p><p>计算引擎服务器负责处理代码分析报告并将其保存在SonarQube数据库中</p><h5 id="一个SonarQube数据库存储："><a href="#一个SonarQube数据库存储：" class="headerlink" title="一个SonarQube数据库存储："></a>一个SonarQube数据库存储：</h5><p>SonarQube实例的配置（安全性，插件设置等）</p><p>项目，视图等的质量快照</p><h5 id="服务器上安装了多个SonarQube插件，可能包括语言，SCM，集成，身份验证和治理插件"><a href="#服务器上安装了多个SonarQube插件，可能包括语言，SCM，集成，身份验证和治理插件" class="headerlink" title="服务器上安装了多个SonarQube插件，可能包括语言，SCM，集成，身份验证和治理插件"></a>服务器上安装了多个SonarQube插件，可能包括语言，SCM，集成，身份验证和治理插件</h5><h5 id="在构建-持续集成服务器上运行一个或多个SonarScanner来分析项目"><a href="#在构建-持续集成服务器上运行一个或多个SonarScanner来分析项目" class="headerlink" title="在构建/持续集成服务器上运行一个或多个SonarScanner来分析项目"></a>在构建/持续集成服务器上运行一个或多个SonarScanner来分析项目</h5><p><img src="/img/stu/12323232312.jpg" alt="SonarQube 工作流程"></p><p>具体搭建使用参考：<br><a href="https://developer.ibm.com/zh/articles/1612-qusm-jenkins/" target="_blank" rel="noopener"></a></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>SonarQube 是一个开源的代码质量分析平台，便于管理代码的质量，可检查出项目代码的漏洞和潜在的逻辑问题。同时，它提供了丰富的插件，支持多种语言的检测， 如 Java、Python、Groovy、C、C++等几十种编程语言的检测。</p></blockquote><h5 id="SonarQube主要的核心价值体现在如下几个方面："><a href="#SonarQube主要的核心价值体现在如下几个方面：" class="headerlink" title="SonarQube主要的核心价值体现在如下几个方面："></a>SonarQube主要的核心价值体现在如下几个方面：</h5><p>检查代码是否遵循编程标准：如命名规范，编写的规范等。</p><p>检查设计存在的潜在缺陷：SonarQube 通过插件 Findbugs、Checkstyle 等工具检测代码存在的缺陷。</p><p>检测代码的重复代码量：SonarQube 可 以展示项目中存在大量复制粘贴的代码。</p><p>检测代码中注释的程度：源码注释过多或者太少都不好，影响程序的可读可理解性。</p><p>检测代码中包、类之间的关系：分析类之间的关系是否合理，复杂度情况。</p><p><img src="/img/stu/12389382821.jpg" alt="SonarQube 4大组件"></p><h5 id="一个SonarQube服务器启动3个主要流程："><a href="#一个SonarQube服务器启动3个主要流程：" class="headerlink" title="一个SonarQube服务器启动3个主要流程："></a>一个SonarQube服务器启动3个主要流程：</h5><p>Web服务器，供开发人员，管理人员浏览高质量快照并配置SonarQube实例</p><p>基于Elasticsearch的Search Server从UI返回搜索</p><p>计算引擎服务器负责处理代码分析报告并将其保存在SonarQube数据库中</p><h5 id="一个SonarQube数据库存储："><a href="#一个SonarQube数据库存储：" class="headerlink" title="一个SonarQube数据库存储："></a>一个SonarQube数据库存储：</h5><p>SonarQube实例的配置（安全性，插件设置等）</p><p>项目，视图等的质量快照</p><h5 id="服务器上安装了多个SonarQube插件，可能包括语言，SCM，集成，身份验证和治理插件"><a href="#服务器上安装了多个SonarQube插件，可能包括语言，SCM，集成，身份验证和治理插件" class="headerlink" title="服务器上安装了多个SonarQube插件，可能包括语言，SCM，集成，身份验证和治理插件"></a>服务器上安装了多个SonarQube插件，可能包括语言，SCM，集成，身份验证和治理插件</h5><h5 id="在构建-持续集成服务器上运行一个或多个SonarScanner来分析项目"><a href="#在构建-持续集成服务器上运行一个或多个SonarScanner来分析项目" class="headerlink" title="在构建/持续集成服务器上运行一个或多个SonarScanner来分析项目"></a>在构建/持续集成服务器上运行一个或多个SonarScanner来分析项目</h5><p><img src="/img/stu/12323232312.jpg" alt="SonarQube 工作流程"></p><p>具体搭建使用参考：<br><a href="https://developer.ibm.com/zh/articles/1612-qusm-jenkins/" target="_blank" rel="noopener">SonarQube搭建</a></p>]]></content>
     
     <summary type="html">
     
